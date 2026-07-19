@@ -29,6 +29,10 @@ The native Zed extension in [`zed/`](zed/) installs both **Emberveil** and **Emb
 
 The implementation maps the full surface hierarchy, editor states, diagnostics, Git states, terminal ANSI palette, collaboration colors, and Zed semantic syntax roles. See the [Zed extension guide](zed/README.md) for automatic light/dark switching and validation.
 
+## Try it in Zen Browser
+
+The native Zen Mod in [`zen/`](zen/) brings both Emberveil appearances to Zen's browser interface while preserving Zen's own layout. It covers tabs, Essentials, folders, workspaces, the URL bar, autocomplete, menus, extension panels, downloads, side panels, the find bar, Glance, notifications, and private windows. See the [Zen Mod guide](zen/README.md) for local testing and appearance preferences.
+
 ## Ideas and inspirations
 
 - **Aurora Forge** - a more energetic synthesis of Ayu Mirage, Nord, Cobalt2, JetBrains/Darcula, and personal preferences. [Preview](ideas/aurora-forge/preview.html) · [Specification](ideas/aurora-forge/spec.md)
@@ -47,6 +51,9 @@ vscode/
 zed/
   themes/      Native Zed theme family containing both appearances
   scripts/     Structural and schema-aware validation
+zen/
+  chrome.css   Native Zen Mod browser-chrome styling
+  preferences.json  System, dark, and light appearance controls
 ideas/
   aurora-forge/
   vermilion-fjord/
@@ -54,4 +61,4 @@ ideas/
 
 ## Current status
 
-Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are packaged for VS Code and available together as a native Zed extension; implementations for other IDEs and a production design-token library remain future work.
+Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are packaged for VS Code, available together as a native Zed extension, and implemented as a paired Zen Browser Mod; implementations for other applications and a production design-token library remain future work.

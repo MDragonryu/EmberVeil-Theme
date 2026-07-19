@@ -1,0 +1,14 @@
+{
+  "id": "57ce0bcc-27bd-42ab-b263-909a24dd01de",
+  "name": "Emberveil",
+  "description": "Warm smoky dark and dim paper light surfaces for Zen Browser.",
+  "homepage": "http://192.168.1.200/gitea/Mario/EmberVeil-Theme",
+  "style": "./chrome.css",
+  "readme": "./README.md",
+  "preferences": "./preferences.json",
+  "image": "./preview.png",
+  "author": "Mario Decker",
+  "version": "0.1.0",
+  "tags": ["color", "dark", "light", "low-glare", "emberveil"]
+}
+

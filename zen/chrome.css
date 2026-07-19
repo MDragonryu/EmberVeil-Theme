@@ -1,0 +1,521 @@
+/*
+ * Emberveil for Zen Browser
+ * A paired browser-chrome theme for Zen 1.19+.
+ *
+ * Large surfaces remain low-glare in both appearances. The light palette uses
+ * dim paper rather than white; the dark palette uses smoky slate rather than
+ * black. This mod intentionally changes color and state styling, not layout.
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* Emberveil family tokens: light first, dark second. */
+  --ev-shell: light-dark(#cec6ba, #1d2029);
+  --ev-sidebar: light-dark(#d8d1c5, #20232d);
+  --ev-surface: light-dark(#e4ded2, #242632);
+  --ev-panel: light-dark(#eee7db, #303342);
+  --ev-hover: light-dark(#ddd6ca, #292c38);
+  --ev-active: light-dark(#c4d3d8, #3a465c);
+  --ev-active-strong: light-dark(#b5c8ce, #46536a);
+  --ev-border: light-dark(#b9b1a6, #3b3f4e);
+  --ev-border-strong: light-dark(#9b948a, #565c6c);
+  --ev-text: light-dark(#35383f, #cccac2);
+  --ev-text-strong: light-dark(#22272d, #e3ded3);
+  --ev-muted: light-dark(#686a70, #9a9da5);
+  --ev-faint: light-dark(#77736d, #727d8e);
+  --ev-focus: light-dark(#a86b00, #ffcc66);
+  --ev-accent: light-dark(#a44012, #ff9f5b);
+  --ev-action: light-dark(#a44012, #c06f3d);
+  --ev-action-hover: light-dark(#bc531e, #d4814b);
+  --ev-action-text: light-dark(#f7ede0, #fff3e3);
+  --ev-info: light-dark(#1c6570, #73c7d6);
+  --ev-success: light-dark(#46661f, #9fcf86);
+  --ev-warning: light-dark(#875900, #ffd173);
+  --ev-danger: light-dark(#a33b42, #f07178);
+  --ev-private: light-dark(#704c87, #c8abe6);
+  --ev-shadow: light-dark(rgba(53, 56, 63, 0.16), rgba(0, 0, 0, 0.34));
+
+  /* Zen surface system. */
+  --zen-primary-color: var(--ev-accent) !important;
+  --zen-main-browser-background: var(--ev-shell) !important;
+  --zen-main-browser-background-toolbar: var(--ev-sidebar) !important;
+  --zen-themed-toolbar-bg-transparent: var(--ev-sidebar) !important;
+  --zen-navigator-toolbox-background: var(--ev-sidebar) !important;
+  --zen-branding-bg: var(--ev-shell) !important;
+  --zen-branding-bg-reverse: var(--ev-text-strong) !important;
+  --zen-colors-primary: var(--ev-active) !important;
+  --zen-colors-secondary: var(--ev-hover) !important;
+  --zen-colors-tertiary: var(--ev-surface) !important;
+  --zen-colors-hover-bg: var(--ev-active) !important;
+  --zen-colors-primary-foreground: var(--ev-text-strong) !important;
+  --zen-colors-border: var(--ev-border) !important;
+  --zen-colors-border-contrast: color-mix(in srgb, var(--ev-border) 72%, transparent) !important;
+  --zen-colors-input-bg: var(--ev-panel) !important;
+  --zen-dialog-background: var(--ev-panel) !important;
+  --zen-urlbar-background: var(--ev-panel) !important;
+  --zen-urlbar-background-base: var(--ev-panel) !important;
+  --zen-input-border-color: var(--ev-border) !important;
+  --zen-toolbar-element-bg: color-mix(in srgb, var(--ev-text) 8%, transparent) !important;
+  --zen-toolbar-element-bg-hover: var(--ev-hover) !important;
+  --zen-appcontent-border: 1px solid var(--ev-border) !important;
+  --zen-big-shadow: 0 10px 34px var(--ev-shadow) !important;
+
+  /* Firefox chrome variables used by Zen. */
+  --toolbox-bgcolor: var(--ev-sidebar) !important;
+  --toolbox-bgcolor-inactive: var(--ev-shell) !important;
+  --toolbox-textcolor: var(--ev-text) !important;
+  --toolbox-textcolor-inactive: var(--ev-muted) !important;
+  --toolbar-bgcolor: var(--ev-sidebar) !important;
+  --toolbar-color: var(--ev-text) !important;
+  --toolbar-field-background-color: var(--ev-panel) !important;
+  --toolbar-field-focus-background-color: var(--ev-panel) !important;
+  --toolbar-field-color: var(--ev-text) !important;
+  --toolbar-field-focus-color: var(--ev-text-strong) !important;
+  --toolbarbutton-hover-background: var(--ev-hover) !important;
+  --toolbarbutton-active-background: var(--ev-active) !important;
+  --toolbarbutton-hover-outline-color: transparent !important;
+  --toolbarbutton-active-outline-color: var(--ev-border) !important;
+  --toolbarbutton-icon-fill: currentColor !important;
+
+  --tab-selected-bgcolor: var(--ev-active) !important;
+  --tab-selected-textcolor: var(--ev-text-strong) !important;
+  --tab-selected-outline-color: var(--ev-border) !important;
+  --tab-hover-background-color: var(--ev-hover) !important;
+  --tabstrip-inner-border: var(--ev-border) !important;
+
+  --arrowpanel-background: var(--ev-panel) !important;
+  --arrowpanel-color: var(--ev-text) !important;
+  --arrowpanel-border-color: var(--ev-border) !important;
+  --arrowpanel-dimmed: var(--ev-hover) !important;
+  --arrowpanel-dimmed-further: var(--ev-active) !important;
+  --panel-background: var(--ev-panel) !important;
+  --panel-color: var(--ev-text) !important;
+  --panel-border-color: var(--ev-border) !important;
+  --panel-separator-color: var(--ev-border) !important;
+  --panel-item-hover-bgcolor: var(--ev-hover) !important;
+  --panel-item-active-bgcolor: var(--ev-active) !important;
+  --panel-shadow: 0 12px 38px var(--ev-shadow) !important;
+
+  --sidebar-background-color: var(--ev-sidebar) !important;
+  --sidebar-text-color: var(--ev-text) !important;
+  --sidebar-border-color: var(--ev-border) !important;
+  --chrome-content-separator-color: var(--ev-border) !important;
+
+  --input-bgcolor: var(--ev-panel) !important;
+  --input-color: var(--ev-text) !important;
+  --input-border-color: var(--ev-border) !important;
+  --urlbar-box-bgcolor: var(--ev-hover) !important;
+  --urlbar-box-focus-bgcolor: var(--ev-active) !important;
+  --urlbar-box-hover-bgcolor: var(--ev-active) !important;
+  --urlbar-box-active-bgcolor: var(--ev-active-strong) !important;
+  --urlbar-box-text-color: var(--ev-text) !important;
+  --urlbarView-action-color: var(--ev-muted) !important;
+  --urlbarView-separator-color: var(--ev-border) !important;
+  --urlbarView-highlight-background: var(--ev-active) !important;
+  --urlbarView-highlight-color: var(--ev-text-strong) !important;
+  --urlbarView-hover-background: var(--ev-hover) !important;
+
+  --focus-outline-color: var(--ev-focus) !important;
+  --color-accent-primary: var(--ev-action) !important;
+  --color-accent-primary-hover: var(--ev-action-hover) !important;
+  --color-accent-primary-active: var(--ev-accent) !important;
+  --button-background-color-primary: var(--ev-action) !important;
+  --button-background-color-primary-hover: var(--ev-action-hover) !important;
+  --button-primary-hover-bgcolor: var(--ev-action-hover) !important;
+  --button-primary-active-bgcolor: var(--ev-accent) !important;
+  --button-primary-color: var(--ev-action-text) !important;
+  --button-text-color-primary: var(--ev-action-text) !important;
+  --button-background-color: transparent !important;
+  --button-background-color-hover: var(--ev-hover) !important;
+  --button-background-color-active: var(--ev-active) !important;
+  --button-text-color: var(--ev-text) !important;
+  --button-text-color-hover: var(--ev-text-strong) !important;
+
+  --link-color: var(--ev-info) !important;
+  --link-color-hover: var(--ev-focus) !important;
+  --link-color-active: var(--ev-accent) !important;
+  --attention-dot-color: var(--ev-accent) !important;
+  --warning-icon-bgcolor: var(--ev-warning) !important;
+  --in-content-page-background: var(--ev-surface) !important;
+  --zen-in-content-dialog-background: var(--ev-panel) !important;
+  --in-content-accent-color: var(--ev-action) !important;
+  --in-content-primary-button-background: var(--ev-action) !important;
+  --in-content-primary-button-background-hover: var(--ev-action-hover) !important;
+  --in-content-primary-button-background-active: var(--ev-accent) !important;
+  --in-content-primary-button-text-color: var(--ev-action-text) !important;
+}
+
+/* The Mod setting may follow the OS or force either family member. */
+@media (-moz-pref("mod.emberveil.zen.appearance", "light")) {
+  :root:root {
+    color-scheme: light !important;
+    --ev-shell: #cec6ba;
+    --ev-sidebar: #d8d1c5;
+    --ev-surface: #e4ded2;
+    --ev-panel: #eee7db;
+    --ev-hover: #ddd6ca;
+    --ev-active: #c4d3d8;
+    --ev-active-strong: #b5c8ce;
+    --ev-border: #b9b1a6;
+    --ev-border-strong: #9b948a;
+    --ev-text: #35383f;
+    --ev-text-strong: #22272d;
+    --ev-muted: #686a70;
+    --ev-faint: #77736d;
+    --ev-focus: #a86b00;
+    --ev-accent: #a44012;
+    --ev-action: #a44012;
+    --ev-action-hover: #bc531e;
+    --ev-action-text: #f7ede0;
+    --ev-info: #1c6570;
+    --ev-success: #46661f;
+    --ev-warning: #875900;
+    --ev-danger: #a33b42;
+    --ev-private: #704c87;
+    --ev-shadow: rgba(53, 56, 63, 0.16);
+  }
+}
+
+@media (-moz-pref("mod.emberveil.zen.appearance", "dark")) {
+  :root:root {
+    color-scheme: dark !important;
+    --ev-shell: #1d2029;
+    --ev-sidebar: #20232d;
+    --ev-surface: #242632;
+    --ev-panel: #303342;
+    --ev-hover: #292c38;
+    --ev-active: #3a465c;
+    --ev-active-strong: #46536a;
+    --ev-border: #3b3f4e;
+    --ev-border-strong: #565c6c;
+    --ev-text: #cccac2;
+    --ev-text-strong: #e3ded3;
+    --ev-muted: #9a9da5;
+    --ev-faint: #727d8e;
+    --ev-focus: #ffcc66;
+    --ev-accent: #ff9f5b;
+    --ev-action: #c06f3d;
+    --ev-action-hover: #d4814b;
+    --ev-action-text: #fff3e3;
+    --ev-info: #73c7d6;
+    --ev-success: #9fcf86;
+    --ev-warning: #ffd173;
+    --ev-danger: #f07178;
+    --ev-private: #c8abe6;
+    --ev-shadow: rgba(0, 0, 0, 0.34);
+  }
+}
+
+/*
+ * The Mods Registry also reflects dropdown values as chrome attributes.
+ * Keep this route alongside -moz-pref so installed and development builds
+ * behave consistently across Zen releases.
+ */
+:root:has([mod-emberveil-zen-appearance="light"]) {
+  color-scheme: light !important;
+  --ev-shell: #cec6ba;
+  --ev-sidebar: #d8d1c5;
+  --ev-surface: #e4ded2;
+  --ev-panel: #eee7db;
+  --ev-hover: #ddd6ca;
+  --ev-active: #c4d3d8;
+  --ev-active-strong: #b5c8ce;
+  --ev-border: #b9b1a6;
+  --ev-border-strong: #9b948a;
+  --ev-text: #35383f;
+  --ev-text-strong: #22272d;
+  --ev-muted: #686a70;
+  --ev-faint: #77736d;
+  --ev-focus: #a86b00;
+  --ev-accent: #a44012;
+  --ev-action: #a44012;
+  --ev-action-hover: #bc531e;
+  --ev-action-text: #f7ede0;
+  --ev-info: #1c6570;
+  --ev-success: #46661f;
+  --ev-warning: #875900;
+  --ev-danger: #a33b42;
+  --ev-private: #704c87;
+  --ev-shadow: rgba(53, 56, 63, 0.16);
+}
+
+:root:has([mod-emberveil-zen-appearance="dark"]) {
+  color-scheme: dark !important;
+  --ev-shell: #1d2029;
+  --ev-sidebar: #20232d;
+  --ev-surface: #242632;
+  --ev-panel: #303342;
+  --ev-hover: #292c38;
+  --ev-active: #3a465c;
+  --ev-active-strong: #46536a;
+  --ev-border: #3b3f4e;
+  --ev-border-strong: #565c6c;
+  --ev-text: #cccac2;
+  --ev-text-strong: #e3ded3;
+  --ev-muted: #9a9da5;
+  --ev-faint: #727d8e;
+  --ev-focus: #ffcc66;
+  --ev-accent: #ff9f5b;
+  --ev-action: #c06f3d;
+  --ev-action-hover: #d4814b;
+  --ev-action-text: #fff3e3;
+  --ev-info: #73c7d6;
+  --ev-success: #9fcf86;
+  --ev-warning: #ffd173;
+  --ev-danger: #f07178;
+  --ev-private: #c8abe6;
+  --ev-shadow: rgba(0, 0, 0, 0.34);
+}
+
+/* Browser frame and content separation. */
+#zen-main-app-wrapper,
+#navigator-toolbox,
+#nav-bar,
+#TabsToolbar,
+#PersonalToolbar {
+  background-color: var(--ev-sidebar) !important;
+  color: var(--ev-text) !important;
+}
+
+#zen-tabbox-wrapper,
+.browserSidebarContainer:not(.zen-glance-overlay) {
+  border-color: var(--ev-border) !important;
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--ev-shadow) 58%, transparent) !important;
+}
+
+/* Tabs, essentials, folders, and workspace controls. */
+.tabbrowser-tab > .tab-stack > .tab-background {
+  transition: background-color 120ms ease, outline-color 120ms ease !important;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-background {
+  background: var(--ev-hover) !important;
+}
+
+.tabbrowser-tab[visuallyselected] > .tab-stack > .tab-background,
+.tabbrowser-tab[multiselected="true"] > .tab-stack > .tab-background {
+  background: var(--ev-active) !important;
+  outline: 1px solid var(--ev-border) !important;
+  outline-offset: -1px !important;
+}
+
+@media (-moz-pref("mod.emberveil.zen.focused_tab_accent")) {
+  .tabbrowser-tab[visuallyselected] > .tab-stack > .tab-background {
+    box-shadow: inset 3px 0 0 var(--ev-focus) !important;
+  }
+
+  :root[zen-right-side="true"] .tabbrowser-tab[visuallyselected] > .tab-stack > .tab-background {
+    box-shadow: inset -3px 0 0 var(--ev-focus) !important;
+  }
+}
+
+:root:has([mod-emberveil-zen-focused_tab_accent="true"]) .tabbrowser-tab[visuallyselected] > .tab-stack > .tab-background {
+  box-shadow: inset 3px 0 0 var(--ev-focus) !important;
+}
+
+:root[zen-right-side="true"]:has([mod-emberveil-zen-focused_tab_accent="true"]) .tabbrowser-tab[visuallyselected] > .tab-stack > .tab-background {
+  box-shadow: inset -3px 0 0 var(--ev-focus) !important;
+}
+
+.tabbrowser-tab[zen-essential="true"]:not([visuallyselected]) > .tab-stack > .tab-background {
+  background: color-mix(in srgb, var(--ev-text) 6%, transparent) !important;
+}
+
+@media not (-moz-pref("mod.emberveil.zen.colorful_essentials")) {
+  .tabbrowser-tab[zen-essential="true"][visuallyselected] > .tab-stack > .tab-background,
+  .tabbrowser-tab[zen-essential="true"][visuallyselected] > .tab-stack > .tab-background::before {
+    background: var(--ev-active) !important;
+    background-image: none !important;
+    filter: none !important;
+  }
+
+  .tabbrowser-tab[zen-essential="true"] > .tab-stack > .tab-background::after {
+    display: none !important;
+  }
+}
+
+:root:has([mod-emberveil-zen-colorful_essentials="false"]) .tabbrowser-tab[zen-essential="true"][visuallyselected] > .tab-stack > .tab-background,
+:root:has([mod-emberveil-zen-colorful_essentials="false"]) .tabbrowser-tab[zen-essential="true"][visuallyselected] > .tab-stack > .tab-background::before {
+  background: var(--ev-active) !important;
+  background-image: none !important;
+  filter: none !important;
+}
+
+:root:has([mod-emberveil-zen-colorful_essentials="false"]) .tabbrowser-tab[zen-essential="true"] > .tab-stack > .tab-background::after {
+  display: none !important;
+}
+
+.tab-group-label-container,
+.zen-workspace-tabs-section {
+  color: var(--ev-muted) !important;
+}
+
+.tab-group-label-container:hover,
+#zen-workspaces-button toolbarbutton:hover {
+  background-color: var(--ev-hover) !important;
+}
+
+/* URL bar and autocomplete results. */
+.urlbar-background,
+#searchbar {
+  background: var(--ev-panel) !important;
+  border: 1px solid var(--ev-border) !important;
+  box-shadow: none !important;
+}
+
+#urlbar:hover:not([focused="true"]) > .urlbar-background,
+#searchbar:hover:not(:focus-within) {
+  background: var(--ev-hover) !important;
+  border-color: var(--ev-border-strong) !important;
+}
+
+#urlbar[focused="true"] > .urlbar-background,
+#searchbar:focus-within {
+  background: var(--ev-panel) !important;
+  border-color: var(--ev-focus) !important;
+  outline: 1px solid color-mix(in srgb, var(--ev-focus) 58%, transparent) !important;
+  outline-offset: 1px !important;
+}
+
+#urlbar[breakout-extend="true"] > .urlbar-background,
+#urlbar[zen-floating-urlbar="true"] > .urlbar-background {
+  background: color-mix(in srgb, var(--ev-panel) 96%, transparent) !important;
+  border: 1px solid var(--ev-border-strong) !important;
+  box-shadow: 0 16px 48px var(--ev-shadow) !important;
+}
+
+.urlbarView-row:hover > .urlbarView-row-inner,
+.urlbarView-row[selected] > .urlbarView-row-inner {
+  background: var(--ev-hover) !important;
+  color: var(--ev-text-strong) !important;
+}
+
+.urlbarView-row[selected] > .urlbarView-row-inner {
+  box-shadow: inset 3px 0 0 var(--ev-focus) !important;
+}
+
+/* Menus, panels, extension popovers, downloads, and notifications. */
+menupopup,
+panel,
+panel[type="arrow"] {
+  --panel-background: var(--ev-panel) !important;
+  --panel-color: var(--ev-text) !important;
+  --panel-border-color: var(--ev-border) !important;
+  color: var(--ev-text) !important;
+}
+
+menupopup::part(content),
+panel::part(content),
+panel[type="arrow"]::part(content) {
+  background-color: var(--ev-panel) !important;
+  color: var(--ev-text) !important;
+  border: 1px solid var(--ev-border) !important;
+  box-shadow: 0 14px 42px var(--ev-shadow) !important;
+}
+
+menuitem[_moz-menuactive="true"],
+menu[_moz-menuactive="true"],
+.subviewbutton:hover,
+.toolbarbutton-1:hover,
+#downloadsPanel-mainView .download-state:hover {
+  background-color: var(--ev-hover) !important;
+  color: var(--ev-text-strong) !important;
+}
+
+panelmultiview,
+.panel-viewstack,
+.panel-subview-body,
+#downloadsListBox,
+#unified-extensions-view {
+  background-color: var(--ev-panel) !important;
+  color: var(--ev-text) !important;
+}
+
+notification-message,
+.notificationbox-stack,
+#zen-toast-container notification-message {
+  --in-content-page-background: var(--ev-panel) !important;
+  color: var(--ev-text) !important;
+}
+
+/* Side panels and the find bar inherit the same raised-surface language. */
+#sidebar-box,
+#sidebar-header,
+#sidebar-main,
+browser[webextension-view-type="sidebar"] {
+  background-color: var(--ev-sidebar) !important;
+  color: var(--ev-text) !important;
+  border-color: var(--ev-border) !important;
+}
+
+findbar {
+  background: var(--ev-panel) !important;
+  color: var(--ev-text) !important;
+  border-top: 1px solid var(--ev-border) !important;
+}
+
+findbar .findbar-textbox {
+  background: var(--ev-surface) !important;
+  color: var(--ev-text) !important;
+  border: 1px solid var(--ev-border) !important;
+}
+
+findbar .findbar-textbox:focus {
+  border-color: var(--ev-focus) !important;
+  outline: 1px solid color-mix(in srgb, var(--ev-focus) 55%, transparent) !important;
+}
+
+/* Glance stays visually part of the family without changing its behavior. */
+.browserSidebarContainer.zen-glance-background,
+.browserSidebarContainer.zen-glance-overlay .browserStack {
+  background: var(--ev-shell) !important;
+  box-shadow: 0 18px 54px var(--ev-shadow) !important;
+}
+
+.zen-glance-sidebar-container toolbarbutton {
+  background: var(--ev-panel) !important;
+  color: var(--ev-text) !important;
+  border: 1px solid var(--ev-border) !important;
+  box-shadow: 0 6px 20px var(--ev-shadow) !important;
+}
+
+.zen-glance-sidebar-container toolbarbutton:hover {
+  background: var(--ev-hover) !important;
+  color: var(--ev-text-strong) !important;
+}
+
+.zen-glance-sidebar-container .zen-glance-sidebar-close[waitconfirmation] {
+  background: var(--ev-danger) !important;
+  color: var(--ev-action-text) !important;
+}
+
+/* Private windows remain recognisable without abandoning Emberveil. */
+:root[zen-private-window="true"] {
+  --zen-main-browser-background: color-mix(in srgb, var(--ev-shell) 90%, var(--ev-private) 10%) !important;
+  --zen-main-browser-background-toolbar: color-mix(in srgb, var(--ev-sidebar) 92%, var(--ev-private) 8%) !important;
+  --zen-themed-toolbar-bg-transparent: color-mix(in srgb, var(--ev-sidebar) 92%, var(--ev-private) 8%) !important;
+  --zen-primary-color: var(--ev-private) !important;
+}
+
+/* Keep operating-system accessibility modes authoritative. */
+@media (forced-colors) {
+  :root {
+    --zen-appcontent-border: 1px solid CanvasText !important;
+  }
+
+  .tabbrowser-tab[visuallyselected] > .tab-stack > .tab-background,
+  .urlbar-background,
+  menupopup::part(content),
+  panel::part(content) {
+    background: Canvas !important;
+    color: CanvasText !important;
+    border-color: CanvasText !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabbrowser-tab > .tab-stack > .tab-background {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "property": "mod.emberveil.zen.appearance",
+    "label": "Appearance",
+    "type": "dropdown",
+    "defaultValue": "system",
+    "options": [
+      {
+        "label": "Follow system / Zen",
+        "value": "system"
+      },
+      {
+        "label": "Emberveil Dark",
+        "value": "dark"
+      },
+      {
+        "label": "Emberveil Light",
+        "value": "light"
+      }
+    ]
+  },
+  {
+    "property": "mod.emberveil.zen.focused_tab_accent",
+    "label": "Show amber edge on the active tab",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.emberveil.zen.colorful_essentials",
+    "label": "Keep Zen's favicon colors on selected Essential tabs",
+    "type": "checkbox",
+    "defaultValue": false
+  }
+]
+
