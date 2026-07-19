@@ -1,0 +1,28 @@
+# Emberveil Dark for Ghostty
+# Generated from the canonical Emberveil VS Code terminal palette.
+# Color-only by design: no typography, spacing, opacity, or behavior.
+
+palette = 0=#1D2029
+palette = 1=#F07178
+palette = 2=#9FCF86
+palette = 3=#FFD173
+palette = 4=#73A7D6
+palette = 5=#C8ABE6
+palette = 6=#73C7D6
+palette = 7=#CCCAC2
+palette = 8=#727D8E
+palette = 9=#FF8F94
+palette = 10=#B8D982
+palette = 11=#FFE09A
+palette = 12=#91BEE5
+palette = 13=#DABFF2
+palette = 14=#9ADAE4
+palette = 15=#F3ECE0
+
+background = #1D2029
+foreground = #CCCAC2
+cursor-color = #FFCC66
+cursor-text = #1D2029
+selection-background = #3A465C
+selection-foreground = #F3ECE0
+

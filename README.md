@@ -33,6 +33,10 @@ The implementation maps the full surface hierarchy, editor states, diagnostics, 
 
 The native Zen Mod in [`zen/`](zen/) brings both Emberveil appearances to Zen's browser interface while preserving Zen's own layout. It covers tabs, Essentials, folders, workspaces, the URL bar, autocomplete, menus, extension panels, downloads, side panels, the find bar, Glance, notifications, and private windows. See the [Zen Mod guide](zen/README.md) for local testing and appearance preferences.
 
+## Try it in Ghostty
+
+The native color-only themes in [`ghostty/`](ghostty/) provide paired **Emberveil Dark** and **Emberveil Light** terminal palettes for Ghostty, including cursor, selection, and all 16 ANSI colors. They can follow the operating-system appearance automatically and deliberately leave typography, opacity, layout, and terminal behavior alone. See the [Ghostty theme guide](ghostty/README.md) for installation and validation.
+
 ## Try it in RAD Studio 12.3
 
 The editor-only package in [`rad-studio/`](rad-studio/) installs **Emberveil Dark** and **Emberveil Light** as named Code Editor Color SpeedSettings for RAD Studio 12.3 Athens. It deliberately leaves the IDE theme, VCL styling, designers, panels, and layout unchanged. See the [RAD Studio editor-theme guide](rad-studio/README.md) for backup, installation, selection, and removal.
@@ -58,6 +62,9 @@ zed/
 zen/
   chrome.css   Native Zen Mod browser-chrome styling
   preferences.json  System, dark, and light appearance controls
+ghostty/
+  themes/      Paired native Ghostty color themes
+  scripts/     Canonical palette generation and native validation
 rad-studio/
   12.3/editor/  Importable editor-only registry themes for BDS 23.0
   scripts/      Deterministic registry-theme generator and validation
@@ -68,4 +75,4 @@ ideas/
 
 ## Current status
 
-Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are packaged for VS Code, available together as a native Zed extension, implemented as a paired Zen Browser Mod, and available as editor-only Color SpeedSettings for RAD Studio 12.3; implementations for other applications and a production design-token library remain future work.
+Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are packaged for VS Code, Zed, Zen Browser, Ghostty, and the RAD Studio 12.3 code editor; implementations for other applications and a production design-token library remain future work.

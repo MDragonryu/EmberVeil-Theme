@@ -1,0 +1,28 @@
+# Emberveil Light for Ghostty
+# Generated from the canonical Emberveil VS Code terminal palette.
+# Color-only by design: no typography, spacing, opacity, or behavior.
+
+palette = 0=#35383F
+palette = 1=#A33B42
+palette = 2=#46661F
+palette = 3=#875900
+palette = 4=#315F91
+palette = 5=#704C87
+palette = 6=#1C6570
+palette = 7=#D8D1C5
+palette = 8=#77736D
+palette = 9=#BC4B51
+palette = 10=#5A7B2A
+palette = 11=#A86B00
+palette = 12=#3C73AA
+palette = 13=#865D9E
+palette = 14=#0E788B
+palette = 15=#EEE7DB
+
+background = #D8D1C5
+foreground = #35383F
+cursor-color = #A86B00
+cursor-text = #D8D1C5
+selection-background = #C4D3D8
+selection-foreground = #22272D
+
