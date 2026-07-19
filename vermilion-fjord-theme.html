@@ -1,0 +1,1484 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Personal Theme Study</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:736px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Personal Theme Study" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Personal Theme Study&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(--background) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: light-dark(rgb(255 255 255), rgb(24 24 24));
+  --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));
+  --card: color-mix(in oklab, var(--foreground) 5%, transparent);
+  --card-foreground: var(--foreground);
+  --popover: light-dark(rgb(255 255 255), rgb(45 45 45));
+  --popover-foreground: var(--foreground);
+  --primary: light-dark(rgb(51 156 255), rgb(131 195 255));
+  --primary-foreground: light-dark(rgb(255 255 255), rgb(13 13 13));
+  --secondary: light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%));
+  --secondary-foreground: var(--foreground);
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: light-dark(
+    rgb(26 28 31 / 49.4%),
+    rgb(255 255 255 / 49.8%)
+  );
+  --accent: light-dark(rgb(229 242 255), rgb(13 39 63));
+  --accent-foreground: var(--primary);
+  --destructive: light-dark(rgb(226 85 7), rgb(255 133 73));
+  --border: light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%));
+  --input: light-dark(
+    rgb(26 28 31 / 11.8%),
+    color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+  );
+  --ring: light-dark(rgb(51 156 255), rgb(131 195 255 / 76%));
+  --font-size-base: 14px;
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: 12.5px;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+  --color-background-primary: var(--background);
+  --color-text-primary: var(--foreground);
+  --color-border-secondary: var(--border);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--viz-font-weight-medium);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+    [aria-pressed=&quot;true&quot;],
+    [aria-selected=&quot;true&quot;],
+    .is-selected
+  ) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;personal-theme-studio&quot; class=&quot;card&quot;&gt;
+  &lt;style&gt;
+    #personal-theme-studio {
+      --background: #292d30;
+      --foreground: #f4e9df;
+      --card: #24282b;
+      --card-foreground: #f4e9df;
+      --popover: #30363a;
+      --popover-foreground: #f4e9df;
+      --primary: #ff6238;
+      --primary-foreground: #201b19;
+      --secondary: #343a3e;
+      --secondary-foreground: #d7cbc1;
+      --muted: #31373b;
+      --muted-foreground: #a69b93;
+      --accent: #073442;
+      --accent-foreground: #92e9f5;
+      --destructive: #f07178;
+      --border: #465056;
+      --input: #343a3e;
+      --ring: #31c6eb;
+      --viz-series-1: #ff6238;
+      --viz-series-2: #31c6eb;
+      --viz-series-3: #9be470;
+      --viz-series-4: #c7a6e8;
+      --syntax-keyword: #ff6238;
+      --syntax-text: #f9eee5;
+      --syntax-directive: #31c6eb;
+      --syntax-comment: #9be470;
+      --syntax-string: #d5c88b;
+      --syntax-number: #d6a4e8;
+      --syntax-type: #91d7d0;
+      --syntax-line: #061b22;
+      --syntax-gutter: #202427;
+      --guide-blue: #087b9c;
+      --guide-green: #138c6a;
+      --guide-violet: #6c6594;
+      overflow: hidden;
+      background: var(--card);
+      color: var(--card-foreground);
+    }
+    #personal-theme-studio * { box-sizing: border-box; }
+    #personal-theme-studio .pt-appbar,
+    #personal-theme-studio .pt-tabbar,
+    #personal-theme-studio .pt-statusbar,
+    #personal-theme-studio .pt-toolbar,
+    #personal-theme-studio .pt-form-actions,
+    #personal-theme-studio .pt-palette {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+    #personal-theme-studio .pt-appbar {
+      justify-content: space-between;
+      padding: 0.8rem 1rem;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+    }
+    #personal-theme-studio .pt-brand,
+    #personal-theme-studio .pt-file,
+    #personal-theme-studio .pt-section-label,
+    #personal-theme-studio .pt-sw-name { font-weight: 500; }
+    #personal-theme-studio .pt-kicker,
+    #personal-theme-studio .pt-path,
+    #personal-theme-studio .pt-meta,
+    #personal-theme-studio .pt-line-no,
+    #personal-theme-studio .pt-sw-value { color: var(--muted-foreground); }
+    #personal-theme-studio .pt-kicker { margin-left: 0.45rem; font-weight: 400; }
+    #personal-theme-studio .pt-tabbar {
+      padding: 0.55rem 1rem;
+      background: var(--background);
+      border-bottom: 1px solid var(--border);
+    }
+    #personal-theme-studio .pt-view[hidden],
+    #personal-theme-studio .pt-code-sample[hidden] { display: none; }
+    #personal-theme-studio .pt-code-layout,
+    #personal-theme-studio .pt-ui-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.38fr);
+      min-height: 31rem;
+    }
+    #personal-theme-studio .pt-ui-layout { grid-template-columns: minmax(11rem, 0.28fr) minmax(0, 1fr); }
+    #personal-theme-studio .pt-sidebar {
+      padding: 1rem;
+      background: var(--card);
+      border-right: 1px solid var(--border);
+    }
+    #personal-theme-studio .pt-nav {
+      display: grid;
+      gap: 0.35rem;
+      margin-top: 1rem;
+    }
+    #personal-theme-studio .pt-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 0.7rem;
+      color: var(--muted-foreground);
+    }
+    #personal-theme-studio .pt-nav-item.pt-active {
+      color: var(--accent-foreground);
+      background: var(--accent);
+      border-left: 3px solid var(--syntax-keyword);
+    }
+    #personal-theme-studio .pt-editor {
+      min-width: 0;
+      background: var(--background);
+      color: var(--syntax-text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    #personal-theme-studio .pt-editor-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+    }
+    #personal-theme-studio .pt-code {
+      margin: 0;
+      padding: 1rem 0 1.25rem;
+      overflow: auto;
+      color: var(--syntax-text);
+      background: var(--background);
+      font-family: inherit;
+    }
+    #personal-theme-studio .pt-code-line {
+      display: grid;
+      grid-template-columns: 3.4rem minmax(max-content, 1fr);
+      padding-right: 1rem;
+    }
+    #personal-theme-studio .pt-code-line.pt-current { background: var(--syntax-line); }
+    #personal-theme-studio .pt-line-no {
+      padding-right: 0.9rem;
+      text-align: right;
+      user-select: none;
+      background: var(--syntax-gutter);
+      border-right: 1px solid var(--border);
+    }
+    #personal-theme-studio .pt-src {
+      position: relative;
+      padding-left: calc(0.9rem + var(--indent, 0) * 1.55rem);
+      white-space: pre;
+    }
+    #personal-theme-studio .pt-src[data-guide=&quot;1&quot;] { border-left: 1px solid var(--guide-blue); }
+    #personal-theme-studio .pt-src[data-guide=&quot;2&quot;] { border-left: 1px solid var(--guide-green); }
+    #personal-theme-studio .pt-src[data-guide=&quot;3&quot;] { border-left: 1px solid var(--guide-violet); }
+    #personal-theme-studio .kw { color: var(--syntax-keyword); font-weight: 500; }
+    #personal-theme-studio .dir { color: var(--syntax-directive); }
+    #personal-theme-studio .com { color: var(--syntax-comment); font-style: italic; }
+    #personal-theme-studio .str { color: var(--syntax-string); }
+    #personal-theme-studio .num { color: var(--syntax-number); }
+    #personal-theme-studio .typ { color: var(--syntax-type); }
+    #personal-theme-studio .pt-notes {
+      padding: 1rem;
+      background: var(--card);
+      border-left: 1px solid var(--border);
+    }
+    #personal-theme-studio .pt-note-list {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    #personal-theme-studio .pt-note {
+      padding-left: 0.75rem;
+      border-left: 2px solid var(--border);
+    }
+    #personal-theme-studio .pt-note.pt-hot { border-color: var(--syntax-keyword); }
+    #personal-theme-studio .pt-note.pt-cool { border-color: var(--syntax-directive); }
+    #personal-theme-studio .pt-note.pt-green { border-color: var(--syntax-comment); }
+    #personal-theme-studio .pt-note p { margin: 0.25rem 0 0; color: var(--muted-foreground); }
+    #personal-theme-studio .pt-content {
+      min-width: 0;
+      padding: 1rem;
+      background: var(--background);
+    }
+    #personal-theme-studio .pt-toolbar {
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    #personal-theme-studio .pt-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-bottom: 1rem;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    #personal-theme-studio .pt-summary-item {
+      padding: 0.85rem;
+      background: var(--card);
+    }
+    #personal-theme-studio .pt-summary-value { margin-top: 0.25rem; color: var(--foreground); font-weight: 500; }
+    #personal-theme-studio .pt-summary-value.pt-warm { color: var(--syntax-keyword); }
+    #personal-theme-studio .pt-summary-value.pt-fresh { color: var(--syntax-comment); }
+    #personal-theme-studio .pt-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    #personal-theme-studio .pt-field-wide { grid-column: 1 / -1; }
+    #personal-theme-studio .pt-form-actions { grid-column: 1 / -1; justify-content: flex-end; }
+    #personal-theme-studio .pt-table-wrap { margin-top: 1rem; border-top: 1px solid var(--border); }
+    #personal-theme-studio .pt-statusbar {
+      justify-content: space-between;
+      padding: 0.45rem 0.75rem;
+      color: var(--accent-foreground);
+      background: var(--accent);
+      border-top: 1px solid var(--guide-blue);
+    }
+    #personal-theme-studio .pt-palette-view {
+      padding: 1rem;
+      background: var(--background);
+    }
+    #personal-theme-studio .pt-palette {
+      align-items: stretch;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    #personal-theme-studio .pt-swatch {
+      flex: 1 1 9rem;
+      min-height: 7rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0.8rem;
+      color: var(--sw-fg);
+      background: var(--sw-bg);
+    }
+    #personal-theme-studio .pt-sw-value { color: inherit; opacity: 0.78; }
+    #personal-theme-studio .pt-palette-note {
+      max-width: 48rem;
+      margin: 1rem 0 0;
+      color: var(--muted-foreground);
+    }
+    @media (max-width: 780px) {
+      #personal-theme-studio .pt-code-layout { grid-template-columns: 1fr; }
+      #personal-theme-studio .pt-notes { border: 0; border-top: 1px solid var(--border); }
+    }
+    @media (max-width: 680px) {
+      #personal-theme-studio .pt-ui-layout { grid-template-columns: 1fr; }
+      #personal-theme-studio .pt-sidebar { border: 0; border-top: 1px solid var(--border); }
+      #personal-theme-studio .pt-ui-layout .pt-sidebar { order: 2; }
+      #personal-theme-studio .pt-summary,
+      #personal-theme-studio .pt-form-grid { grid-template-columns: 1fr; }
+      #personal-theme-studio .pt-field-wide,
+      #personal-theme-studio .pt-form-actions { grid-column: 1; }
+    }
+    @media (max-width: 480px) {
+      #personal-theme-studio .pt-code-line { grid-template-columns: 2.7rem minmax(0, 1fr); }
+      #personal-theme-studio .pt-src { white-space: pre-wrap; overflow-wrap: anywhere; }
+    }
+  &lt;/style&gt;
+
+  &lt;header class=&quot;pt-appbar&quot;&gt;
+    &lt;div&gt;&lt;span class=&quot;pt-brand&quot;&gt;Vermilion Fjord&lt;/span&gt;&lt;span class=&quot;pt-kicker&quot;&gt;theme study 01&lt;/span&gt;&lt;/div&gt;
+    &lt;span class=&quot;viz-badge&quot;&gt;Dark · warm syntax&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;nav class=&quot;pt-tabbar&quot; aria-label=&quot;Theme specimens&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn is-selected&quot; data-view=&quot;code&quot; aria-selected=&quot;true&quot;&gt;Code&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-ghost&quot; data-view=&quot;ui&quot; aria-selected=&quot;false&quot;&gt;Interface&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-ghost&quot; data-view=&quot;palette&quot; aria-selected=&quot;false&quot;&gt;Palette&lt;/button&gt;
+  &lt;/nav&gt;
+
+  &lt;section class=&quot;pt-view&quot; data-panel=&quot;code&quot;&gt;
+    &lt;div class=&quot;pt-code-layout&quot;&gt;
+      &lt;div class=&quot;pt-editor&quot;&gt;
+        &lt;div class=&quot;pt-editor-head&quot;&gt;
+          &lt;div&gt;&lt;span class=&quot;pt-file&quot; id=&quot;pt-file-name&quot;&gt;OrderService.pas&lt;/span&gt;&lt;span class=&quot;pt-path&quot;&gt; · src/services&lt;/span&gt;&lt;/div&gt;
+          &lt;label class=&quot;form-label&quot;&gt;Language
+            &lt;select class=&quot;form-select&quot; id=&quot;pt-language&quot;&gt;
+              &lt;option value=&quot;delphi&quot;&gt;Delphi&lt;/option&gt;
+              &lt;option value=&quot;typescript&quot;&gt;TypeScript&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/label&gt;
+        &lt;/div&gt;
+
+        &lt;pre class=&quot;pt-code pt-code-sample&quot; data-language=&quot;delphi&quot; aria-label=&quot;Delphi syntax preview&quot;&gt;&lt;code&gt;&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;pt-src&quot;&gt;&lt;span class=&quot;dir&quot;&gt;{$REGION &#x27;Order loading&#x27;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;pt-src&quot;&gt;&lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; TOrderService.Load(const AId: &lt;span class=&quot;typ&quot;&gt;Integer&lt;/span&gt;): &lt;span class=&quot;typ&quot;&gt;TOrder&lt;/span&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;pt-src&quot;&gt;&lt;span class=&quot;kw&quot;&gt;begin&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;Result := FRepository.Find(AId);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;&lt;span class=&quot;kw&quot;&gt;if not&lt;/span&gt; Assigned(Result) &lt;span class=&quot;kw&quot;&gt;then begin&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;2&quot; style=&quot;--indent:2&quot;&gt;Logger.Warn(&lt;span class=&quot;str&quot;&gt;&#x27;Order not found&#x27;&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line pt-current&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;2&quot; style=&quot;--indent:2&quot;&gt;&lt;span class=&quot;kw&quot;&gt;raise&lt;/span&gt; EOrderMissing.Create(AId);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;&lt;span class=&quot;kw&quot;&gt;end&lt;/span&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;pt-src&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;27&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;&lt;span class=&quot;com&quot;&gt;// Keep this transactional: inventory follows the order.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;Result.LastOpenedAt := Now;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;FRepository.Save(Result);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;pt-src&quot;&gt;&lt;span class=&quot;kw&quot;&gt;end&lt;/span&gt;;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;pt-src&quot;&gt;&lt;span class=&quot;dir&quot;&gt;{$ENDREGION}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+        &lt;pre class=&quot;pt-code pt-code-sample&quot; data-language=&quot;typescript&quot; hidden aria-label=&quot;TypeScript syntax preview&quot;&gt;&lt;code&gt;&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;34&lt;/span&gt;&lt;span class=&quot;pt-src&quot;&gt;&lt;span class=&quot;kw&quot;&gt;export async function&lt;/span&gt; loadOrder(id: &lt;span class=&quot;typ&quot;&gt;number&lt;/span&gt;): &lt;span class=&quot;typ&quot;&gt;Promise&amp;lt;Order&amp;gt;&lt;/span&gt; {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;&lt;span class=&quot;kw&quot;&gt;const&lt;/span&gt; order = &lt;span class=&quot;kw&quot;&gt;await&lt;/span&gt; repository.find(id);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;36&lt;/span&gt;&lt;span class=&quot;pt-src&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;37&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;&lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (!order) {&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;38&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;2&quot; style=&quot;--indent:2&quot;&gt;logger.warn(&lt;span class=&quot;str&quot;&gt;&#x27;Order not found&#x27;&lt;/span&gt;, { id });&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line pt-current&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;39&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;2&quot; style=&quot;--indent:2&quot;&gt;&lt;span class=&quot;kw&quot;&gt;throw new&lt;/span&gt; OrderMissingError(id);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;40&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;41&lt;/span&gt;&lt;span class=&quot;pt-src&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;&lt;span class=&quot;com&quot;&gt;// Keep this transactional: inventory follows the order.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;43&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;order.lastOpenedAt = &lt;span class=&quot;kw&quot;&gt;new&lt;/span&gt; Date();&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;44&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;&lt;span class=&quot;kw&quot;&gt;await&lt;/span&gt; repository.save(order);&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;pt-src&quot; data-guide=&quot;1&quot; style=&quot;--indent:1&quot;&gt;&lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; order;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;pt-code-line&quot;&gt;&lt;span class=&quot;pt-line-no&quot;&gt;46&lt;/span&gt;&lt;span class=&quot;pt-src&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+
+      &lt;aside class=&quot;pt-notes&quot;&gt;
+        &lt;div class=&quot;pt-section-label&quot;&gt;Design logic&lt;/div&gt;
+        &lt;div class=&quot;pt-note-list&quot;&gt;
+          &lt;div class=&quot;pt-note pt-hot&quot;&gt;&lt;span class=&quot;pt-section-label&quot;&gt;Structure is hot&lt;/span&gt;&lt;p&gt;Vermilion is reserved for language decisions and control flow.&lt;/p&gt;&lt;/div&gt;
+          &lt;div class=&quot;pt-note&quot;&gt;&lt;span class=&quot;pt-section-label&quot;&gt;Content stays calm&lt;/span&gt;&lt;p&gt;Names and punctuation share a warm neutral instead of becoming a rainbow.&lt;/p&gt;&lt;/div&gt;
+          &lt;div class=&quot;pt-note pt-green&quot;&gt;&lt;span class=&quot;pt-section-label&quot;&gt;Comments feel alive&lt;/span&gt;&lt;p&gt;Fresh green and italic styling separate human context from executable code.&lt;/p&gt;&lt;/div&gt;
+          &lt;div class=&quot;pt-note pt-cool&quot;&gt;&lt;span class=&quot;pt-section-label&quot;&gt;Cool structure underneath&lt;/span&gt;&lt;p&gt;Cyan directives and subdued guides balance the warm keyword color.&lt;/p&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/aside&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;pt-view&quot; data-panel=&quot;ui&quot; hidden&gt;
+    &lt;div class=&quot;pt-ui-layout&quot;&gt;
+      &lt;aside class=&quot;pt-sidebar&quot;&gt;
+        &lt;div class=&quot;pt-section-label&quot;&gt;Workspace&lt;/div&gt;
+        &lt;nav class=&quot;pt-nav&quot; aria-label=&quot;Example application navigation&quot;&gt;
+          &lt;div class=&quot;pt-nav-item pt-active&quot;&gt;&lt;i data-lucide=&quot;layout-dashboard&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Overview&lt;/div&gt;
+          &lt;div class=&quot;pt-nav-item&quot;&gt;&lt;i data-lucide=&quot;package&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Orders&lt;/div&gt;
+          &lt;div class=&quot;pt-nav-item&quot;&gt;&lt;i data-lucide=&quot;users&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Customers&lt;/div&gt;
+          &lt;div class=&quot;pt-nav-item&quot;&gt;&lt;i data-lucide=&quot;settings&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Settings&lt;/div&gt;
+        &lt;/nav&gt;
+      &lt;/aside&gt;
+      &lt;main class=&quot;pt-content&quot;&gt;
+        &lt;div class=&quot;pt-toolbar&quot;&gt;
+          &lt;div&gt;&lt;span class=&quot;pt-section-label&quot;&gt;Order workspace&lt;/span&gt;&lt;div class=&quot;pt-meta&quot;&gt;Sunday, 19 July · Vienna&lt;/div&gt;&lt;/div&gt;
+          &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;&lt;i data-lucide=&quot;plus&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;New order&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;pt-summary&quot; aria-label=&quot;Example summary&quot;&gt;
+          &lt;div class=&quot;pt-summary-item&quot;&gt;&lt;div class=&quot;pt-meta&quot;&gt;Open orders&lt;/div&gt;&lt;div class=&quot;pt-summary-value&quot;&gt;128&lt;/div&gt;&lt;/div&gt;
+          &lt;div class=&quot;pt-summary-item&quot;&gt;&lt;div class=&quot;pt-meta&quot;&gt;Needs attention&lt;/div&gt;&lt;div class=&quot;pt-summary-value pt-warm&quot;&gt;7&lt;/div&gt;&lt;/div&gt;
+          &lt;div class=&quot;pt-summary-item&quot;&gt;&lt;div class=&quot;pt-meta&quot;&gt;Completed today&lt;/div&gt;&lt;div class=&quot;pt-summary-value pt-fresh&quot;&gt;42&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;pt-section-label&quot;&gt;Create a filtered view&lt;/div&gt;
+        &lt;form class=&quot;pt-form-grid&quot; id=&quot;pt-demo-form&quot;&gt;
+          &lt;label class=&quot;form-label&quot;&gt;View name&lt;input class=&quot;form-control&quot; type=&quot;text&quot; value=&quot;Priority orders&quot;&gt;&lt;/label&gt;
+          &lt;label class=&quot;form-label&quot;&gt;Status&lt;select class=&quot;form-select&quot;&gt;&lt;option&gt;Needs attention&lt;/option&gt;&lt;option&gt;Open&lt;/option&gt;&lt;option&gt;Completed&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;
+          &lt;label class=&quot;form-label pt-field-wide&quot;&gt;Notes&lt;textarea class=&quot;form-control&quot; rows=&quot;2&quot;&gt;Orders that require a decision before dispatch.&lt;/textarea&gt;&lt;/label&gt;
+          &lt;label class=&quot;form-check form-switch pt-field-wide&quot;&gt;&lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; checked&gt;&lt;span class=&quot;form-check-label&quot;&gt;Pin this view to the sidebar&lt;/span&gt;&lt;/label&gt;
+          &lt;div class=&quot;pt-form-actions&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-ghost&quot;&gt;Cancel&lt;/button&gt;&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Save view&lt;/button&gt;&lt;/div&gt;
+        &lt;/form&gt;
+        &lt;div class=&quot;table-responsive pt-table-wrap&quot;&gt;
+          &lt;table class=&quot;table table-sm&quot;&gt;
+            &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Order&lt;/th&gt;&lt;th&gt;Customer&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th class=&quot;text-end&quot;&gt;Total&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+            &lt;tbody&gt;
+              &lt;tr&gt;&lt;td&gt;#1048&lt;/td&gt;&lt;td&gt;Alpine Works&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;viz-badge&quot;&gt;Ready&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;text-end&quot;&gt;€1,240&lt;/td&gt;&lt;/tr&gt;
+              &lt;tr&gt;&lt;td&gt;#1047&lt;/td&gt;&lt;td&gt;Northstar Studio&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;viz-badge&quot;&gt;Review&lt;/span&gt;&lt;/td&gt;&lt;td class=&quot;text-end&quot;&gt;€890&lt;/td&gt;&lt;/tr&gt;
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+        &lt;/div&gt;
+      &lt;/main&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;section class=&quot;pt-view pt-palette-view&quot; data-panel=&quot;palette&quot; hidden&gt;
+    &lt;div class=&quot;pt-palette&quot; aria-label=&quot;Theme palette&quot;&gt;
+      &lt;div class=&quot;pt-swatch&quot; style=&quot;--sw-bg:var(--background);--sw-fg:var(--foreground)&quot;&gt;&lt;span class=&quot;pt-sw-name&quot;&gt;Night slate&lt;/span&gt;&lt;span class=&quot;pt-sw-value&quot;&gt;#292D30&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;pt-swatch&quot; style=&quot;--sw-bg:var(--syntax-keyword);--sw-fg:#201b19&quot;&gt;&lt;span class=&quot;pt-sw-name&quot;&gt;Vermilion&lt;/span&gt;&lt;span class=&quot;pt-sw-value&quot;&gt;#FF6238&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;pt-swatch&quot; style=&quot;--sw-bg:var(--syntax-directive);--sw-fg:#071d22&quot;&gt;&lt;span class=&quot;pt-sw-name&quot;&gt;Glacial cyan&lt;/span&gt;&lt;span class=&quot;pt-sw-value&quot;&gt;#31C6EB&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;pt-swatch&quot; style=&quot;--sw-bg:var(--syntax-comment);--sw-fg:#162013&quot;&gt;&lt;span class=&quot;pt-sw-name&quot;&gt;Signal green&lt;/span&gt;&lt;span class=&quot;pt-sw-value&quot;&gt;#9BE470&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;pt-swatch&quot; style=&quot;--sw-bg:var(--syntax-text);--sw-fg:#292d30&quot;&gt;&lt;span class=&quot;pt-sw-name&quot;&gt;Warm paper&lt;/span&gt;&lt;span class=&quot;pt-sw-value&quot;&gt;#F9EEE5&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;pt-swatch&quot; style=&quot;--sw-bg:var(--syntax-line);--sw-fg:var(--accent-foreground)&quot;&gt;&lt;span class=&quot;pt-sw-name&quot;&gt;Deep current line&lt;/span&gt;&lt;span class=&quot;pt-sw-value&quot;&gt;#061B22&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;pt-palette-note&quot;&gt;The palette is intentionally asymmetric: neutral surfaces occupy almost everything, while vermilion, cyan, and green appear only where they convey structure, focus, or meaning.&lt;/p&gt;
+  &lt;/section&gt;
+
+  &lt;footer class=&quot;pt-statusbar&quot;&gt;
+    &lt;span&gt;&lt;i data-lucide=&quot;git-branch&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; main&lt;/span&gt;
+    &lt;span id=&quot;pt-status&quot;&gt;Delphi · UTF-8 · 4 spaces&lt;/span&gt;
+  &lt;/footer&gt;
+
+  &lt;script&gt;
+    (() =&gt; {
+      const root = document.getElementById(&#x27;personal-theme-studio&#x27;);
+      const viewButtons = root.querySelectorAll(&#x27;[data-view]&#x27;);
+      const panels = root.querySelectorAll(&#x27;[data-panel]&#x27;);
+      const language = root.querySelector(&#x27;#pt-language&#x27;);
+      const fileName = root.querySelector(&#x27;#pt-file-name&#x27;);
+      const status = root.querySelector(&#x27;#pt-status&#x27;);
+      const form = root.querySelector(&#x27;#pt-demo-form&#x27;);
+
+      viewButtons.forEach((button) =&gt; {
+        button.addEventListener(&#x27;click&#x27;, () =&gt; {
+          const target = button.dataset.view;
+          viewButtons.forEach((item) =&gt; {
+            const selected = item === button;
+            item.classList.toggle(&#x27;is-selected&#x27;, selected);
+            item.classList.toggle(&#x27;btn-ghost&#x27;, !selected);
+            item.setAttribute(&#x27;aria-selected&#x27;, String(selected));
+          });
+          panels.forEach((panel) =&gt; { panel.hidden = panel.dataset.panel !== target; });
+        });
+      });
+
+      language.addEventListener(&#x27;change&#x27;, () =&gt; {
+        const selected = language.value;
+        root.querySelectorAll(&#x27;[data-language]&#x27;).forEach((sample) =&gt; {
+          sample.hidden = sample.dataset.language !== selected;
+        });
+        const isDelphi = selected === &#x27;delphi&#x27;;
+        fileName.textContent = isDelphi ? &#x27;OrderService.pas&#x27; : &#x27;order-service.ts&#x27;;
+        status.textContent = isDelphi ? &#x27;Delphi · UTF-8 · 4 spaces&#x27; : &#x27;TypeScript · UTF-8 · 2 spaces&#x27;;
+      });
+
+      form.addEventListener(&#x27;submit&#x27;, (event) =&gt; {
+        event.preventDefault();
+        status.textContent = &#x27;View saved · just now&#x27;;
+      });
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>
