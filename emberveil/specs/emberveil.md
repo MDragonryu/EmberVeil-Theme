@@ -3,7 +3,7 @@
 **Status:** Core family theme, regular paper-light mode, prototype study 04  
 **Family:** Emberveil  
 **Dark companion:** Emberveil Dark  
-**Preview:** [emberveil-light-theme.html](../emberveil-light-theme.html)
+**Preview:** [emberveil.html](../previews/emberveil.html)
 
 ## Purpose
 
@@ -123,4 +123,3 @@ Future implementation should include:
 - Accessibility testing across text sizes and interaction states.
 - Real-world daily-use trials in bright offices, dim rooms, and mixed-light environments.
 - Print and document adaptations, where the theme's material logic may be especially natural.
-

@@ -2,7 +2,7 @@
 
 **Status:** Independent concept theme, prototype study 01  
 **Primary mode:** Dark  
-**Preview:** [vermilion-fjord-theme.html](../vermilion-fjord-theme.html)
+**Preview:** [preview.html](preview.html)
 
 ## Purpose
 
@@ -89,4 +89,3 @@ Potential implementations include:
 - A compact application token set for internal tools and legacy interfaces.
 
 This concept should remain an independent theme even if other theme studies later become the main cross-application family.
-

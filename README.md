@@ -2,32 +2,29 @@
 
 Emberveil is a personal cross-application theme family built around comfortable contrast, warm semantic color, and surfaces designed for prolonged use.
 
-The repository currently contains four theme studies:
+The repository contains the primary Emberveil family and two earlier theme explorations that remain as design references.
 
-- **Vermilion Fjord** - a restrained charcoal theme derived from a manually configured Delphi environment.
-- **Aurora Forge** - a more energetic synthesis of Ayu Mirage, Nord, Cobalt2, JetBrains/Darcula, and personal preferences.
-- **Emberveil Dark** - the Ayu Mirage-led dark member of the core Emberveil family.
-- **Emberveil** - the regular paper-light companion, using dim paper surfaces instead of bright white.
+## Core Emberveil family
 
-## Previews
+- **Emberveil** - the regular paper-light theme, using dim paper surfaces instead of bright white. [Preview](emberveil/previews/emberveil.html) · [Specification](emberveil/specs/emberveil.md)
+- **Emberveil Dark** - the Ayu Mirage-led dark companion. [Preview](emberveil/previews/emberveil-dark.html) · [Specification](emberveil/specs/emberveil-dark.md)
 
-Open the standalone HTML files directly in a browser:
+## Ideas and inspirations
 
-- [`vermilion-fjord-theme.html`](vermilion-fjord-theme.html)
-- [`aurora-forge-theme.html`](aurora-forge-theme.html)
-- [`emberveil-theme.html`](emberveil-theme.html)
-- [`emberveil-light-theme.html`](emberveil-light-theme.html)
+- **Aurora Forge** - a more energetic synthesis of Ayu Mirage, Nord, Cobalt2, JetBrains/Darcula, and personal preferences. [Preview](ideas/aurora-forge/preview.html) · [Specification](ideas/aurora-forge/spec.md)
+- **Vermilion Fjord** - a restrained charcoal concept derived from a manually configured Delphi environment. [Preview](ideas/vermilion-fjord/preview.html) · [Specification](ideas/vermilion-fjord/spec.md)
 
-## Theme specifications
+## Repository structure
 
-Each concept has an independent specification under [`theme-specs/`](theme-specs/):
-
-- [`vermilion-fjord.md`](theme-specs/vermilion-fjord.md)
-- [`aurora-forge.md`](theme-specs/aurora-forge.md)
-- [`emberveil-dark.md`](theme-specs/emberveil-dark.md)
-- [`emberveil.md`](theme-specs/emberveil.md)
+```text
+emberveil/
+  previews/    Browser-ready Emberveil prototypes
+  specs/       Core family design specifications
+ideas/
+  aurora-forge/
+  vermilion-fjord/
+```
 
 ## Current status
 
-These are exploratory theme prototypes and design specifications. They are not yet packaged as installable IDE themes or a production design-token library.
-
+Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. None of the concepts are yet packaged as installable IDE themes or a production design-token library.

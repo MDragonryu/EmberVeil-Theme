@@ -2,7 +2,7 @@
 
 **Status:** Core family theme, dark companion, prototype study 03  
 **Family:** Emberveil  
-**Preview:** [emberveil-theme.html](../emberveil-theme.html)
+**Preview:** [emberveil-dark.html](../previews/emberveil-dark.html)
 
 ## Purpose
 
@@ -111,4 +111,3 @@ Emberveil Dark is intended to become a reusable cross-platform token system. Fut
 - Application components covering forms, tables, dialogs, navigation, charts, and data states.
 - Accessibility checks and prolonged real-world testing.
 - Platform-specific adaptations that preserve semantic roles even when exact colors must change.
-

@@ -2,7 +2,7 @@
 
 **Status:** Independent concept theme, prototype study 02  
 **Primary mode:** Dark  
-**Preview:** [aurora-forge-theme.html](../aurora-forge-theme.html)
+**Preview:** [preview.html](preview.html)
 
 ## Purpose
 
@@ -100,4 +100,3 @@ Potential implementations include:
 - An optional "high energy" application theme for dashboards and developer tools.
 
 Aurora Forge should be preserved as evidence of an important taste lineage and as a viable independent theme, not discarded simply because Emberveil became the stronger personal direction.
-
