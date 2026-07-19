@@ -445,7 +445,7 @@
     },
     {
       "name": "Constants and enum members",
-      "scope": ["constant.other", "variable.other.constant", "variable.other.enummember"],
+      "scope": ["constant.other", "variable.other.enummember"],
       "settings": { "foreground": "#C8ABE6" }
     },
     {
@@ -589,7 +589,8 @@
     "typeParameter": "#8FD2DE",
     "parameter": "#E1C59C",
     "variable": "#CCCAC2",
-    "variable.readonly": "#C8ABE6",
+    "variable.readonly": "#CCCAC2",
+    "variable.static": "#CCCAC2",
     "property": "#F29E74",
     "property.readonly": "#D9B0A0",
     "enumMember": "#C8ABE6",
