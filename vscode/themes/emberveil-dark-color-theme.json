@@ -500,7 +500,7 @@
     },
     {
       "name": "Decorators and annotations",
-      "scope": ["meta.decorator", "entity.name.function.decorator", "punctuation.decorator", "storage.type.annotation", "meta.annotation"],
+      "scope": ["meta.decorator", "entity.name.function.decorator", "punctuation.decorator", "storage.type.annotation", "meta.annotation", "meta.attribute.rust", "entity.name.function.attribute.rust"],
       "settings": { "foreground": "#C8ABE6" }
     },
     {
@@ -515,7 +515,7 @@
     },
     {
       "name": "Markup attributes",
-      "scope": ["entity.other.attribute-name", "support.type.property-name.css", "meta.attribute"],
+      "scope": ["entity.other.attribute-name", "entity.other.attribute-name.html", "entity.other.attribute-name.xml", "entity.other.attribute-name.jsx"],
       "settings": { "foreground": "#F29E74" }
     },
     {
@@ -526,7 +526,7 @@
     {
       "name": "CSS properties",
       "scope": ["support.type.property-name.css", "meta.property-name.css"],
-      "settings": { "foreground": "#F29E74" }
+      "settings": { "foreground": "#CCCAC2" }
     },
     {
       "name": "JSON and YAML keys",

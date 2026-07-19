@@ -2,7 +2,7 @@
   "name": "emberveil-theme",
   "displayName": "Emberveil Theme",
   "description": "Warm, comfortable Emberveil themes: atmospheric dark and paper-light.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "mario",
   "license": "UNLICENSED",
   "engines": {
@@ -28,7 +28,7 @@
   },
   "scripts": {
     "check": "node scripts/validate-themes.mjs",
-    "package": "vsce package --out dist/emberveil-theme-0.1.2.vsix"
+    "package": "vsce package --out dist/emberveil-theme-0.1.3.vsix"
   },
   "contributes": {
     "themes": [

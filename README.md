@@ -11,7 +11,7 @@ The repository contains the primary Emberveil family and two earlier theme explo
 
 ## Try it in VS Code
 
-The installable VS Code extension contains both core themes. Download or open the latest build, [`vscode/dist/emberveil-theme-0.1.2.vsix`](vscode/dist/emberveil-theme-0.1.2.vsix), then:
+The installable VS Code extension contains both core themes. Download or open the latest build, [`vscode/dist/emberveil-theme-0.1.3.vsix`](vscode/dist/emberveil-theme-0.1.3.vsix), then:
 
 1. Open the Command Palette in VS Code.
 2. Run **Extensions: Install from VSIX...** and select the file.
@@ -19,6 +19,8 @@ The installable VS Code extension contains both core themes. Download or open th
 4. Choose **Emberveil** or **Emberveil Dark**.
 
 The implementation covers workbench chrome, editor and selection states, TextMate syntax scopes, semantic tokens, terminal ANSI colors, Git and diff states, diagnostics, notebooks, and testing UI. See the [VS Code extension notes](vscode/README.md) for local development and validation.
+
+Deferred visual-audit findings are preserved in [VS Code deferred refinements](emberveil/notes/vscode-review-deferred-refinements.md).
 
 ## Ideas and inspirations
 

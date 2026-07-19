@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.3
+
+- Render CSS property names in the neutral foreground so stylesheets retain a calm hierarchy.
+- Keep coral focused on HTML, XML, and JSX attributes.
+- Route Rust attributes such as `#[derive]` and `#[tauri::command]` to the mauve decorator family instead of the markup-attribute color.
+- Document deferred Markdown and secondary-metadata refinements for a later focused pass.
+
 ## 0.1.2
 
 - Render object, JSON, and YAML keys in the neutral foreground instead of a keyword-adjacent warm color.

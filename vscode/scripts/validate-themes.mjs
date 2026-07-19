@@ -42,11 +42,25 @@ for (const contribution of manifest.contributes?.themes ?? []) {
     if (background && !colorPattern.test(background)) invalidColors.push(`tokenColors[${index}].background`);
   }
 
+  const tokenRuleByName = new Map((theme.tokenColors ?? []).map((rule) => [rule.name, rule]));
+  const cssProperties = tokenRuleByName.get('CSS properties');
+  const markupAttributes = tokenRuleByName.get('Markup attributes');
+  const decorators = tokenRuleByName.get('Decorators and annotations');
+
   if (theme.semanticHighlighting !== true) throw new Error(`${contribution.label}: semantic highlighting is not enabled`);
   if (missingColors.length) throw new Error(`${contribution.label}: missing workbench colors: ${missingColors.join(', ')}`);
   if (missingTokens.length) throw new Error(`${contribution.label}: missing semantic tokens: ${missingTokens.join(', ')}`);
   if (invalidColors.length) throw new Error(`${contribution.label}: invalid color values: ${invalidColors.join(', ')}`);
   if ((theme.tokenColors ?? []).length < 20) throw new Error(`${contribution.label}: TextMate scope coverage is too small`);
+  if (cssProperties?.settings?.foreground !== theme.colors['editor.foreground']) {
+    throw new Error(`${contribution.label}: CSS properties must use the neutral editor foreground`);
+  }
+  if (markupAttributes?.scope?.includes('meta.attribute')) {
+    throw new Error(`${contribution.label}: generic meta.attribute must not leak markup styling into Rust`);
+  }
+  if (!decorators?.scope?.includes('meta.attribute.rust')) {
+    throw new Error(`${contribution.label}: Rust attributes must be covered by the decorator rule`);
+  }
 
   console.log(`${contribution.label}: ${Object.keys(theme.colors).length} workbench colors, ${theme.tokenColors.length} TextMate rules, ${Object.keys(theme.semanticTokenColors).length} semantic rules`);
 }
