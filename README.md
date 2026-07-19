@@ -23,6 +23,12 @@ The implementation covers workbench chrome, editor and selection states, TextMat
 
 Deferred visual-audit findings are preserved in [VS Code deferred refinements](emberveil/notes/vscode-review-deferred-refinements.md).
 
+## Try it in Zed
+
+The native Zed extension in [`zed/`](zed/) installs both **Emberveil** and **Emberveil Dark** as one theme family. In Zed's Extensions page, choose **Install Dev Extension** and select the `zed` directory. Then open the theme selector and choose either family member.
+
+The implementation maps the full surface hierarchy, editor states, diagnostics, Git states, terminal ANSI palette, collaboration colors, and Zed semantic syntax roles. See the [Zed extension guide](zed/README.md) for automatic light/dark switching and validation.
+
 ## Ideas and inspirations
 
 - **Aurora Forge** - a more energetic synthesis of Ayu Mirage, Nord, Cobalt2, JetBrains/Darcula, and personal preferences. [Preview](ideas/aurora-forge/preview.html) · [Specification](ideas/aurora-forge/spec.md)
@@ -38,6 +44,9 @@ emberveil/
 vscode/
   themes/      Installable VS Code theme definitions
   dist/        Ready-to-install VSIX package
+zed/
+  themes/      Native Zed theme family containing both appearances
+  scripts/     Structural and schema-aware validation
 ideas/
   aurora-forge/
   vermilion-fjord/
@@ -45,4 +54,4 @@ ideas/
 
 ## Current status
 
-Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are now packaged as a usable VS Code extension; implementations for other IDEs and a production design-token library remain future work.
+Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are packaged for VS Code and available together as a native Zed extension; implementations for other IDEs and a production design-token library remain future work.

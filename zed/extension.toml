@@ -1,0 +1,8 @@
+id = "emberveil-theme"
+name = "Emberveil Theme"
+version = "0.1.0"
+schema_version = 1
+authors = ["Mario Decker"]
+description = "A warm, low-glare theme family with smoky dark surfaces and dim paper light surfaces."
+repository = "http://192.168.1.200/gitea/Mario/EmberVeil-Theme"
+
