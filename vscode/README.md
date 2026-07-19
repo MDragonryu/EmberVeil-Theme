@@ -11,7 +11,7 @@ Both themes preserve the same semantic language: orange control flow, amber call
 
 1. Open VS Code.
 2. Run **Extensions: Install from VSIX...** from the Command Palette.
-3. Select `dist/emberveil-theme-0.1.1.vsix`.
+3. Select `dist/emberveil-theme-0.1.2.vsix`.
 4. Run **Preferences: Color Theme** and choose **Emberveil** or **Emberveil Dark**.
 
 ## Develop locally

@@ -484,9 +484,9 @@
       "settings": { "foreground": "#8FD2DE" }
     },
     {
-      "name": "Properties and fields",
+      "name": "Properties, fields, and data keys",
       "scope": ["variable.other.property", "variable.other.object.property", "variable.other.member", "variable.other.field", "support.variable.property", "meta.object-literal.key", "constant.other.key"],
-      "settings": { "foreground": "#F29E74" }
+      "settings": { "foreground": "#CCCAC2" }
     },
     {
       "name": "Parameters",
@@ -531,7 +531,7 @@
     {
       "name": "JSON and YAML keys",
       "scope": ["support.type.property-name.json", "support.type.property-name.yaml", "entity.name.tag.yaml", "meta.mapping.key"],
-      "settings": { "foreground": "#F29E74" }
+      "settings": { "foreground": "#CCCAC2" }
     },
     {
       "name": "Markdown headings",
@@ -591,8 +591,8 @@
     "variable": "#CCCAC2",
     "variable.readonly": "#CCCAC2",
     "variable.static": "#CCCAC2",
-    "property": "#F29E74",
-    "property.readonly": "#D9B0A0",
+    "property": "#CCCAC2",
+    "property.readonly": "#CCCAC2",
     "enumMember": "#C8ABE6",
     "event": "#F29E74",
     "function": "#FFD173",

@@ -11,7 +11,7 @@ The repository contains the primary Emberveil family and two earlier theme explo
 
 ## Try it in VS Code
 
-The installable VS Code extension contains both core themes. Download or open the latest build, [`vscode/dist/emberveil-theme-0.1.1.vsix`](vscode/dist/emberveil-theme-0.1.1.vsix), then:
+The installable VS Code extension contains both core themes. Download or open the latest build, [`vscode/dist/emberveil-theme-0.1.2.vsix`](vscode/dist/emberveil-theme-0.1.2.vsix), then:
 
 1. Open the Command Palette in VS Code.
 2. Run **Extensions: Install from VSIX...** and select the file.

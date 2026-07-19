@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+- Render object, JSON, and YAML keys in the neutral foreground instead of a keyword-adjacent warm color.
+- Render semantic properties and fields neutrally for calmer data-heavy code.
+- Preserve coral for lower-frequency attribute syntax such as HTML attributes and CSS property names.
+
 ## 0.1.1
 
 - Render readonly and static variable names in the neutral foreground instead of mauve.
