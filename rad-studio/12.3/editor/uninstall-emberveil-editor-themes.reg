@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+; Removes only the two Emberveil custom Code Editor schemes.
+
+[-HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark]
+
+[-HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light]
+

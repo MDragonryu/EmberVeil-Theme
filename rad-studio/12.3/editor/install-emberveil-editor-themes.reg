@@ -1,0 +1,731 @@
+Windows Registry Editor Version 5.00
+
+; Emberveil editor-only Color SpeedSettings for RAD Studio 12.3 Athens (BDS 23.0).
+; This file does not modify the IDE Theme/VCL Style or select a scheme automatically.
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes]
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark]
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Additional search match highlight]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D3DEE3"
+"Background Color New"="$003C4147"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Assembler]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$0073D1FF"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Attribute Names]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00749EF2"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Attribute Values]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$0082D9B8"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Brace Highlight]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="True"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D3DEE3"
+"Background Color New"="$006A5346"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Character]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$0082D9B8"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Code folding tree]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$0077675F"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Comment]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="True"
+"Underline"="False"
+"Foreground Color New"="$008E7D72"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Diff addition]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D3DEE3"
+"Background Color New"="$00394235"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Diff deletion]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D3DEE3"
+"Background Color New"="$00383245"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Diff move]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D3DEE3"
+"Background Color New"="$00493D31"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Disabled break]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$008E7D72"
+"Background Color New"="$004E3F3B"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Enabled break]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="True"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00E3F3FF"
+"Background Color New"="$00484075"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Error line]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D3DEE3"
+"Background Color New"="$00362D4A"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Execution point]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="True"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D3DEE3"
+"Background Color New"="$002F4651"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Float]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00E6ABC8"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Folded code]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="True"
+"Underline"="False"
+"Foreground Color New"="$008E7D72"
+"Background Color New"="$00423330"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Hex]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00E6ABC8"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Hot Link]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="True"
+"Foreground Color New"="$00D6C773"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Identifier]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00C2CACC"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Illegal Char]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="True"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D3DEE3"
+"Background Color New"="$00362D4A"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Invalid break]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$008E7D72"
+"Background Color New"="$00362D4A"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Line Highlight]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00C2CACC"
+"Background Color New"="$0040302D"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Line Number]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$0077675F"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Marked block]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D3DEE3"
+"Background Color New"="$005C463A"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Modified line]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D6C773"
+"Background Color New"="$0086CF9F"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Number]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00E6ABC8"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Octal]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00E6ABC8"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Plain text]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00C2CACC"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Preprocessor]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00E6ABC8"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Reserved word]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="True"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$005B9FFF"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Right margin]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00594A45"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Scripts]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$0073D1FF"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Search match]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D3DEE3"
+"Background Color New"="$001F4359"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\String]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$0082D9B8"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Symbol]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00C2CACC"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Sync edit background]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00C2CACC"
+"Background Color New"="$00423330"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Sync edit highlight]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="True"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D3DEE3"
+"Background Color New"="$006A5346"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Tags]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00D6C773"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Whitespace]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$0077675F"
+"Background Color New"="$00322624"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light]
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Additional search match highlight]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$002D2722"
+"Background Color New"="$00ADC9D6"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Assembler]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00005987"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Attribute Names]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00214391"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Attribute Values]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$001F6646"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Brace Highlight]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="True"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$002D2722"
+"Background Color New"="$00CEC8B5"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Character]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$001F6646"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Code folding tree]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$007A838A"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Comment]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="True"
+"Underline"="False"
+"Foreground Color New"="$006B6158"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Diff addition]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$002D2722"
+"Background Color New"="$00B6D0CC"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Diff deletion]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$002D2722"
+"Background Color New"="$00BAC2DC"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Diff move]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$002D2722"
+"Background Color New"="$00D8D6C6"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Disabled break]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$006B6158"
+"Background Color New"="$00B0BBC3"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Enabled break]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="True"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00E0EDF7"
+"Background Color New"="$00423BA3"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Error line]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$002D2722"
+"Background Color New"="$00B7B8E2"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Execution point]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="True"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$002D2722"
+"Background Color New"="$0093C9D9"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Float]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00874C70"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Folded code]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="True"
+"Underline"="False"
+"Foreground Color New"="$006B6158"
+"Background Color New"="$00C5D1D8"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Hex]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00874C70"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Hot Link]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="True"
+"Foreground Color New"="$0070651C"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Identifier]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$003F3835"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Illegal Char]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="True"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$002D2722"
+"Background Color New"="$00B7B8E2"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Invalid break]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$006B6158"
+"Background Color New"="$00B7B8E2"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Line Highlight]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$003F3835"
+"Background Color New"="$00C3CFD6"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Line Number]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$007A838A"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Marked block]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$002D2722"
+"Background Color New"="$00D8D3C4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Modified line]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$0070651C"
+"Background Color New"="$001F6646"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Number]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00874C70"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Octal]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00874C70"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Plain text]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$003F3835"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Preprocessor]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00874C70"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Reserved word]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="True"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$001240A4"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Right margin]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00A6B1B9"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Scripts]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$00005987"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Search match]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$002D2722"
+"Background Color New"="$009AC6DC"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\String]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$001F6646"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Symbol]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$003F3835"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Sync edit background]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$003F3835"
+"Background Color New"="$00CAD6DD"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Sync edit highlight]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="True"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$002D2722"
+"Background Color New"="$00D8D3C4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Tags]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$0070651C"
+"Background Color New"="$00D2DEE4"
+
+[HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Whitespace]
+"Default Foreground"="False"
+"Default Background"="False"
+"Bold"="False"
+"Italic"="False"
+"Underline"="False"
+"Foreground Color New"="$007A838A"
+"Background Color New"="$00D2DEE4"
+
