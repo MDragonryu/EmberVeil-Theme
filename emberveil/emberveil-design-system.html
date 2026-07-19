@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Emberveil Theme Family — Design System</title>
+  <style>
+    :root {
+      --font-ui: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      --step--1: 0.8125rem;
+      --step-0: 0.9375rem;
+      --step-1: 1.125rem;
+      --step-2: clamp(1.35rem, 2.2vw, 1.75rem);
+      --step-3: clamp(1.8rem, 4vw, 3rem);
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-7: 3rem;
+      --radius-sm: 5px;
+      --radius-md: 9px;
+      --radius-lg: 14px;
+      --duration: 150ms;
+    }
+
+    :root,
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --shell: #1D2029;
+      --sidebar: #20232D;
+      --canvas: #242632;
+      --panel: #292C38;
+      --raised: #303342;
+      --line-current: #2D3040;
+      --selection: #3A465C;
+      --border: #3B3F4E;
+      --border-strong: #565C6C;
+      --text: #CCCAC2;
+      --text-strong: #E3DED3;
+      --text-muted: #9A9DA5;
+      --text-faint: #727D8E;
+      --keyword: #FF9F5B;
+      --function: #FFD173;
+      --type: #73C7D6;
+      --tag: #5CCFE6;
+      --string: #B8D982;
+      --number: #C8ABE6;
+      --attribute: #F29E74;
+      --parameter: #E1C59C;
+      --operator: #F0AA7A;
+      --comment: #727D8E;
+      --documentation: #9FCF86;
+      --focus: #FFCC66;
+      --action: #C06F3D;
+      --action-hover: #D4814B;
+      --action-text: #FFF3E3;
+      --danger: #F07178;
+      --warning: #FFD173;
+      --info: #73C7D6;
+      --success: #9FCF86;
+      --input: #1D2029;
+      --shadow: 0 18px 42px rgb(9 11 16 / 34%);
+      --wash-warm: rgb(255 159 91 / 10%);
+      --wash-cool: rgb(115 199 214 / 10%);
+      --wash-danger: rgb(240 113 120 / 10%);
+    }
+
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --shell: #CEC6BA;
+      --sidebar: #D8D1C5;
+      --canvas: #E4DED2;
+      --panel: #DDD6CA;
+      --raised: #EEE7DB;
+      --line-current: #D6CFC3;
+      --selection: #C4D3D8;
+      --border: #B9B1A6;
+      --border-strong: #9B948A;
+      --text: #35383F;
+      --text-strong: #22272D;
+      --text-muted: #686A70;
+      --text-faint: #77736D;
+      --keyword: #A44012;
+      --function: #875900;
+      --type: #1C6570;
+      --tag: #0E687B;
+      --string: #46661F;
+      --number: #704C87;
+      --attribute: #914321;
+      --parameter: #76532E;
+      --operator: #934827;
+      --comment: #58616B;
+      --documentation: #45653A;
+      --focus: #A86B00;
+      --action: #A44012;
+      --action-hover: #BC531E;
+      --action-text: #F7EDE0;
+      --danger: #A33B42;
+      --warning: #A86B00;
+      --info: #1C6570;
+      --success: #45653A;
+      --input: #EEE7DB;
+      --shadow: 0 18px 42px rgb(72 61 47 / 15%);
+      --wash-warm: rgb(164 64 18 / 9%);
+      --wash-cool: rgb(28 101 112 / 9%);
+      --wash-danger: rgb(163 59 66 / 9%);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--canvas);
+      font: 400 var(--step-0)/1.65 var(--font-ui);
+      transition: color var(--duration), background var(--duration);
+    }
+    button, input, select, textarea { font: inherit; }
+    a { color: var(--type); text-underline-offset: 0.2em; }
+    a:hover { color: var(--tag); }
+    code, pre { font-family: var(--font-code); }
+    code:not(pre code) {
+      padding: 0.12rem 0.35rem;
+      color: var(--function);
+      background: var(--raised);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 0.9em;
+    }
+    h1, h2, h3, h4 { margin: 0; color: var(--text-strong); font-weight: 500; line-height: 1.25; }
+    h1 { max-width: 15ch; font-size: var(--step-3); }
+    h2 { font-size: var(--step-2); }
+    h3 { font-size: var(--step-1); }
+    h4 { font-size: var(--step-0); }
+    p, ul, ol, dl, blockquote { margin: 0; }
+    ul, ol { padding-left: 1.25rem; }
+    li + li { margin-top: 0.35rem; }
+    ::selection { color: var(--text-strong); background: var(--selection); }
+    :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+    .site-header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: 0.75rem clamp(1rem, 3vw, 2.5rem);
+      background: color-mix(in srgb, var(--shell) 92%, transparent);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+    .brand { display: flex; align-items: baseline; gap: var(--space-3); }
+    .brand strong { color: var(--function); font-weight: 500; letter-spacing: 0.02em; }
+    .eyebrow { color: var(--keyword); font-size: var(--step--1); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+    .muted { color: var(--text-muted); }
+    .faint { color: var(--text-faint); }
+    .theme-switcher {
+      display: inline-flex;
+      gap: 2px;
+      padding: 3px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+    .theme-switcher button {
+      padding: 0.4rem 0.7rem;
+      color: var(--text-muted);
+      background: transparent;
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .theme-switcher button[aria-pressed="true"] { color: var(--text-strong); background: var(--selection); }
+
+    .page { display: grid; grid-template-columns: 16rem minmax(0, 1fr); min-height: calc(100vh - 58px); }
+    .toc {
+      position: sticky;
+      top: 58px;
+      align-self: start;
+      height: calc(100vh - 58px);
+      padding: var(--space-5);
+      overflow-y: auto;
+      background: var(--sidebar);
+      border-right: 1px solid var(--border);
+    }
+    .toc-title { margin-bottom: var(--space-3); color: var(--text-faint); font-size: var(--step--1); letter-spacing: 0.1em; text-transform: uppercase; }
+    .toc nav { display: grid; gap: 0.15rem; }
+    .toc a { padding: 0.35rem 0.5rem; color: var(--text-muted); border-left: 2px solid transparent; text-decoration: none; }
+    .toc a:hover { color: var(--text-strong); background: var(--panel); border-left-color: var(--keyword); }
+    main { min-width: 0; }
+    .content { width: min(calc(100% - 2rem), 76rem); margin-inline: auto; padding: clamp(2rem, 6vw, 5rem) 0 6rem; }
+    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; min-height: 62vh; }
+    .hero-copy { display: grid; min-width: 0; gap: var(--space-5); }
+    .hero-copy > p { max-width: 62ch; color: var(--text-muted); font-size: var(--step-1); }
+    .signature { color: var(--keyword); }
+    .hero-sample {
+      min-width: 0;
+      padding: var(--space-5);
+      background: var(--shell);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+    }
+    .sample-bar { display: flex; justify-content: space-between; gap: var(--space-3); padding-bottom: var(--space-3); color: var(--text-faint); border-bottom: 1px solid var(--border); font-size: var(--step--1); }
+    .hero-sample pre { margin: var(--space-4) 0 0; overflow-x: auto; color: var(--text); font-size: var(--step--1); line-height: 1.75; }
+
+    section { padding-top: 5.5rem; scroll-margin-top: 4rem; }
+    .section-head { display: grid; grid-template-columns: minmax(12rem, 0.35fr) minmax(0, 0.65fr); gap: var(--space-6); margin-bottom: var(--space-6); padding-bottom: var(--space-5); border-bottom: 1px solid var(--border); }
+    .section-head p { max-width: 66ch; color: var(--text-muted); }
+    .stack { display: grid; gap: var(--space-5); }
+    .grid-2, .grid-3, .grid-4 { display: grid; gap: var(--space-4); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card { padding: var(--space-5); background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-md); }
+    .card h3, .card h4 { margin-bottom: var(--space-2); }
+    .card p { color: var(--text-muted); }
+    .principle { border-top: 3px solid var(--keyword); }
+    .principle:nth-child(2) { border-top-color: var(--function); }
+    .principle:nth-child(3) { border-top-color: var(--type); }
+    .principle:nth-child(4) { border-top-color: var(--string); }
+
+    .family-pair { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-lg); }
+    .family-panel { min-height: 15rem; padding: var(--space-6); }
+    .family-panel.dark { color: #CCCAC2; background: #242632; }
+    .family-panel.light { color: #35383F; background: #E4DED2; }
+    .family-panel h3 { color: inherit; }
+    .family-panel p { margin-top: var(--space-3); opacity: 0.76; }
+    .family-panel .mode-line { width: 3rem; height: 3px; margin-top: var(--space-5); background: currentColor; opacity: 0.55; }
+    .family-panel.dark .mode-line { background: #FFCC66; }
+    .family-panel.light .mode-line { background: #A86B00; }
+
+    .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); gap: var(--space-3); }
+    .swatch { overflow: hidden; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-md); }
+    .swatch-color { height: 5rem; background: var(--swatch); }
+    .swatch-copy { display: grid; grid-template-columns: 1fr auto; gap: var(--space-2); padding: var(--space-3); }
+    .swatch-copy span:last-child { color: var(--text-faint); font: 400 var(--step--1)/1.4 var(--font-code); text-transform: uppercase; }
+    .swatch-role { grid-column: 1 / -1; color: var(--text-muted); font-size: var(--step--1); }
+
+    .surface-ladder { display: grid; grid-template-columns: repeat(5, 1fr); min-height: 10rem; border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+    .surface-step { display: flex; flex-direction: column; justify-content: end; gap: var(--space-1); padding: var(--space-3); color: var(--text); background: var(--surface); }
+    .surface-step small { color: var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th, td { padding: 0.8rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--text-strong); font-weight: 500; }
+    td { color: var(--text-muted); }
+    td code { white-space: nowrap; }
+
+    .syntax { overflow: hidden; background: var(--shell); border: 1px solid var(--border); border-radius: var(--radius-md); }
+    .syntax-head { display: flex; justify-content: space-between; padding: 0.6rem 0.9rem; color: var(--text-faint); background: var(--panel); border-bottom: 1px solid var(--border); font-size: var(--step--1); }
+    .syntax pre { margin: 0; padding: var(--space-5); overflow-x: auto; color: var(--text); line-height: 1.8; }
+    .kw { color: var(--keyword); font-weight: 500; }
+    .fn { color: var(--function); }
+    .type { color: var(--type); }
+    .tag { color: var(--tag); }
+    .str { color: var(--string); }
+    .num, .ann { color: var(--number); }
+    .attr { color: var(--attribute); }
+    .param { color: var(--parameter); }
+    .op { color: var(--operator); }
+    .comment { color: var(--comment); font-style: italic; }
+    .doc { color: var(--documentation); font-style: italic; }
+    .property { color: var(--text); }
+
+    .type-specimen { display: grid; gap: var(--space-4); }
+    .type-display { font-size: var(--step-3); line-height: 1.05; }
+    .type-heading { font-size: var(--step-2); line-height: 1.2; }
+    .type-body { max-width: 66ch; color: var(--text-muted); }
+    .type-code { color: var(--function); font-family: var(--font-code); }
+
+    .demo-area { padding: var(--space-5); background: var(--sidebar); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+    .controls { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.5rem;
+      padding: 0.5rem 0.9rem;
+      color: var(--text-strong);
+      background: var(--raised);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--selection); }
+    .btn.primary { color: var(--action-text); background: var(--action); border-color: transparent; }
+    .btn.primary:hover { background: var(--action-hover); }
+    .btn.ghost { background: transparent; border-color: transparent; }
+    .btn.danger { color: var(--danger); background: var(--wash-danger); border-color: color-mix(in srgb, var(--danger) 50%, transparent); }
+    .btn:disabled { color: var(--text-faint); background: var(--panel); opacity: 0.55; cursor: not-allowed; }
+
+    .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+    .field { display: grid; gap: var(--space-2); color: var(--text-strong); }
+    .field small { color: var(--text-faint); }
+    .control {
+      width: 100%;
+      min-height: 2.65rem;
+      padding: 0.55rem 0.7rem;
+      color: var(--text);
+      background: var(--input);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+    }
+    textarea.control { min-height: 6rem; resize: vertical; }
+    .control::placeholder { color: var(--text-faint); }
+    .control[aria-invalid="true"] { border-color: var(--danger); }
+    .field-error { color: var(--danger); font-size: var(--step--1); }
+
+    .mini-app { display: grid; grid-template-columns: 12rem minmax(0, 1fr); min-height: 24rem; overflow: hidden; background: var(--canvas); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+    .mini-nav { padding: var(--space-4); background: var(--shell); border-right: 1px solid var(--border); }
+    .mini-nav strong { display: block; margin-bottom: var(--space-4); color: var(--function); font-weight: 500; }
+    .mini-nav a { display: block; margin-bottom: 0.2rem; padding: 0.5rem 0.65rem; color: var(--text-muted); border-left: 2px solid transparent; text-decoration: none; }
+    .mini-nav a.active { color: var(--text-strong); background: var(--panel); border-left-color: var(--keyword); }
+    .mini-main { min-width: 0; }
+    .mini-toolbar { display: flex; justify-content: space-between; gap: var(--space-4); align-items: center; padding: var(--space-4); background: var(--panel); border-bottom: 1px solid var(--border); }
+    .mini-content { display: grid; gap: var(--space-4); padding: var(--space-5); }
+    .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
+    .metric { padding: var(--space-4); background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-md); }
+    .metric span { color: var(--text-faint); font-size: var(--step--1); }
+    .metric strong { display: block; margin-top: var(--space-1); color: var(--text-strong); font-size: var(--step-2); font-weight: 500; }
+
+    .message { display: grid; grid-template-columns: auto 1fr; gap: var(--space-3); padding: var(--space-4); border-left: 3px solid var(--tone); background: var(--wash); }
+    .message strong { color: var(--tone); font-weight: 500; }
+    .message.info { --tone: var(--info); --wash: var(--wash-cool); }
+    .message.warning { --tone: var(--warning); --wash: var(--wash-warm); }
+    .message.danger { --tone: var(--danger); --wash: var(--wash-danger); }
+    .message.success { --tone: var(--success); --wash: color-mix(in srgb, var(--success) 10%, transparent); }
+
+    .rule-list { display: grid; gap: var(--space-3); }
+    .rule { display: grid; grid-template-columns: 8rem 1fr; gap: var(--space-4); padding-bottom: var(--space-3); border-bottom: 1px solid var(--border); }
+    .rule strong { color: var(--function); font-weight: 500; }
+    .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+    .do-dont > div { padding: var(--space-5); border: 1px solid var(--border); border-radius: var(--radius-md); }
+    .do { background: color-mix(in srgb, var(--success) 7%, var(--panel)); }
+    .dont { background: color-mix(in srgb, var(--danger) 7%, var(--panel)); }
+    .do h3 { color: var(--success); }
+    .dont h3 { color: var(--danger); }
+
+    .token-code { position: relative; }
+    .token-code pre { max-height: 34rem; margin: 0; padding: var(--space-5); overflow: auto; color: var(--text); background: var(--shell); border: 1px solid var(--border); border-radius: var(--radius-md); font-size: var(--step--1); line-height: 1.65; }
+    .checklist { columns: 2; column-gap: var(--space-6); }
+    .checklist li { break-inside: avoid; margin-bottom: var(--space-2); }
+    footer { padding: var(--space-6); color: var(--text-faint); background: var(--shell); border-top: 1px solid var(--border); text-align: center; }
+
+    @media (max-width: 900px) {
+      .page { grid-template-columns: 1fr; }
+      .toc { position: static; width: auto; height: auto; border-right: 0; border-bottom: 1px solid var(--border); }
+      .toc nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .hero, .section-head { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .site-header, .brand { align-items: flex-start; }
+      .site-header { position: static; flex-direction: column; }
+      .page { min-height: 0; }
+      .toc { display: none; }
+      .content { width: min(calc(100% - 1.25rem), 76rem); padding-top: 2rem; }
+      .grid-2, .grid-3, .grid-4, .family-pair, .field-grid, .do-dont { grid-template-columns: 1fr; }
+      .surface-ladder { grid-template-columns: 1fr; }
+      .surface-step { min-height: 5rem; }
+      .mini-app { grid-template-columns: 1fr; }
+      .mini-nav { border-right: 0; border-bottom: 1px solid var(--border); }
+      .mini-nav a { display: inline-block; }
+      .metric-grid { grid-template-columns: 1fr; }
+      .rule { grid-template-columns: 1fr; gap: var(--space-1); }
+      .checklist { columns: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><strong>Emberveil</strong><span class="muted">Theme family design system · 1.0</span></div>
+    <div class="theme-switcher" role="group" aria-label="Documentation theme">
+      <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+      <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
+      <button type="button" data-theme-choice="system" aria-pressed="false">System</button>
+    </div>
+  </header>
+
+  <div class="page">
+    <aside class="toc" aria-label="Document navigation">
+      <div class="toc-title">Foundations to delivery</div>
+      <nav>
+        <a href="#identity">Identity</a>
+        <a href="#principles">Principles</a>
+        <a href="#modes">Family modes</a>
+        <a href="#color">Color system</a>
+        <a href="#syntax">Syntax language</a>
+        <a href="#type">Typography</a>
+        <a href="#layout">Layout & depth</a>
+        <a href="#components">Components</a>
+        <a href="#states">States & feedback</a>
+        <a href="#accessibility">Accessibility</a>
+        <a href="#implementation">Implementation</a>
+        <a href="#governance">Governance</a>
+      </nav>
+    </aside>
+
+    <main>
+      <div class="content">
+        <section class="hero" id="identity">
+          <div class="hero-copy">
+            <div class="eyebrow">Canonical family reference</div>
+            <h1>Warm semantic light. Disciplined structural calm.</h1>
+            <p>Emberveil is a paired interface and syntax system for prolonged work. Dark mode feels like colored light inside a muted Mirage atmosphere. Light mode feels like semantic ink printed on dim paper. The roles remain stable; the material expression changes.</p>
+            <p class="muted">Use this document as the source of intent when designing a new application, translating Emberveil to another platform, or reviewing whether an implementation still belongs to the family.</p>
+          </div>
+          <div class="hero-sample" aria-label="Emberveil syntax specimen">
+            <div class="sample-bar"><span>theme.ts</span><span>Emberveil</span></div>
+            <pre><code><span class="comment">// Color describes meaning, not decoration.</span>
+<span class="kw">export function</span> <span class="fn">createTheme</span>(
+  <span class="param">mode</span>: <span class="type">ThemeMode</span>
+) {
+  <span class="kw">const</span> palette = <span class="fn">resolvePalette</span>(mode);
+  <span class="kw">return</span> {
+    <span class="property">background</span>: palette.<span class="property">canvas</span>,
+    <span class="property">accent</span>: <span class="str">"ember"</span>,
+    <span class="property">comfortable</span>: <span class="kw">true</span>
+  };
+}</code></pre>
+          </div>
+        </section>
+
+        <section id="principles">
+          <div class="section-head"><h2>Design principles</h2><p>These rules define Emberveil more reliably than any individual hex value. Preserve them when a platform forces color substitutions or component-specific compromises.</p></div>
+          <div class="grid-4">
+            <article class="card principle"><h3>Comfort first</h3><p>Avoid pure black and broad white. Long sessions should feel steady, not brilliant.</p></article>
+            <article class="card principle"><h3>Warm execution</h3><p>Orange and amber identify decisions, control flow, actions, and callable behavior.</p></article>
+            <article class="card principle"><h3>Cool structure</h3><p>Cyan and teal describe types, navigation, information, and architectural boundaries.</p></article>
+            <article class="card principle"><h3>Localized color</h3><p>Large surfaces stay quiet. Saturation belongs to small semantic marks, never decorative acreage.</p></article>
+          </div>
+          <div class="rule-list" style="margin-top: var(--space-6)">
+            <div class="rule"><strong>Atmosphere</strong><span>Warm-neutral, slightly smoky, and modern. Never pitch black, sterile white, cobalt-dominant, or nostalgically sepia.</span></div>
+            <div class="rule"><strong>Hierarchy</strong><span>Create depth with close material steps. Borders are quiet; focus indicators and readable content carry the stronger contrast.</span></div>
+            <div class="rule"><strong>Semantics</strong><span>A role keeps its meaning across modes. Orange does not become informational blue merely because the background changed.</span></div>
+            <div class="rule"><strong>Restraint</strong><span>Plain variables, object keys, data fields, and CSS properties remain neutral so code stays calm and keywords retain authority.</span></div>
+          </div>
+        </section>
+
+        <section id="modes">
+          <div class="section-head"><h2>One family, two materials</h2><p>The modes are siblings rather than inversions. They share semantic grammar but tune luminance, saturation, borders, elevation, and text independently.</p></div>
+          <div class="family-pair">
+            <article class="family-panel dark"><div class="eyebrow" style="color:#FF9F5B">Emberveil Dark</div><h3>Light inside atmosphere</h3><p>Warm charcoal, smoky slate, softened cyan, lichen green, and localized amber illumination. Built around Ayu Mirage as the dominant contemporary influence.</p><div class="mode-line"></div></article>
+            <article class="family-panel light"><div class="eyebrow" style="color:#A44012">Emberveil</div><h3>Ink on dim paper</h3><p>Pressed fiber, parchment, charcoal ink, burnt orange, deep teal, olive, and ochre. Bright enough to be light, never bright enough to glare.</p><div class="mode-line"></div></article>
+          </div>
+          <div class="table-wrap" style="margin-top:var(--space-6)">
+            <table>
+              <thead><tr><th>Concept</th><th>Dark expression</th><th>Light expression</th><th>Invariant meaning</th></tr></thead>
+              <tbody>
+                <tr><td>Base material</td><td>Warm night slate</td><td>Dim technical paper</td><td>Sustained-use canvas</td></tr>
+                <tr><td>Elevation</td><td>Slightly lighter smoky layers</td><td>Warmer or denser paper grades</td><td>Quiet spatial hierarchy</td></tr>
+                <tr><td>Focus</td><td>Luminous gold</td><td>Ochre ink</td><td>Keyboard and active-location signal</td></tr>
+                <tr><td>Execution</td><td>Bright ember orange</td><td>Burnt orange ink</td><td>Control flow and primary action</td></tr>
+                <tr><td>Structure</td><td>Soft Frost cyan</td><td>Deep teal ink</td><td>Types, information, architecture</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="color">
+          <div class="section-head"><h2>Color system</h2><p>Always choose colors by semantic role. Values shown here switch with this document and are the current canonical application equivalents of the VS Code themes.</p></div>
+          <h3 style="margin-bottom:var(--space-3)">Surface ladder</h3>
+          <div class="surface-ladder" aria-label="Emberveil surface hierarchy">
+            <div class="surface-step" style="--surface:var(--shell)"><strong>Shell</strong><small>Outermost chrome</small></div>
+            <div class="surface-step" style="--surface:var(--sidebar)"><strong>Sidebar</strong><small>Navigation structure</small></div>
+            <div class="surface-step" style="--surface:var(--canvas)"><strong>Canvas</strong><small>Primary workspace</small></div>
+            <div class="surface-step" style="--surface:var(--panel)"><strong>Panel</strong><small>Attached elevation</small></div>
+            <div class="surface-step" style="--surface:var(--raised)"><strong>Raised</strong><small>Popover and dialog</small></div>
+          </div>
+
+          <h3 style="margin:var(--space-7) 0 var(--space-3)">Semantic accents</h3>
+          <div class="swatch-grid">
+            <div class="swatch"><div class="swatch-color" style="--swatch:var(--keyword)"></div><div class="swatch-copy"><strong>Keyword</strong><span data-color="keyword"></span><div class="swatch-role">Control flow, primary decisions</div></div></div>
+            <div class="swatch"><div class="swatch-color" style="--swatch:var(--function)"></div><div class="swatch-copy"><strong>Function</strong><span data-color="function"></span><div class="swatch-role">Calls, declarations, warm landmarks</div></div></div>
+            <div class="swatch"><div class="swatch-color" style="--swatch:var(--type)"></div><div class="swatch-copy"><strong>Type</strong><span data-color="type"></span><div class="swatch-role">Classes, types, information</div></div></div>
+            <div class="swatch"><div class="swatch-color" style="--swatch:var(--string)"></div><div class="swatch-copy"><strong>String</strong><span data-color="string"></span><div class="swatch-role">Literal content and success-adjacent data</div></div></div>
+            <div class="swatch"><div class="swatch-color" style="--swatch:var(--number)"></div><div class="swatch-copy"><strong>Mauve</strong><span data-color="number"></span><div class="swatch-role">Numbers, constants, annotations</div></div></div>
+            <div class="swatch"><div class="swatch-color" style="--swatch:var(--attribute)"></div><div class="swatch-copy"><strong>Attribute</strong><span data-color="attribute"></span><div class="swatch-role">HTML/XML attributes and events</div></div></div>
+            <div class="swatch"><div class="swatch-color" style="--swatch:var(--documentation)"></div><div class="swatch-copy"><strong>Documentation</strong><span data-color="documentation"></span><div class="swatch-role">Meaningful comments and hints</div></div></div>
+            <div class="swatch"><div class="swatch-color" style="--swatch:var(--focus)"></div><div class="swatch-copy"><strong>Focus</strong><span data-color="focus"></span><div class="swatch-role">Carets, rings, thin active markers</div></div></div>
+          </div>
+
+          <div class="grid-2" style="margin-top:var(--space-7)">
+            <article class="card"><h3>Neutral is an active choice</h3><p>Variables, object keys, JSON/YAML keys, fields, member properties, and CSS property names use the main foreground. This lowers visual noise and protects orange for genuine language structure.</p></article>
+            <article class="card"><h3>Coral has a narrow job</h3><p>Reserve coral/rust for markup attributes, events, and selected domain-specific member semantics. Do not treat every key-value pair as an attribute.</p></article>
+          </div>
+        </section>
+
+        <section id="syntax">
+          <div class="section-head"><h2>Syntax language</h2><p>Code coloring follows meaning and reading rhythm. Warm tones describe execution, cool tones describe structure, green contains content, mauve marks constants and annotations, and neutral text carries ordinary data.</p></div>
+          <div class="syntax">
+            <div class="syntax-head"><span>order-service.ts</span><span>semantic specimen</span></div>
+            <pre><code><span class="kw">import type</span> { <span class="type">Order</span>, <span class="type">OrderId</span> } <span class="kw">from</span> <span class="str">"./types"</span>;
+
+<span class="doc">/** Load an order and preserve explicit failure. */</span>
+<span class="kw">export async function</span> <span class="fn">loadOrder</span>(<span class="param">id</span>: <span class="type">OrderId</span>) {
+  <span class="kw">const</span> order = <span class="kw">await</span> repository.<span class="fn">find</span>(id);
+  <span class="kw">if</span> (!order) {
+    logger.<span class="fn">warn</span>(<span class="str">"Order not found"</span>, { <span class="property">id</span> });
+    <span class="kw">throw new</span> <span class="type">OrderMissingError</span>(id);
+  }
+  order.<span class="property">attempts</span> <span class="op">+=</span> <span class="num">1</span>;
+  <span class="kw">return</span> order;
+}</code></pre>
+          </div>
+          <div class="table-wrap" style="margin-top:var(--space-6)">
+            <table>
+              <thead><tr><th>Role</th><th>Use</th><th>Avoid</th></tr></thead>
+              <tbody>
+                <tr><td><span class="kw">Orange</span></td><td>Control flow, storage keywords, imports/exports, language constants</td><td>Object keys, all properties, prose decoration</td></tr>
+                <tr><td><span class="fn">Amber</span></td><td>Functions, methods, calls, declarations</td><td>Every identifier that happens to be important</td></tr>
+                <tr><td><span class="type">Cyan / teal</span></td><td>Types, classes, namespaces, modules, CSS selectors</td><td>General links and decorative borders everywhere</td></tr>
+                <tr><td><span class="str">Green</span></td><td>Strings, regular expressions, meaningful documentation</td><td>All comments at full intensity</td></tr>
+                <tr><td><span class="num">Mauve</span></td><td>Numbers, enum members, decorators, Rust attributes, macros</td><td>Ordinary variables</td></tr>
+                <tr><td><span class="attr">Coral</span></td><td>HTML/XML/JSX attributes and event-like semantics</td><td>JSON keys, CSS property names, routine fields</td></tr>
+                <tr><td>Neutral</td><td>Variables, properties, keys, punctuation, plain text</td><td>Reducing all code to one undifferentiated tone</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="type">
+          <div class="section-head"><h2>Typography</h2><p>Typography should support the color system rather than compete with it. Emberveil favors familiar, highly legible system faces and restrained weight changes.</p></div>
+          <div class="card type-specimen">
+            <div class="type-display">Build calm systems.</div>
+            <div class="type-heading">Warm structure without visual noise</div>
+            <p class="type-body">Use the platform UI sans-serif for product interfaces. Prefer a proven monospaced family for code, logs, identifiers, and tabular technical data. Keep body copy between 14–17px and never use thin weights on muted text.</p>
+            <div class="type-code">const theme: Emberveil = resolve(mode);</div>
+          </div>
+          <div class="grid-3" style="margin-top:var(--space-4)">
+            <article class="card"><h3>UI text</h3><p>System sans-serif, weight 400. Use 500 only for headings, buttons, selected navigation, and compact labels.</p></article>
+            <article class="card"><h3>Code text</h3><p>Platform monospace with clear punctuation and distinguishable glyphs. Let syntax color carry most hierarchy.</p></article>
+            <article class="card"><h3>Line height</h3><p>Use 1.45–1.7 for prose and 1.55–1.8 for code. Dense data tables may tighten carefully.</p></article>
+          </div>
+        </section>
+
+        <section id="layout">
+          <div class="section-head"><h2>Layout and material depth</h2><p>Emberveil does not rely on dramatic cards or floating glass. Most structure comes from spacing, close surface steps, thin borders, and a small number of genuinely raised elements.</p></div>
+          <div class="grid-3">
+            <article class="card"><h3>Spacing</h3><p>Use a 4px base rhythm. Prefer 8, 12, 16, 24, 32, and 48px. Increase whitespace before adding borders.</p></article>
+            <article class="card"><h3>Radii</h3><p>5px for controls, 9px for panels, 14px for major dialogs or composed app frames. Avoid bubbly geometry.</p></article>
+            <article class="card"><h3>Elevation</h3><p>Attached panels use borders and material shifts. Reserve shadows for dialogs, menus, and major floating surfaces.</p></article>
+          </div>
+          <div class="do-dont" style="margin-top:var(--space-5)">
+            <div class="do"><h3>Do</h3><ul><li>Let adjacent surfaces differ subtly.</li><li>Use one thin focus edge.</li><li>Keep status bars neutral.</li><li>Use raised paper or slate only where elevation is real.</li></ul></div>
+            <div class="dont"><h3>Do not</h3><ul><li>Use pure black or broad pure white.</li><li>Turn sidebars into saturated blue blocks.</li><li>Outline every region strongly.</li><li>Use orange as a large decorative background.</li></ul></div>
+          </div>
+        </section>
+
+        <section id="components">
+          <div class="section-head"><h2>Application components</h2><p>Components inherit the family through semantic tokens, restrained geometry, and predictable interaction states. The examples below are implementation references, not ornamental mood boards.</p></div>
+          <div class="stack">
+            <div class="demo-area">
+              <h3 style="margin-bottom:var(--space-4)">Actions</h3>
+              <div class="controls"><button class="btn primary" type="button">Create project</button><button class="btn" type="button">Preview</button><button class="btn ghost" type="button">Cancel</button><button class="btn danger" type="button">Delete</button><button class="btn" type="button" disabled>Unavailable</button></div>
+            </div>
+            <div class="demo-area">
+              <h3 style="margin-bottom:var(--space-4)">Forms</h3>
+              <div class="field-grid">
+                <label class="field">Project name<input class="control" value="Emberveil Console"><small>Use direct, descriptive labels.</small></label>
+                <label class="field">Environment<select class="control"><option>Development</option><option>Staging</option><option>Production</option></select></label>
+                <label class="field">Repository URL<input class="control" placeholder="https://example.test/repository"></label>
+                <label class="field">Port<input class="control" aria-invalid="true" value="invalid"><span class="field-error">Enter a port from 1 to 65535.</span></label>
+              </div>
+            </div>
+            <div class="mini-app" aria-label="Emberveil application composition example">
+              <nav class="mini-nav"><strong>Workspace</strong><a class="active" href="#components">Overview</a><a href="#components">Projects</a><a href="#components">Activity</a><a href="#components">Settings</a></nav>
+              <div class="mini-main">
+                <div class="mini-toolbar"><div><h3>Project overview</h3><span class="faint">Updated moments ago</span></div><button class="btn primary" type="button">New run</button></div>
+                <div class="mini-content">
+                  <div class="metric-grid"><div class="metric"><span>Successful runs</span><strong>128</strong></div><div class="metric"><span>Needs attention</span><strong style="color:var(--keyword)">7</strong></div><div class="metric"><span>Median duration</span><strong style="color:var(--type)">42s</strong></div></div>
+                  <div class="table-wrap"><table><thead><tr><th>Task</th><th>Status</th><th>Owner</th></tr></thead><tbody><tr><td>Build application</td><td style="color:var(--success)">Passed</td><td>Mario</td></tr><tr><td>Publish preview</td><td style="color:var(--warning)">Waiting</td><td>Automation</td></tr><tr><td>Accessibility review</td><td style="color:var(--info)">Running</td><td>Design</td></tr></tbody></table></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="states">
+          <div class="section-head"><h2>States and feedback</h2><p>Status colors communicate outcomes, not decoration. Pair them with language, icons, or shape so meaning never depends on hue alone.</p></div>
+          <div class="stack">
+            <div class="message info"><strong>Info</strong><span>Teal explains structure, navigation, or a neutral process state.</span></div>
+            <div class="message success"><strong>Success</strong><span>Green confirms completion, health, or a positive result.</span></div>
+            <div class="message warning"><strong>Warning</strong><span>Amber marks a condition requiring attention without implying failure.</span></div>
+            <div class="message danger"><strong>Error</strong><span>Red is reserved for destructive action, invalid input, and failed outcomes.</span></div>
+          </div>
+          <div class="grid-2" style="margin-top:var(--space-6)">
+            <article class="card"><h3>Focus and selection</h3><p>Focus is a narrow gold or ochre ring. Selection is a cool subdued wash. Never substitute the orange action color for keyboard focus.</p></article>
+            <article class="card"><h3>Hover and active</h3><p>Hover shifts one material step. Active navigation adds a narrow orange marker and stronger text; it does not require a saturated fill.</p></article>
+            <article class="card"><h3>Disabled</h3><p>Reduce contrast and remove interactive emphasis while preserving labels. Do not make disabled controls disappear completely.</p></article>
+            <article class="card"><h3>Loading</h3><p>Use neutral structure with one moving focus-colored indicator. Avoid animating large orange or cyan regions.</p></article>
+          </div>
+        </section>
+
+        <section id="accessibility">
+          <div class="section-head"><h2>Accessibility and comfort</h2><p>Emberveil’s low-glare character must not become an excuse for unreadable content. Comfortable surfaces and strong text can coexist.</p></div>
+          <div class="grid-2">
+            <article class="card"><h3>Contrast targets</h3><ul><li>Body text: target at least 4.5:1.</li><li>Large text and essential icons: at least 3:1.</li><li>Focus indicators: visibly distinct from adjacent surfaces.</li><li>Muted metadata may be quieter, but never carry essential instructions alone.</li></ul></article>
+            <article class="card"><h3>Color independence</h3><ul><li>Add text to every status.</li><li>Use icons or shapes for chart categories when needed.</li><li>Underline links in prose-heavy contexts.</li><li>Do not distinguish errors from success using color alone.</li></ul></article>
+            <article class="card"><h3>Motion</h3><ul><li>Keep transitions brief and functional.</li><li>Honor reduced-motion preferences.</li><li>Never pulse large colored surfaces continuously.</li><li>Preserve state changes when animation is disabled.</li></ul></article>
+            <article class="card"><h3>Light environments</h3><ul><li>Test Emberveil in bright offices and dim rooms.</li><li>Do not brighten the canvas toward white to solve every contrast issue.</li><li>Raise foreground or local boundary contrast first.</li><li>Test actual devices, not screenshots alone.</li></ul></article>
+          </div>
+          <div class="message warning" style="margin-top:var(--space-5)"><strong>Known edge case</strong><span>The current light terminal maps explicit ANSI white close to its paper background. Ordinary terminal foreground remains readable. Keep the mapping until real software demonstrates a practical failure, then test a semantic remap rather than changing it from theory alone.</span></div>
+        </section>
+
+        <section id="implementation">
+          <div class="section-head"><h2>Implementation blueprint</h2><p>Build applications from semantic tokens. Components should never know that a keyword is orange or a canvas is charcoal; they should consume roles that can evolve across modes and platforms.</p></div>
+          <h3 style="margin-bottom:var(--space-3)">Recommended token layers</h3>
+          <div class="grid-4">
+            <article class="card"><h3>1. Core</h3><p>Raw family colors. Do not use directly in product components.</p></article>
+            <article class="card"><h3>2. Semantic</h3><p>Canvas, text, action, focus, success, danger, syntax roles.</p></article>
+            <article class="card"><h3>3. Component</h3><p>Button, input, navigation, dialog, table, editor, terminal.</p></article>
+            <article class="card"><h3>4. Platform</h3><p>VS Code, web, desktop, terminal, documents, charts.</p></article>
+          </div>
+
+          <h3 style="margin:var(--space-7) 0 var(--space-3)">Starter CSS tokens</h3>
+          <div class="token-code"><pre><code>:root[data-theme=<span class="str">"dark"</span>] {
+  --ev-shell: <span class="num">#1D2029</span>;
+  --ev-sidebar: <span class="num">#20232D</span>;
+  --ev-canvas: <span class="num">#242632</span>;
+  --ev-panel: <span class="num">#292C38</span>;
+  --ev-raised: <span class="num">#303342</span>;
+  --ev-text: <span class="num">#CCCAC2</span>;
+  --ev-text-muted: <span class="num">#9A9DA5</span>;
+  --ev-action: <span class="num">#C06F3D</span>;
+  --ev-focus: <span class="num">#FFCC66</span>;
+  --ev-info: <span class="num">#73C7D6</span>;
+  --ev-success: <span class="num">#9FCF86</span>;
+  --ev-danger: <span class="num">#F07178</span>;
+}
+
+:root[data-theme=<span class="str">"light"</span>] {
+  --ev-shell: <span class="num">#CEC6BA</span>;
+  --ev-sidebar: <span class="num">#D8D1C5</span>;
+  --ev-canvas: <span class="num">#E4DED2</span>;
+  --ev-panel: <span class="num">#DDD6CA</span>;
+  --ev-raised: <span class="num">#EEE7DB</span>;
+  --ev-text: <span class="num">#35383F</span>;
+  --ev-text-muted: <span class="num">#686A70</span>;
+  --ev-action: <span class="num">#A44012</span>;
+  --ev-focus: <span class="num">#A86B00</span>;
+  --ev-info: <span class="num">#1C6570</span>;
+  --ev-success: <span class="num">#45653A</span>;
+  --ev-danger: <span class="num">#A33B42</span>;
+}</code></pre></div>
+
+          <h3 style="margin:var(--space-7) 0 var(--space-3)">Build sequence</h3>
+          <ol class="checklist">
+            <li>Choose semantic tokens before drawing components.</li>
+            <li>Implement both modes from the first component.</li>
+            <li>Set the canvas, shell, sidebar, panel, and raised ladder.</li>
+            <li>Establish primary, muted, and faint text roles.</li>
+            <li>Add focus and selection before hover decoration.</li>
+            <li>Build buttons, inputs, navigation, tables, and dialogs.</li>
+            <li>Apply orange only to decisions and primary actions.</li>
+            <li>Use teal for structure and information.</li>
+            <li>Test empty, loading, error, success, and disabled states.</li>
+            <li>Audit keyboard navigation and focus visibility.</li>
+            <li>Test at 320px, tablet, desktop, and wide layouts.</li>
+            <li>Review the result in bright and dim physical environments.</li>
+          </ol>
+
+          <h3 style="margin:var(--space-7) 0 var(--space-3)">Platform adaptation</h3>
+          <div class="table-wrap"><table><thead><tr><th>Platform</th><th>Preserve</th><th>Adapt</th></tr></thead><tbody>
+            <tr><td>Web applications</td><td>Semantic tokens, surface ladder, focus, component states</td><td>Responsive geometry, browser controls, user preference persistence</td></tr>
+            <tr><td>Desktop applications</td><td>Quiet chrome, neutral status regions, warm action hierarchy</td><td>Native title bars, menus, window focus, platform accessibility APIs</td></tr>
+            <tr><td>IDEs and editors</td><td>Syntax grammar, editor canvas, selections, diagnostics</td><td>Scope mappings, semantic tokens, extension-specific widgets</td></tr>
+            <tr><td>Terminal</td><td>Paper/slate material, readable foreground, semantic ANSI hues</td><td>ANSI expectations, shell prompts, full-screen TUI behavior</td></tr>
+            <tr><td>Charts</td><td>Orange, teal, green, mauve role order</td><td>Pair color with labels and shapes; tune fills to the actual canvas</td></tr>
+            <tr><td>Documents</td><td>Paper-light comfort, charcoal ink, restrained headings</td><td>Print gamut, link affordance, page margins, code-block boundaries</td></tr>
+          </tbody></table></div>
+        </section>
+
+        <section id="governance">
+          <div class="section-head"><h2>Governance and quality bar</h2><p>A theme family stays coherent when changes are judged against intent, real use, and both modes—not only against isolated color samples.</p></div>
+          <div class="rule-list">
+            <div class="rule"><strong>Change rule</strong><span>Start with a concrete failure screenshot or repeated daily-use problem. Avoid palette changes based only on theoretical discomfort.</span></div>
+            <div class="rule"><strong>Pair rule</strong><span>Evaluate every semantic change in both modes. Equivalent meaning does not require numerically mirrored values.</span></div>
+            <div class="rule"><strong>Scope rule</strong><span>Prefer the narrowest correct token or syntax scope. Do not fix one language by recoloring an unrelated category globally.</span></div>
+            <div class="rule"><strong>Review rule</strong><span>Test source code, prose, JSON, CSS, markup, Rust annotations, terminal output, completion lists, selection, diffs, and secondary metadata.</span></div>
+            <div class="rule"><strong>Release rule</strong><span>Document intent, validate tokens, visually inspect representative applications, and record deliberately deferred findings.</span></div>
+          </div>
+          <div class="card" style="margin-top:var(--space-6)"><h3>Definition of Emberveil-complete</h3><p>An implementation belongs to the family when it is comfortable for prolonged use, recognizable in both modes, semantically consistent, fully keyboard-operable, readable without relying on maximum contrast, and calm enough that content—not the theme—remains the center of attention.</p></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer>Emberveil — muted atmosphere, warm decisions, cool structure.</footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const buttons = [...document.querySelectorAll('[data-theme-choice]')];
+      const media = window.matchMedia('(prefers-color-scheme: light)');
+      const stored = localStorage.getItem('emberveil-document-theme');
+      let choice = ['light', 'dark', 'system'].includes(stored) ? stored : 'dark';
+
+      const resolveTheme = () => choice === 'system' ? (media.matches ? 'light' : 'dark') : choice;
+      const hex = (value) => {
+        if (/^#[0-9a-f]{6}$/i.test(value)) return value.toUpperCase();
+        const match = value.match(/\d+/g);
+        if (!match || match.length < 3) return value;
+        return '#' + match.slice(0, 3).map((part) => Number(part).toString(16).padStart(2, '0')).join('').toUpperCase();
+      };
+      const updateColorLabels = () => {
+        document.querySelectorAll('[data-color]').forEach((label) => {
+          label.textContent = hex(getComputedStyle(root).getPropertyValue(`--${label.dataset.color}`).trim());
+        });
+      };
+      const apply = () => {
+        root.dataset.theme = resolveTheme();
+        buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.themeChoice === choice)));
+        updateColorLabels();
+      };
+
+      buttons.forEach((button) => button.addEventListener('click', () => {
+        choice = button.dataset.themeChoice;
+        localStorage.setItem('emberveil-document-theme', choice);
+        apply();
+      }));
+      media.addEventListener('change', () => { if (choice === 'system') apply(); });
+      apply();
+    })();
+  </script>
+</body>
+</html>

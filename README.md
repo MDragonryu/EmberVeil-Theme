@@ -6,6 +6,7 @@ The repository contains the primary Emberveil family and two earlier theme explo
 
 ## Core Emberveil family
 
+- **Emberveil design system** - the canonical, self-theming family reference for identity, semantic colors, syntax, components, accessibility, and implementation. [Open design system](emberveil/emberveil-design-system.html)
 - **Emberveil** - the regular paper-light theme, using dim paper surfaces instead of bright white. [Preview](emberveil/previews/emberveil.html) · [Specification](emberveil/specs/emberveil.md)
 - **Emberveil Dark** - the Ayu Mirage-led dark companion. [Preview](emberveil/previews/emberveil-dark.html) · [Specification](emberveil/specs/emberveil-dark.md)
 
@@ -31,6 +32,7 @@ Deferred visual-audit findings are preserved in [VS Code deferred refinements](e
 
 ```text
 emberveil/
+  emberveil-design-system.html  Canonical family design and implementation reference
   previews/    Browser-ready Emberveil prototypes
   specs/       Core family design specifications
 vscode/

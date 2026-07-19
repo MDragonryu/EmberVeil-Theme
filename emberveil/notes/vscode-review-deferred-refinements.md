@@ -4,7 +4,7 @@
 **Applies to:** Emberveil and Emberveil Dark  
 **Reviewed in:** VS Code with TypeScript, TSX, CSS, JSON, Rust, HTML, Markdown, test files, the integrated terminal, find states, and completion widgets
 
-This note preserves two findings that were real but did not justify changing an otherwise stable theme during the `0.1.3` correction pass. They should be revisited through focused testing rather than folded into unrelated syntax changes.
+This note preserves findings that were real but did not justify changing an otherwise stable theme during the `0.1.3` correction pass and its subsequent light-theme audit. They should be revisited through focused testing rather than folded into unrelated syntax changes.
 
 ## 1. Markdown hierarchy
 
@@ -56,6 +56,32 @@ The comments remained readable during the audit. The weaker area was editor meta
 - Secondary metadata never competes with source text or comments.
 - Both themes preserve their quiet editor chrome during prolonged use.
 
+## 3. Light terminal ANSI white behavior
+
+### Observation
+
+The paper-light terminal deliberately keeps its broad surfaces dim and warm. That creates one highly specific edge case in the current ANSI mapping:
+
+- `terminal.background` and `terminal.ansiWhite` are both `#D8D1C5`, producing no contrast.
+- `terminal.ansiBrightWhite` is `#EEE7DB`, which has only approximately `1.23:1` contrast against the terminal background.
+- Ordinary terminal output remains readable because it uses the normal foreground (`#35383F`). The issue appears only when a command-line program explicitly requests ANSI white or bright white.
+
+This is not currently considered sufficient reason to rebalance the otherwise successful light terminal. A theoretical correction could make a common terminal state feel worse in order to accommodate uncommon explicit-white output.
+
+### Candidate direction
+
+- Leave the current mapping unchanged until a real application demonstrates a practical failure.
+- If it becomes necessary, test a semantic light-terminal remap in which ANSI white means a readable neutral ink rather than literal pale white.
+- Evaluate standard white and bright white separately; they do not necessarily need the same contrast role.
+- Test any candidate against shells, test runners, build tools, Git output, and programs that draw colored tables before adopting it.
+
+### Acceptance criteria
+
+- Normal terminal output retains the current calm paper-like character.
+- Explicit ANSI white output is readable when it matters in real use.
+- Bright white does not become an unexpectedly dominant pseudo-black on a light background.
+- A correction is based on observed software behavior, not the palette value in isolation.
+
 ## Decision rule
 
-Do not implement either refinement from palette theory alone. Revisit them after several days of normal use or when a concrete screenshot shows the hierarchy failing. Any change should be tested in both Emberveil modes and across Markdown, source code, diffs, and annotation-heavy editor states.
+Do not implement these refinements from palette theory alone. Revisit them after several days of normal use or when a concrete screenshot shows the hierarchy failing. Syntax and metadata changes should be tested in both Emberveil modes and across Markdown, source code, diffs, and annotation-heavy editor states; terminal changes should additionally be tested against real ANSI-producing tools.
