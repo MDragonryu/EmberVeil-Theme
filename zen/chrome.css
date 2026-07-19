@@ -11,7 +11,8 @@
   color-scheme: light dark;
 
   /* Emberveil family tokens: light first, dark second. */
-  --ev-shell: light-dark(#cec6ba, #1d2029);
+  /* Keep the outer frame continuous with Zen's sidebar. */
+  --ev-shell: light-dark(#d8d1c5, #20232d);
   --ev-sidebar: light-dark(#d8d1c5, #20232d);
   --ev-surface: light-dark(#e4ded2, #242632);
   --ev-panel: light-dark(#eee7db, #303342);
@@ -58,7 +59,7 @@
   --zen-input-border-color: var(--ev-border) !important;
   --zen-toolbar-element-bg: color-mix(in srgb, var(--ev-text) 8%, transparent) !important;
   --zen-toolbar-element-bg-hover: var(--ev-hover) !important;
-  --zen-appcontent-border: 1px solid var(--ev-border) !important;
+  --zen-appcontent-border: 1px solid var(--ev-sidebar) !important;
   --zen-big-shadow: 0 10px 34px var(--ev-shadow) !important;
 
   /* Firefox chrome variables used by Zen. */
@@ -150,7 +151,7 @@
 @media (-moz-pref("mod.emberveil.zen.appearance", "light")) {
   :root:root {
     color-scheme: light !important;
-    --ev-shell: #cec6ba;
+    --ev-shell: #d8d1c5;
     --ev-sidebar: #d8d1c5;
     --ev-surface: #e4ded2;
     --ev-panel: #eee7db;
@@ -180,7 +181,7 @@
 @media (-moz-pref("mod.emberveil.zen.appearance", "dark")) {
   :root:root {
     color-scheme: dark !important;
-    --ev-shell: #1d2029;
+    --ev-shell: #20232d;
     --ev-sidebar: #20232d;
     --ev-surface: #242632;
     --ev-panel: #303342;
@@ -214,7 +215,7 @@
  */
 :root:has([mod-emberveil-zen-appearance="light"]) {
   color-scheme: light !important;
-  --ev-shell: #cec6ba;
+  --ev-shell: #d8d1c5;
   --ev-sidebar: #d8d1c5;
   --ev-surface: #e4ded2;
   --ev-panel: #eee7db;
@@ -242,7 +243,7 @@
 
 :root:has([mod-emberveil-zen-appearance="dark"]) {
   color-scheme: dark !important;
-  --ev-shell: #1d2029;
+  --ev-shell: #20232d;
   --ev-sidebar: #20232d;
   --ev-surface: #242632;
   --ev-panel: #303342;
@@ -280,8 +281,34 @@
 
 #zen-tabbox-wrapper,
 .browserSidebarContainer:not(.zen-glance-overlay) {
-  border-color: var(--ev-border) !important;
-  box-shadow: 0 2px 12px color-mix(in srgb, var(--ev-shadow) 58%, transparent) !important;
+  border-color: var(--ev-sidebar) !important;
+  box-shadow: none !important;
+}
+
+/*
+ * Zen leaves the tabbox wrapper transparent around the rounded web-content
+ * viewport. Paint that exposed frame explicitly so it remains continuous
+ * with the sidebar instead of revealing the native macOS/Zen backdrop.
+ */
+#zen-tabbox-wrapper {
+  background-color: var(--ev-sidebar) !important;
+}
+
+/*
+ * On macOS Zen gives this backdrop a native sidebar appearance. That native
+ * paint can remain dark even when Emberveil Light is forced, and it can also
+ * shift the Dark frame away from the sidebar. Remove it and paint the shared
+ * Emberveil chrome surface explicitly.
+ */
+#zen-browser-background {
+  -moz-default-appearance: none !important;
+  appearance: none !important;
+  background: var(--ev-sidebar) !important;
+}
+
+#zen-browser-background::before,
+#zen-browser-background::after {
+  background: var(--ev-sidebar) !important;
 }
 
 /* Tabs, essentials, folders, and workspace controls. */

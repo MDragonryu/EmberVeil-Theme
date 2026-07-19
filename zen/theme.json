@@ -8,7 +8,6 @@
   "preferences": "./preferences.json",
   "image": "./preview.png",
   "author": "Mario Decker",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "tags": ["color", "dark", "light", "low-glare", "emberveil"]
 }
-
