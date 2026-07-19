@@ -1,0 +1,47 @@
+{
+  "name": "emberveil-theme",
+  "displayName": "Emberveil Theme",
+  "description": "Warm, comfortable Emberveil themes: atmospheric dark and paper-light.",
+  "version": "0.1.0",
+  "publisher": "mario",
+  "license": "UNLICENSED",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark theme",
+    "light theme",
+    "warm",
+    "ayu mirage",
+    "emberveil"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://192.168.1.200/gitea/Mario/EmberVeil-Theme.git"
+  },
+  "bugs": {
+    "url": "http://192.168.1.200/gitea/Mario/EmberVeil-Theme/issues"
+  },
+  "scripts": {
+    "check": "node scripts/validate-themes.mjs",
+    "package": "vsce package --out dist/emberveil-theme-0.1.0.vsix"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Emberveil",
+        "uiTheme": "vs",
+        "path": "./themes/emberveil-color-theme.json"
+      },
+      {
+        "label": "Emberveil Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/emberveil-dark-color-theme.json"
+      }
+    ]
+  }
+}

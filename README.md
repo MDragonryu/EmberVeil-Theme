@@ -9,6 +9,17 @@ The repository contains the primary Emberveil family and two earlier theme explo
 - **Emberveil** - the regular paper-light theme, using dim paper surfaces instead of bright white. [Preview](emberveil/previews/emberveil.html) · [Specification](emberveil/specs/emberveil.md)
 - **Emberveil Dark** - the Ayu Mirage-led dark companion. [Preview](emberveil/previews/emberveil-dark.html) · [Specification](emberveil/specs/emberveil-dark.md)
 
+## Try it in VS Code
+
+The first installable VS Code extension contains both core themes. Download or open [`vscode/dist/emberveil-theme-0.1.0.vsix`](vscode/dist/emberveil-theme-0.1.0.vsix), then:
+
+1. Open the Command Palette in VS Code.
+2. Run **Extensions: Install from VSIX...** and select the file.
+3. Run **Preferences: Color Theme**.
+4. Choose **Emberveil** or **Emberveil Dark**.
+
+The implementation covers workbench chrome, editor and selection states, TextMate syntax scopes, semantic tokens, terminal ANSI colors, Git and diff states, diagnostics, notebooks, and testing UI. See the [VS Code extension notes](vscode/README.md) for local development and validation.
+
 ## Ideas and inspirations
 
 - **Aurora Forge** - a more energetic synthesis of Ayu Mirage, Nord, Cobalt2, JetBrains/Darcula, and personal preferences. [Preview](ideas/aurora-forge/preview.html) · [Specification](ideas/aurora-forge/spec.md)
@@ -20,6 +31,9 @@ The repository contains the primary Emberveil family and two earlier theme explo
 emberveil/
   previews/    Browser-ready Emberveil prototypes
   specs/       Core family design specifications
+vscode/
+  themes/      Installable VS Code theme definitions
+  dist/        Ready-to-install VSIX package
 ideas/
   aurora-forge/
   vermilion-fjord/
@@ -27,4 +41,4 @@ ideas/
 
 ## Current status
 
-Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. None of the concepts are yet packaged as installable IDE themes or a production design-token library.
+Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are now packaged as a usable VS Code extension; implementations for other IDEs and a production design-token library remain future work.
