@@ -1,3 +1,33 @@
+<p align="center">
+  <img
+    src="assets/combined.png"
+    alt="Emberveil — warmth, clarity, focus"
+    width="100%"
+  />
+</p>
+
+<h1 align="center">Emberveil</h1>
+
+<p align="center">
+  A warm, low-fatigue cross-application theme family for focused work.
+</p>
+
+<p align="center">
+  <img
+    src="assets/light.png"
+    alt="Light theme"
+    width="100%"
+  />
+</p>
+
+<p align="center">
+  <img
+    src="assets/dark.png"
+    alt="Dark theme"
+    width="100%"
+  />
+</p>
+
 # Emberveil Theme
 
 Emberveil is a personal cross-application theme family built around comfortable contrast, warm semantic color, and surfaces designed for prolonged use.
