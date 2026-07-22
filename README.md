@@ -71,6 +71,10 @@ The native color-only themes in [`ghostty/`](ghostty/) provide paired **Embervei
 
 The editor-only package in [`rad-studio/`](rad-studio/) installs **Emberveil Dark** and **Emberveil Light** as named Code Editor Color SpeedSettings for RAD Studio 12.3 Athens. It deliberately leaves the IDE theme, VCL styling, designers, panels, and layout unchanged. See the [RAD Studio editor-theme guide](rad-studio/README.md) for backup, installation, selection, and removal.
 
+## Try it in Trilium Notes
+
+The adaptive custom theme in [`trilium/`](trilium/) brings both Emberveil appearances to Trilium Notes on top of its current Next theme. It follows the operating-system appearance and covers application chrome, navigation, rich-text notes, menus, forms, dialogs, feedback states, collection views, calendars, and CSS-addressable editor UI while preserving Trilium's layouts and user typography preferences. See the [Trilium theme guide](trilium/README.md) for installation and validation.
+
 ## Ideas and inspirations
 
 - **Aurora Forge** - a more energetic synthesis of Ayu Mirage, Nord, Cobalt2, JetBrains/Darcula, and personal preferences. [Preview](ideas/aurora-forge/preview.html) · [Specification](ideas/aurora-forge/spec.md)
@@ -98,6 +102,9 @@ ghostty/
 rad-studio/
   12.3/editor/  Importable editor-only registry themes for BDS 23.0
   scripts/      Deterministic registry-theme generator and validation
+trilium/
+  emberveil.css  Adaptive Next-based application theme for both family modes
+  scripts/       Structural and installed-version-aware validation
 ideas/
   aurora-forge/
   vermilion-fjord/
@@ -105,4 +112,4 @@ ideas/
 
 ## Current status
 
-Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are packaged for VS Code, Zed, Zen Browser, Ghostty, and the RAD Studio 12.3 code editor; implementations for other applications and a production design-token library remain future work.
+Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are packaged for VS Code, Zed, Zen Browser, Ghostty, the RAD Studio 12.3 code editor, and Trilium Notes; implementations for other applications and a production design-token library remain future work.

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Emberveil for Trilium — Preview</title>
+  <link rel="stylesheet" href="emberveil.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--root-background); color: var(--main-text-color); font: 14px/1.5 Inter, system-ui, sans-serif; }
+    button, input { font: inherit; }
+    #root-widget { display: grid; grid-template-columns: 58px 240px minmax(0, 1fr); min-height: 100vh; background: var(--root-background); }
+    #launcher { display: grid; align-content: start; gap: 8px; padding: 14px 9px; color: var(--launcher-pane-vert-text-color); background: var(--launcher-pane-vert-background-color); border-right: 1px solid var(--subtle-border-color); }
+    #launcher button { width: 40px; height: 40px; color: inherit; background: transparent; border: 0; border-radius: 6px; }
+    #launcher button:hover { color: var(--launcher-pane-vert-button-hover-color); background: var(--launcher-pane-vert-button-hover-background); }
+    #left-pane { padding: 14px 8px; color: var(--left-pane-text-color); background: var(--left-pane-background-color); border-right: 1px solid var(--subtle-border-color); }
+    .brand { margin: 0 8px 16px; color: var(--ev-function); font-size: 16px; font-weight: 500; }
+    .quick-search { margin: 0 4px 12px; }
+    .quick-search input { width: 100%; padding: 8px 10px; color: var(--input-text-color); background: var(--quick-search-background); border: 1px solid transparent; border-radius: 6px; }
+    .quick-search input:focus { outline: 2px solid var(--quick-search-focus-border); background: var(--quick-search-focus-background); }
+    .tree { display: grid; gap: 2px; }
+    .fancytree-node { position: relative; display: block; padding: 7px 10px 7px 16px; border-radius: 6px; }
+    .fancytree-node:hover { background: var(--left-pane-item-hover-background); }
+    .fancytree-node.fancytree-active { color: var(--left-pane-item-selected-color); background: var(--left-pane-item-selected-background); box-shadow: var(--left-pane-item-selected-shadow); }
+    #center-pane { min-width: 0; background: var(--main-background-color); }
+    .tab-row-container { height: 50px; padding: 10px 12px 0; background: var(--ev-shell); border-bottom: 1px solid var(--subtle-border-color); }
+    .note-tab { display: inline-block; }
+    .note-tab-wrapper { position: relative; padding: 8px 14px; color: var(--active-tab-text-color); background: var(--active-tab-background-color); border-radius: 6px 6px 0 0; box-shadow: var(--active-tab-shadow); }
+    .content-shell { display: grid; grid-template-columns: minmax(0, 1fr) 230px; }
+    main { min-width: 0; padding: 34px clamp(24px, 6vw, 72px) 72px; }
+    aside { padding: 24px 18px; color: var(--muted-text-color); background: var(--ev-panel); border-left: 1px solid var(--main-border-color); }
+    .note-title { margin: 0 0 22px; color: var(--ev-text-strong); font-size: 28px; font-weight: 500; }
+    .ck-content { max-width: 72ch; }
+    .ck-content h2 { margin-top: 28px; }
+    .ck-content pre { padding: 18px; overflow: auto; font: 13px/1.65 ui-monospace, monospace; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .btn { padding: 8px 12px; color: var(--cmd-button-text-color); background: var(--cmd-button-background-color); border: 1px solid var(--main-border-color); border-radius: 5px; }
+    .card { margin-top: 20px; padding: 16px; background: var(--card-background-color); border: 1px solid var(--card-border-color); border-radius: 9px; box-shadow: var(--card-box-shadow); }
+    .muted { color: var(--muted-text-color); }
+    .status { margin-top: 12px; padding: 10px 12px; border-left: 3px solid; }
+    @media (max-width: 760px) { #root-widget { grid-template-columns: 48px minmax(0, 1fr); } #left-pane { display: none; } .content-shell { grid-template-columns: 1fr; } aside { display: none; } main { padding: 24px 18px 56px; } }
+  </style>
+</head>
+<body>
+  <div id="root-widget">
+    <nav id="launcher" aria-label="Launcher">
+      <button aria-label="Notes">◆</button><button aria-label="Search">⌕</button><button aria-label="Calendar">◫</button><button aria-label="Settings">⚙</button>
+    </nav>
+    <aside id="left-pane">
+      <div class="brand">Emberveil</div>
+      <label class="quick-search"><input aria-label="Quick search" placeholder="Quick search"></label>
+      <div class="tree">
+        <span class="fancytree-node">▸ Inbox</span>
+        <span class="fancytree-node fancytree-active">▾ Design system</span>
+        <span class="fancytree-node">　 Palette</span>
+        <span class="fancytree-node">　 Components</span>
+        <span class="fancytree-node">▸ Journal</span>
+      </div>
+    </aside>
+    <section id="center-pane">
+      <div class="tab-row-container"><div class="note-tab" active><div class="note-tab-wrapper">Design system</div></div></div>
+      <div class="content-shell">
+        <main>
+          <h1 class="note-title">Warm semantic light</h1>
+          <article class="ck-content note-detail-editable-text-editor">
+            <p>Emberveil keeps broad surfaces quiet so <a href="#">content and structure</a> remain central. Inline <code>semantic tokens</code> use restrained emphasis.</p>
+            <blockquote>Orange carries decisions. Teal carries structure. Focus remains gold.</blockquote>
+            <h2>Syntax specimen</h2>
+            <pre class="hljs"><code><span class="hljs-comment">// Meaning, not decoration.</span>
+<span class="hljs-keyword">async function</span> <span class="hljs-title function_">loadNote</span>(<span class="hljs-params">id</span>) {
+  <span class="hljs-keyword">const</span> note = <span class="hljs-keyword">await</span> repository.<span class="hljs-title function_">find</span>(id);
+  <span class="hljs-keyword">return</span> note ?? <span class="hljs-literal">null</span>;
+}</code></pre>
+            <div class="toolbar"><button class="btn btn-primary">Create note</button><button class="btn">Preview</button><button class="btn btn-danger">Delete</button></div>
+            <div class="alert-success status">✓ All changes are synchronized.</div>
+          </article>
+        </main>
+        <aside>
+          <strong>Note properties</strong>
+          <div class="card"><span class="muted">Type</span><br>Text note</div>
+          <div class="card"><span class="muted">Updated</span><br>Moments ago</div>
+        </aside>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

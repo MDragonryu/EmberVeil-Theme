@@ -1,0 +1,756 @@
+/*
+ * Emberveil for Trilium Notes
+ *
+ * Required note attributes:
+ *   #appTheme=Emberveil
+ *   #appThemeBase=next
+ *
+ * The light palette is the baseline. Trilium's Next base and this stylesheet
+ * both follow prefers-color-scheme for the paired dark appearance.
+ */
+
+/*
+ * Trilium deliberately loads a custom theme before its selected base theme.
+ * Doubling :root gives these theme tokens enough specificity to survive the
+ * later Next palette while still allowing user-level appCss overrides.
+ */
+:root:root {
+    color-scheme: light;
+
+    /* Emberveil semantic tokens: ink on dim paper. */
+    --ev-shell: #cec6ba;
+    --ev-sidebar: #d8d1c5;
+    --ev-canvas: #e4ded2;
+    --ev-panel: #ddd6ca;
+    --ev-raised: #eee7db;
+    --ev-current-line: #d6cfc3;
+    --ev-selection: #c4d3d8;
+    --ev-border: #b9b1a6;
+    --ev-border-strong: #9b948a;
+    --ev-text: #35383f;
+    --ev-text-strong: #22272d;
+    --ev-text-muted: #686a70;
+    --ev-text-faint: #77736d;
+    --ev-keyword: #a44012;
+    --ev-function: #875900;
+    --ev-type: #1c6570;
+    --ev-tag: #0e687b;
+    --ev-string: #46661f;
+    --ev-number: #704c87;
+    --ev-attribute: #914321;
+    --ev-parameter: #76532e;
+    --ev-operator: #934827;
+    --ev-comment: #58616b;
+    --ev-documentation: #45653a;
+    --ev-focus: #a86b00;
+    --ev-action: #a44012;
+    --ev-action-hover: #bc531e;
+    --ev-action-text: #f7ede0;
+    --ev-danger: #a33b42;
+    --ev-warning: #a86b00;
+    --ev-info: #1c6570;
+    --ev-success: #45653a;
+    --ev-wash-warm: #a4401217;
+    --ev-wash-cool: #1c657017;
+    --ev-wash-danger: #a33b4217;
+    --ev-shadow: #483d2f26;
+    --ev-shadow-strong: #483d2f3d;
+
+    /* Trilium Next: foundation and native chrome. */
+    --theme-style: light;
+    --native-titlebar-background: #cec6ba00;
+    --window-background-color-bgfx: var(--ev-shell);
+    --main-background-color: var(--ev-canvas);
+    --main-text-color: var(--ev-text);
+    --main-border-color: var(--ev-border);
+    --subtle-border-color: #9b948a52;
+    --dropdown-border-color: var(--ev-border-strong);
+    --dropdown-shadow-opacity: 0.18;
+    --dropdown-item-icon-destructive-color: var(--ev-danger);
+    --disabled-tooltip-icon-color: var(--ev-info);
+    --accented-background-color: var(--ev-panel);
+    --more-accented-background-color: var(--ev-current-line);
+    --tool-dialog-background-color: var(--ev-raised);
+    --tool-dialog-shadow-color: var(--ev-shadow-strong);
+    --muted-text-color: var(--ev-text-muted);
+
+    /* Buttons and compact actions. */
+    --button-text-color: var(--ev-text-strong);
+    --cmd-button-background-color: var(--ev-raised);
+    --cmd-button-text-color: var(--ev-text);
+    --cmd-button-hover-background-color: var(--ev-selection);
+    --cmd-button-hover-text-color: var(--ev-text-strong);
+    --cmd-button-shadow-color: var(--ev-shadow);
+    --cmd-button-icon-color: var(--ev-text);
+    --cmd-button-keyboard-shortcut-background: #35383f14;
+    --cmd-button-keyboard-shortcut-color: var(--ev-text-muted);
+    --cmd-button-disabled-opacity: 0.52;
+    --icon-button-color: var(--ev-text-muted);
+    --icon-button-hover-background: var(--ev-current-line);
+    --icon-button-hover-color: var(--ev-text-strong);
+
+    /* Inputs and selection controls. */
+    --input-background-color: var(--ev-raised);
+    --input-text-color: var(--ev-text);
+    --input-placeholder-color: var(--ev-text-faint);
+    --input-selection-background: var(--ev-selection);
+    --input-selection-text-color: var(--ev-text-strong);
+    --input-hover-background: #e9e2d6;
+    --input-hover-color: var(--ev-text-strong);
+    --input-focus-outline-color: var(--ev-focus);
+    --input-focus-background: var(--ev-raised);
+    --input-focus-color: var(--ev-text-strong);
+    --input-action-button-color: var(--ev-text-muted);
+    --input-action-button-hover: var(--ev-function);
+    --radio-checkbox-background: #9b948a52;
+    --radio-checkbox-hover-background: #a86b0052;
+    --radio-checkbox-indicator-color: var(--ev-focus);
+    --select-focus-background: var(--ev-raised);
+    --select-focus-text-color: var(--ev-text-strong);
+    --select-dropdown-text-color: var(--ev-text);
+    --select-group-heading-text-color: var(--ev-text-muted);
+    --select-arrow-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='transparent' stroke='%23686a70' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+
+    /* Hover, active, menus, and links. */
+    --link-color: var(--ev-type);
+    --link-hover-background: var(--ev-wash-cool);
+    --link-hover-color: var(--ev-tag);
+    --hover-item-text-color: var(--ev-text-strong);
+    --hover-item-background-color: var(--ev-current-line);
+    --hover-item-border-color: transparent;
+    --active-item-text-color: var(--ev-text-strong);
+    --active-item-background-color: var(--ev-selection);
+    --active-item-border-color: transparent;
+    --menu-text-color: var(--ev-text);
+    --menu-background-color: #eee7dbf2;
+    --menu-background-color-no-backdrop: var(--ev-raised);
+    --menu-item-icon-color: var(--ev-text-muted);
+    --menu-item-disabled-opacity: 0.52;
+    --menu-item-keyboard-shortcut-color: var(--ev-text-faint);
+    --menu-item-arrow-color: var(--ev-text-muted);
+    --menu-item-delimiter-color: #9b948a52;
+    --menu-item-group-header-color: var(--ev-text-faint);
+    --menu-section-background-color: #35383f0a;
+
+    /* Dialogs, notifications, and transient UI. */
+    --modal-backdrop-color: #35383f66;
+    --modal-shadow-color: var(--ev-shadow-strong);
+    --modal-border-color: var(--ev-border-strong);
+    --modal-background-color: var(--ev-raised);
+    --modal-title-color: var(--ev-text-muted);
+    --modal-control-button-background: #35383f14;
+    --modal-control-button-color: var(--ev-text-muted);
+    --modal-control-button-hover-color: var(--ev-text-strong);
+    --modal-control-button-hover-background: var(--ev-selection);
+    --modal-close-button-hover-background: var(--ev-wash-danger);
+    --modal-footer-background: #35383f0a;
+    --modal-footer-color: var(--ev-text-muted);
+    --toast-background: #35383fe8;
+    --toast-text-color: #eee7db;
+    --toast-close-button-background: #eee7db29;
+    --tooltip-background-color: #eee7dbf2;
+    --tooltip-foreground-color: var(--ev-text-strong);
+    --tooltip-shadow-color: var(--ev-shadow);
+
+    /* Search and navigation shell. */
+    --quick-search-background: #35383f0d;
+    --quick-search-color: var(--ev-text-faint);
+    --quick-search-hover-background: #35383f14;
+    --quick-search-focus-border: var(--ev-focus);
+    --quick-search-focus-background: var(--ev-raised);
+    --quick-search-focus-color: var(--ev-text-strong);
+    --quick-search-result-content-background: #1c65700f;
+    --quick-search-result-highlight-color: var(--ev-keyword);
+    --left-pane-collapsed-border-color: var(--ev-border);
+    --left-pane-background-color: var(--ev-sidebar);
+    --left-pane-text-color: var(--ev-text-muted);
+    --left-pane-item-hover-background: #35383f0d;
+    --left-pane-item-selected-background: var(--ev-panel);
+    --left-pane-item-selected-color: var(--ev-text-strong);
+    --left-pane-item-selected-shadow: 0 0 0 1px var(--ev-border);
+    --left-pane-item-action-button-background: #35383f14;
+    --left-pane-item-action-button-color: var(--ev-text);
+    --left-pane-item-action-button-hover-background: var(--ev-raised);
+    --left-pane-item-action-button-hover-shadow: 0 2px 4px var(--ev-shadow);
+    --left-pane-item-selected-action-button-hover-shadow: 0 2px 6px var(--ev-shadow-strong);
+    --launcher-pane-vert-background-color: var(--ev-shell);
+    --launcher-pane-vert-text-color: var(--ev-text-muted);
+    --launcher-pane-vert-button-hover-color: var(--ev-text-strong);
+    --launcher-pane-vert-button-hover-background: var(--ev-panel);
+    --launcher-pane-vert-button-hover-shadow: none;
+    --launcher-pane-vert-button-focus-outline-color: var(--ev-focus);
+    --launcher-pane-vert-background-color-bgfx: #cec6baf2;
+    --launcher-pane-horiz-border-color: var(--ev-border);
+    --launcher-pane-horiz-background-color: var(--ev-shell);
+    --launcher-pane-horiz-text-color: var(--ev-text-muted);
+    --launcher-pane-horiz-button-hover-color: var(--ev-text-strong);
+    --launcher-pane-horiz-button-hover-background: var(--ev-panel);
+    --launcher-pane-horiz-button-hover-shadow: none;
+    --launcher-pane-horiz-button-focus-outline-color: var(--ev-focus);
+    --launcher-pane-horiz-background-color-bgfx: #cec6baf2;
+    --launcher-pane-horiz-border-color-bgfx: var(--ev-border);
+    /* Deprecated aliases remain defined for older Trilium widgets. */
+    --launcher-pane-background-color: unset;
+    --launcher-pane-text-color: unset;
+    --protected-session-active-icon-color: var(--ev-success);
+    --sync-status-error-pulse-color: var(--ev-danger);
+    --right-pane-heading-color: var(--ev-text-muted);
+    --root-background: var(--ev-shell);
+    --gutter-color: transparent;
+    --gutter-hover-color: var(--ev-border-strong);
+
+    /* Tabs and attached surfaces. */
+    --tab-close-button-hover-background: var(--ev-danger);
+    --tab-close-button-hover-color: var(--ev-action-text);
+    --active-tab-background-color: var(--ev-panel);
+    --active-tab-hover-background-color: var(--ev-panel);
+    --active-tab-icon-color: var(--ev-function);
+    --active-tab-text-color: var(--ev-text-strong);
+    --active-tab-shadow: 0 0 0 1px var(--ev-border);
+    --active-tab-dragging-shadow: 0 6px 18px var(--ev-shadow-strong);
+    --inactive-tab-background-color: transparent;
+    --inactive-tab-hover-background-color: #35383f0d;
+    --inactive-tab-text-color: var(--ev-text-muted);
+    --new-tab-button-background: #35383f0d;
+    --new-tab-button-color: var(--ev-text-muted);
+    --new-tab-button-shadow: none;
+    --new-tab-button-hover-background: var(--ev-panel);
+    --new-tab-button-hover-color: var(--ev-text-strong);
+    --alert-bar-background: var(--ev-wash-cool);
+    --badge-background-color: var(--ev-wash-warm);
+    --badge-text-color: var(--ev-keyword);
+
+    /* Cards, lists, floating actions, and scrolling. */
+    --promoted-attribute-card-background-color: var(--ev-panel);
+    --promoted-attribute-card-shadow-color: var(--ev-shadow);
+    --floating-button-shadow-color: var(--ev-shadow-strong);
+    --floating-button-background-color: #eee7dbe8;
+    --floating-button-color: var(--ev-text);
+    --floating-button-hover-background: var(--ev-selection);
+    --floating-button-hover-color: var(--ev-text-strong);
+    --floating-button-show-button-background: var(--ev-panel);
+    --floating-button-show-button-color: var(--ev-text);
+    --floating-button-show-button-shadow: none;
+    --floating-button-show-button-hover-background: var(--ev-raised);
+    --floating-button-show-button-hover-shadow: 0 2px 4px var(--ev-shadow);
+    --floating-button-hide-button-background: #35383f0d;
+    --floating-button-hide-button-color: var(--ev-text-faint);
+    --right-pane-item-hover-background: var(--ev-panel);
+    --right-pane-item-hover-color: var(--ev-text-strong);
+    --scrollbar-thumb-color: #686a7066;
+    --scrollbar-thumb-hover-color: #686a7099;
+    --scrollbar-background-color: transparent;
+    --scrollbar-border-color: unset;
+    --selection-background-color: var(--ev-selection);
+    --card-background-color: var(--ev-panel);
+    --card-background-hover-color: #e9e2d6;
+    --card-background-press-color: var(--ev-current-line);
+    --card-border-color: var(--ev-border);
+    --card-shadow-color: var(--ev-shadow);
+    --card-box-shadow: 0 3px 12px var(--ev-shadow);
+
+    /* Data, diagrams, help, and the rich-text editor. */
+    --mermaid-theme: neutral;
+    --code-block-box-shadow: 0 0 0 1px var(--ev-border);
+    --calendar-color: var(--ev-text);
+    --calendar-weekday-labels-color: var(--ev-text-muted);
+    --calendar-day-hover-color: var(--ev-text-strong);
+    --calendar-day-hover-background: var(--ev-selection);
+    --calendar-day-highlight-background: var(--ev-wash-warm);
+    --timeline-bullet-color: var(--ev-text-faint);
+    --timeline-bullet-hover-color: var(--ev-focus);
+    --timeline-connector-color: var(--ev-border);
+    --timeline-connector-active-color: var(--ev-border-strong);
+    --timeline-connector-hover-blend-mode: normal;
+    --help-background-color: #eee7dbf2;
+    --help-card-background: var(--ev-panel);
+    --help-card-shadow: 0 2px 6px var(--ev-shadow);
+    --help-card-heading-color: var(--ev-function);
+    --help-kbd-shortcut-color: var(--ev-text-strong);
+    --help-kbd-shortcut-background: var(--ev-panel);
+    --help-kbd-shortcut-shadow: 0 1px 2px var(--ev-shadow);
+    --help-code-color: var(--ev-function);
+    --help-code-background: var(--ev-panel);
+    --ck-editor-popup-border-color: var(--ev-border-strong);
+    --ck-editor-toolbar-button-on-background: var(--ev-selection);
+    --ck-editor-toolbar-button-on-color: var(--ev-text-strong);
+    --ck-editor-toolbar-button-on-shadow: inset 0 -2px var(--ev-focus);
+    --ck-editor-toolbar-dropdown-button-open-background: var(--ev-panel);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:root {
+        color-scheme: dark;
+
+        /* Emberveil Dark semantic tokens: warm light in atmosphere. */
+        --ev-shell: #1d2029;
+        --ev-sidebar: #20232d;
+        --ev-canvas: #242632;
+        --ev-panel: #292c38;
+        --ev-raised: #303342;
+        --ev-current-line: #2d3040;
+        --ev-selection: #3a465c;
+        --ev-border: #3b3f4e;
+        --ev-border-strong: #565c6c;
+        --ev-text: #cccac2;
+        --ev-text-strong: #e3ded3;
+        --ev-text-muted: #9a9da5;
+        --ev-text-faint: #727d8e;
+        --ev-keyword: #ff9f5b;
+        --ev-function: #ffd173;
+        --ev-type: #73c7d6;
+        --ev-tag: #5ccfe6;
+        --ev-string: #b8d982;
+        --ev-number: #c8abe6;
+        --ev-attribute: #f29e74;
+        --ev-parameter: #e1c59c;
+        --ev-operator: #f0aa7a;
+        --ev-comment: #727d8e;
+        --ev-documentation: #9fcf86;
+        --ev-focus: #ffcc66;
+        --ev-action: #c06f3d;
+        --ev-action-hover: #d4814b;
+        --ev-action-text: #fff3e3;
+        --ev-danger: #f07178;
+        --ev-warning: #ffd173;
+        --ev-info: #73c7d6;
+        --ev-success: #9fcf86;
+        --ev-wash-warm: #ff9f5b1a;
+        --ev-wash-cool: #73c7d61a;
+        --ev-wash-danger: #f071781a;
+        --ev-shadow: #090b1057;
+        --ev-shadow-strong: #090b1073;
+
+        --theme-style: dark;
+        --native-titlebar-background: #1d202900;
+        --subtle-border-color: #3b3f4e85;
+        --dropdown-shadow-opacity: 0.36;
+        --cmd-button-keyboard-shortcut-background: #090b104d;
+        --input-hover-background: #343846;
+        --radio-checkbox-background: #565c6c70;
+        --radio-checkbox-hover-background: #ffcc6670;
+        --select-arrow-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='transparent' stroke='%239a9da5' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+        --menu-background-color: #303342f2;
+        --menu-item-delimiter-color: #565c6c70;
+        --menu-section-background-color: #e3ded30a;
+        --modal-backdrop-color: #090b10a6;
+        --modal-control-button-background: #e3ded314;
+        --modal-footer-background: #e3ded30a;
+        --toast-background: #303342f2;
+        --toast-text-color: var(--ev-text-strong);
+        --toast-close-button-background: #e3ded329;
+        --tooltip-background-color: #303342f2;
+        --quick-search-background: #e3ded30d;
+        --quick-search-hover-background: #e3ded314;
+        --left-pane-item-hover-background: #e3ded30d;
+        --left-pane-item-action-button-background: #e3ded314;
+        --launcher-pane-vert-background-color-bgfx: #1d2029f2;
+        --launcher-pane-horiz-background-color-bgfx: #1d2029f2;
+        --inactive-tab-hover-background-color: #e3ded30d;
+        --new-tab-button-background: #e3ded30d;
+        --floating-button-background-color: #303342e8;
+        --floating-button-hide-button-background: #090b1029;
+        --scrollbar-thumb-color: #9a9da566;
+        --scrollbar-thumb-hover-color: #9a9da599;
+        --card-background-hover-color: #343846;
+        --mermaid-theme: dark;
+        --help-background-color: #303342f2;
+    }
+}
+
+/* Primary actions use ember orange; keyboard focus remains gold/ochre. */
+button.btn.btn-primary,
+input.btn.btn-primary,
+a.btn.btn-primary {
+    background: var(--ev-action) !important;
+    border-color: var(--ev-action) !important;
+    color: var(--ev-action-text) !important;
+    box-shadow: none !important;
+}
+
+button.btn.btn-primary:hover,
+input.btn.btn-primary:hover,
+a.btn.btn-primary:hover {
+    background: var(--ev-action-hover) !important;
+    border-color: var(--ev-action-hover) !important;
+}
+
+button.btn.btn-primary:focus-visible,
+input.btn.btn-primary:focus-visible,
+a.btn.btn-primary:focus-visible {
+    outline: 2px solid var(--ev-focus) !important;
+    outline-offset: 2px;
+}
+
+button.btn.btn-danger {
+    background: var(--ev-wash-danger) !important;
+    border-color: var(--ev-danger) !important;
+    color: var(--ev-danger) !important;
+}
+
+button.btn.btn-success {
+    background: color-mix(in srgb, var(--ev-success) 12%, transparent) !important;
+    border-color: var(--ev-success) !important;
+    color: var(--ev-success) !important;
+}
+
+/* A narrow ember marker identifies location without a broad accent fill. */
+#left-pane span.fancytree-node.fancytree-active::after {
+    position: absolute;
+    content: "";
+    inset-block: 5px;
+    inset-inline-start: 2px;
+    width: 2px;
+    border-radius: 2px;
+    background: var(--ev-keyword);
+    z-index: 1;
+}
+
+.note-tab .note-tab-wrapper::after {
+    height: 2px !important;
+    background: transparent !important;
+}
+
+.note-tab[active] .note-tab-wrapper::after {
+    background: var(--ev-focus) !important;
+}
+
+/* Trilium sometimes uses workspace colors inline; keep the active location calm. */
+.note-tab .note-tab-wrapper {
+    --tab-background-color: transparent !important;
+}
+
+/* Rich-text content keeps an editorial hierarchy on both materials. */
+.note-detail-text .ck-content,
+.note-detail-editable-text-editor .ck-content,
+.note-detail-text .ck-editor__editable {
+    color: var(--ev-text);
+    background: var(--ev-canvas);
+    line-height: 1.65;
+}
+
+.note-detail-text h1,
+.note-detail-text h2,
+.note-detail-text h3,
+.note-detail-text h4,
+.note-detail-text h5,
+.note-detail-text h6,
+.ck-content h1,
+.ck-content h2,
+.ck-content h3,
+.ck-content h4,
+.ck-content h5,
+.ck-content h6 {
+    color: var(--ev-text-strong);
+    font-weight: 500;
+}
+
+.note-detail-text blockquote,
+.ck-content blockquote {
+    color: var(--ev-documentation);
+    border-inline-start-color: var(--ev-success) !important;
+    background: color-mix(in srgb, var(--ev-success) 7%, transparent);
+}
+
+.note-detail-text a,
+.note-detail-text .reference-link,
+.ck-content a,
+.ck-content .reference-link {
+    color: var(--ev-type);
+    text-decoration-color: color-mix(in srgb, var(--ev-type) 55%, transparent);
+    text-underline-offset: 0.18em;
+}
+
+.note-detail-text a:hover,
+.note-detail-text .reference-link:hover,
+.ck-content a:hover,
+.ck-content .reference-link:hover {
+    color: var(--ev-tag);
+    text-decoration-color: currentColor;
+}
+
+.note-detail-text code:not(pre code),
+.ck-content code:not(pre code) {
+    padding: 0.12em 0.35em;
+    color: var(--ev-function);
+    background: var(--ev-panel);
+    border: 1px solid var(--ev-border);
+    border-radius: 5px;
+}
+
+.note-detail-text pre,
+.ck-content pre,
+.note-detail-text pre code,
+.ck-content pre code {
+    color: var(--ev-text);
+    background: var(--ev-shell) !important;
+}
+
+.note-detail-text pre,
+.ck-content pre {
+    border: 1px solid var(--ev-border) !important;
+    border-radius: 6px;
+    box-shadow: none !important;
+}
+
+.note-detail-text hr,
+.ck-content hr {
+    border-color: var(--ev-border);
+}
+
+.note-detail-text table,
+.ck-content table {
+    border-color: var(--ev-border) !important;
+}
+
+.note-detail-text th,
+.ck-content th {
+    color: var(--ev-text-strong);
+    background: var(--ev-panel) !important;
+}
+
+.note-detail-text td,
+.note-detail-text th,
+.ck-content td,
+.ck-content th {
+    border-color: var(--ev-border) !important;
+}
+
+.note-detail-text mark,
+.ck-content mark {
+    color: var(--ev-text-strong);
+    background: var(--ev-wash-warm);
+    box-shadow: inset 0 -2px color-mix(in srgb, var(--ev-focus) 55%, transparent);
+}
+
+/* highlight.js output inside rich-text code blocks. */
+.hljs,
+.hljs code {
+    color: var(--ev-text) !important;
+    background: var(--ev-shell) !important;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-doctag {
+    color: var(--ev-keyword) !important;
+}
+
+.hljs-title,
+.hljs-title.function_,
+.hljs-function .hljs-title,
+.hljs-built_in {
+    color: var(--ev-function) !important;
+}
+
+.hljs-type,
+.hljs-class .hljs-title,
+.hljs-selector-class,
+.hljs-selector-id {
+    color: var(--ev-type) !important;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition {
+    color: var(--ev-string) !important;
+}
+
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-meta,
+.hljs-template-variable {
+    color: var(--ev-number) !important;
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-selector-attr {
+    color: var(--ev-attribute) !important;
+}
+
+.hljs-params,
+.hljs-variable.language_ {
+    color: var(--ev-parameter) !important;
+}
+
+.hljs-operator,
+.hljs-punctuation {
+    color: var(--ev-operator) !important;
+}
+
+.hljs-comment,
+.hljs-quote {
+    color: var(--ev-comment) !important;
+    font-style: italic;
+}
+
+.hljs-deletion {
+    color: var(--ev-danger) !important;
+}
+
+.hljs-name,
+.hljs-tag {
+    color: var(--ev-tag) !important;
+}
+
+/* CodeMirror chrome is CSS-addressable even though syntax themes are separate. */
+body .cm-editor {
+    border: 1px solid var(--ev-border);
+    background: var(--ev-canvas);
+    box-shadow: none;
+}
+
+body .cm-editor.cm-focused {
+    border-color: var(--ev-focus);
+    box-shadow: 0 0 0 1px var(--ev-focus) !important;
+}
+
+body .cm-editor .cm-panels,
+body .cm-editor .cm-tooltip,
+body .cm-editor .cm-tooltip-autocomplete > ul {
+    color: var(--ev-text) !important;
+    background: var(--ev-raised) !important;
+    border-color: var(--ev-border-strong) !important;
+}
+
+body .cm-editor .cm-tooltip-autocomplete > ul > li[aria-selected] {
+    color: var(--ev-text-strong) !important;
+    background: var(--ev-selection) !important;
+}
+
+body .cm-editor .cm-searchMatch {
+    background: var(--ev-wash-warm) !important;
+    outline-color: var(--ev-focus) !important;
+}
+
+/* Feedback states communicate with both color and their existing text/icons. */
+.alert-info {
+    color: var(--ev-info) !important;
+    background: var(--ev-wash-cool) !important;
+    border-color: var(--ev-info) !important;
+}
+
+.alert-success {
+    color: var(--ev-success) !important;
+    background: color-mix(in srgb, var(--ev-success) 10%, transparent) !important;
+    border-color: var(--ev-success) !important;
+}
+
+.alert-warning {
+    color: var(--ev-warning) !important;
+    background: var(--ev-wash-warm) !important;
+    border-color: var(--ev-warning) !important;
+}
+
+.alert-danger,
+.alert-error {
+    color: var(--ev-danger) !important;
+    background: var(--ev-wash-danger) !important;
+    border-color: var(--ev-danger) !important;
+}
+
+.text-danger,
+.error,
+.validation-error {
+    color: var(--ev-danger) !important;
+}
+
+.text-success {
+    color: var(--ev-success) !important;
+}
+
+.text-warning {
+    color: var(--ev-warning) !important;
+}
+
+/* Collection views use the same close material ladder. */
+.tabulator,
+.tabulator .tabulator-header,
+.tabulator .tabulator-footer,
+.table-view,
+.board-view,
+.board-column,
+.note-list-widget-content {
+    color: var(--ev-text) !important;
+    border-color: var(--ev-border) !important;
+}
+
+.tabulator .tabulator-header,
+.tabulator .tabulator-footer,
+.board-column,
+.note-list-item {
+    background: var(--ev-panel) !important;
+}
+
+.tabulator .tabulator-row,
+.tabulator .tabulator-cell,
+.tabulator .tabulator-col {
+    border-color: var(--ev-border) !important;
+}
+
+.tabulator .tabulator-row:hover,
+.note-list-item:hover {
+    background: var(--ev-current-line) !important;
+}
+
+/* FullCalendar exposes stable variables; avoid its default saturated blue. */
+.fc {
+    --fc-page-bg-color: var(--ev-canvas);
+    --fc-neutral-bg-color: var(--ev-panel);
+    --fc-neutral-text-color: var(--ev-text-muted);
+    --fc-border-color: var(--ev-border);
+    --fc-button-text-color: var(--ev-text-strong);
+    --fc-button-bg-color: var(--ev-raised);
+    --fc-button-border-color: var(--ev-border-strong);
+    --fc-button-hover-bg-color: var(--ev-selection);
+    --fc-button-hover-border-color: var(--ev-focus);
+    --fc-button-active-bg-color: var(--ev-selection);
+    --fc-button-active-border-color: var(--ev-focus);
+    --fc-event-bg-color: var(--ev-action);
+    --fc-event-border-color: var(--ev-action-hover);
+    --fc-event-text-color: var(--ev-action-text);
+    --fc-event-selected-overlay-color: var(--ev-wash-cool);
+    --fc-more-link-bg-color: var(--ev-panel);
+    --fc-more-link-text-color: var(--ev-type);
+    --fc-non-business-color: #77736d14;
+    --fc-bg-event-color: var(--ev-success);
+    --fc-bg-event-opacity: 0.18;
+    --fc-highlight-color: var(--ev-selection);
+    --fc-today-bg-color: var(--ev-wash-warm);
+    --fc-now-indicator-color: var(--ev-danger);
+}
+
+/* Narrow, consistent focus treatment for controls not covered by Next. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline-color: var(--ev-focus);
+}
+
+::selection {
+    color: var(--ev-text-strong);
+    background: var(--ev-selection);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+@media (forced-colors: active) {
+    :root:root {
+        --input-focus-outline-color: Highlight;
+    }
+
+    #left-pane span.fancytree-node.fancytree-active::after,
+    .note-tab[active] .note-tab-wrapper::after {
+        background: Highlight !important;
+    }
+}
