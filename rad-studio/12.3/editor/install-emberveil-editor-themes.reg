@@ -274,7 +274,7 @@ Windows Registry Editor Version 5.00
 "Bold"="False"
 "Italic"="False"
 "Underline"="False"
-"Foreground Color New"="$00E6ABC8"
+"Foreground Color New"="$00E6CF5C"
 "Background Color New"="$00322624"
 
 [HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Reserved word]
@@ -355,7 +355,7 @@ Windows Registry Editor Version 5.00
 "Bold"="False"
 "Italic"="False"
 "Underline"="False"
-"Foreground Color New"="$00D6C773"
+"Foreground Color New"="$00E6CF5C"
 "Background Color New"="$00322624"
 
 [HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Dark\Whitespace]
@@ -636,7 +636,7 @@ Windows Registry Editor Version 5.00
 "Bold"="False"
 "Italic"="False"
 "Underline"="False"
-"Foreground Color New"="$00874C70"
+"Foreground Color New"="$007B680E"
 "Background Color New"="$00D2DEE4"
 
 [HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Reserved word]
@@ -717,7 +717,7 @@ Windows Registry Editor Version 5.00
 "Bold"="False"
 "Italic"="False"
 "Underline"="False"
-"Foreground Color New"="$0070651C"
+"Foreground Color New"="$007B680E"
 "Background Color New"="$00D2DEE4"
 
 [HKEY_CURRENT_USER\Software\Embarcadero\BDS\23.0\Editor\Highlight\Custom Themes\Emberveil Light\Whitespace]

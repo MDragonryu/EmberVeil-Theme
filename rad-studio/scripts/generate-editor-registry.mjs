@@ -60,6 +60,7 @@ const palettes = {
     string: '#B8D982',
     number: '#C8ABE6',
     type: '#73C7D6',
+    tag: '#5CCFE6',
     attribute: '#F29E74',
     warning: '#FFD173',
     success: '#9FCF86',
@@ -91,6 +92,7 @@ const palettes = {
     string: '#46661F',
     number: '#704C87',
     type: '#1C6570',
+    tag: '#0E687B',
     attribute: '#914321',
     warning: '#875900',
     success: '#46661F',
@@ -149,7 +151,7 @@ function buildTheme(palette) {
     'Number': style(palette.number, palette.base),
     'Octal': style(palette.number, palette.base),
     'Plain text': style(palette.foreground, palette.base),
-    'Preprocessor': style(palette.number, palette.base),
+    'Preprocessor': style(palette.tag, palette.base),
     'Reserved word': style(palette.keyword, palette.base, { bold: true }),
     'Right margin': style(palette.rightMargin, palette.base),
     'Scripts': style(palette.warning, palette.base),
@@ -158,7 +160,7 @@ function buildTheme(palette) {
     'Symbol': style(palette.foreground, palette.base),
     'Sync edit background': style(palette.foreground, palette.sync),
     'Sync edit highlight': style(palette.strong, palette.syncHighlight, { bold: true }),
-    'Tags': style(palette.type, palette.base),
+    'Tags': style(palette.tag, palette.base),
     'Whitespace': style(palette.faint, palette.base)
   };
 }
@@ -251,4 +253,3 @@ await writeFile(resolve(outputDirectory, 'uninstall-emberveil-editor-themes.reg'
 
 console.log(`Generated ${Object.keys(themes).length} RAD Studio 12.3 editor themes with ${elementNames.length} elements each.`);
 console.log(`Registry scope: ${registryRoot}`);
-

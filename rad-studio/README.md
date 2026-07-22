@@ -34,9 +34,10 @@ The schemes preserve the established Emberveil syntax language wherever RAD Stud
 - reserved words are signature orange and bold;
 - identifiers, symbols, and plain text remain calm neutral foregrounds;
 - strings and characters are green;
-- numbers, hexadecimal values, and compiler directives are mauve;
+- numbers and hexadecimal values are mauve;
+- compiler directives and regions use the same blue as VS Code HTML/XML tags;
 - comments are muted and italic;
-- tags and links use teal;
+- tags use the matching blue, while links use teal;
 - selection, current line, search, diff, breakpoint, execution, and gutter states use paired Emberveil surfaces.
 
 RAD Studio's classic highlighter exposes one broad **Identifier** category. It cannot independently color functions, types, properties, parameters, and ordinary variables the way VS Code or Zed semantic highlighting can. Emberveil therefore keeps all identifiers neutral—the calmer choice established during the VS Code review—instead of applying an inaccurate accent to every name.
@@ -50,4 +51,3 @@ node scripts/generate-editor-registry.mjs
 ```
 
 The generator writes both `.reg` files with Windows CRLF line endings and verifies that the installer contains exactly two 40-element custom themes under the RAD Studio 12 registry branch.
-
