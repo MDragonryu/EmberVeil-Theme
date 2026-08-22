@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Emberveil favicon</title>
+  <desc id="desc">A compact ember flame held inside a cool structural veil.</desc>
+  <style>
+    :root {
+      --bg: #242936;
+      --rim: #343B4A;
+      --veil: #73D0FF;
+      --ember: #FF9F5B;
+      --core: #FFD580;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #E7D8BD;
+        --rim: #CBB99A;
+        --veil: #176B73;
+        --ember: #A44012;
+        --core: #7A5812;
+      }
+    }
+  </style>
+
+  <!-- Quiet material surface -->
+  <rect x="3" y="3" width="58" height="58" rx="14" fill="var(--bg)"/>
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="none" stroke="var(--rim)" stroke-width="2"/>
+
+  <!-- The veil: two cool structural strokes creating an open V -->
+  <path d="M16 17 L27.5 48 Q29 51 32 51 Q35 51 36.5 48 L48 17
+           L40.5 21.5 L32 41 L23.5 21.5 Z"
+        fill="var(--veil)" fill-rule="evenodd"/>
+
+  <!-- The ember: warm execution localized inside the structure -->
+  <path d="M32 13
+           C38 20 41 25 40 31
+           C39.2 35.8 35.8 39 32 42
+           C27.8 38.7 24 35 24 30
+           C24 24.5 27.7 19.1 32 13 Z"
+        fill="var(--ember)"/>
+
+  <!-- Small focused core -->
+  <path d="M32 24
+           C34.8 27.4 35.8 30.1 35.2 32.5
+           C34.7 34.7 33.3 36.2 32 37.3
+           C30.3 35.9 28.8 34.2 28.8 32
+           C28.8 29.5 30.2 26.8 32 24 Z"
+        fill="var(--core)"/>
+</svg>
