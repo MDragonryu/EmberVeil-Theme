@@ -3,8 +3,8 @@ $ErrorActionPreference = 'Stop'
 $target = Join-Path $env:LOCALAPPDATA 'Database Workbench 5 Pro\Data'
 $source = Join-Path $PSScriptRoot 'themes'
 $files = @(
-    'Emberveil Dark.ini',
-    'Emberveil Light.ini'
+    'Emberveil Dark.col',
+    'Emberveil Light.col'
 )
 
 if (-not (Test-Path $source)) {
