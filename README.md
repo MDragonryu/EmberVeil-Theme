@@ -75,6 +75,10 @@ The editor-only package in [`rad-studio/`](rad-studio/) installs **Emberveil Dar
 
 The editor-only package in [`database-workbench-5/`](database-workbench-5/) installs **Emberveil Dark** and **Emberveil Light** as native Database Workbench 5 Pro color-scheme files. It maps the Emberveil syntax language and editor-state surfaces that DBW5 exposes while leaving the surrounding application UI unchanged. See the [Database Workbench 5 guide](database-workbench-5/README.md) for installation, removal, and limitations.
 
+## Try it in Everything 1.5
+
+The native configuration package in [`everything/`](everything/) installs **Emberveil Light** into Everything's Standard theme and **Emberveil Dark** into its Dark theme. It changes only Everything 1.5 appearance keys, keeps both variants available for system-driven switching, and records the previous values for reversible uninstall. See the [Everything theme guide](everything/README.md) for installation, portable-config support, and limitations.
+
 ## Ideas and inspirations
 
 - **Aurora Forge** - a more energetic synthesis of Ayu Mirage, Nord, Cobalt2, JetBrains/Darcula, and personal preferences. [Preview](ideas/aurora-forge/preview.html) · [Specification](ideas/aurora-forge/spec.md)
@@ -106,6 +110,10 @@ database-workbench-5/
   themes/      Native Emberveil editor color schemes for DBW5 Pro
   install.ps1  Installs both schemes into the DBW5 Pro data folder
   uninstall.ps1  Removes only the two Emberveil scheme files
+everything/
+  themes/      Light and dark Everything 1.5 appearance fragments
+  install.ps1  Merges both variants into the active Everything configuration
+  uninstall.ps1  Restores only the appearance values changed by Emberveil
 ideas/
   aurora-forge/
   vermilion-fjord/
@@ -113,4 +121,4 @@ ideas/
 
 ## Current status
 
-Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are packaged for VS Code, Zed, Zen Browser, Ghostty, RAD Studio 12.3, and the Database Workbench 5 Pro code editor; implementations for other applications and a production design-token library remain future work.
+Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are packaged for VS Code, Zed, Zen Browser, Ghostty, RAD Studio 12.3, Database Workbench 5 Pro, and Everything 1.5; implementations for other applications and a production design-token library remain future work.
