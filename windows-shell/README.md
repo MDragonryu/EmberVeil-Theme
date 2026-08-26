@@ -81,6 +81,39 @@ Broad surfaces stay charcoal/plum-slate and deliberately avoid pure black. Accen
 
 Light mode uses warm paper and stone surfaces. It intentionally avoids white application chrome.
 
+## Safe-mode Windows 11 limitation discovered during testing
+
+Testing on current Windows 11 showed that the global accent system is more coupled than the registry value names suggest.
+
+The relevant state includes:
+
+- `HKCU\Software\Microsoft\Windows\DWM` values such as `AccentColor` and `ColorizationColor`.
+- `HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Accent\AccentColorMenu`.
+- `HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Accent\StartColorMenu`.
+- `HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Accent\AccentPalette`.
+- `HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize\ColorPrevalence`.
+
+Windows exposes one system accent palette and applications consume shades from that palette. Task Manager's process heatmap also follows system accent resources. In practice, attempts to force a charcoal Start/taskbar while keeping Task Manager's heatmap orange caused one of three outcomes on the tested build: the taskbar used an unexpected blue shade, Explorer rebuilt the taskbar back to an orange-derived shade after restart, or Task Manager lost its useful orange heatmap.
+
+This means **Safe mode should not currently promise an independently colored taskbar and application accent**. The supported Windows personalization model is designed around one accent family, not a fully semantic Emberveil palette where application emphasis and shell background can be assigned independently.
+
+The most reliable Safe-mode interpretation is therefore:
+
+- Keep the global Windows accent in the Emberveil orange family so application accents such as Task Manager remain correct.
+- Either leave Start/taskbar accent disabled, allowing Windows' normal dark charcoal taskbar, or enable the muted orange shell treatment and accept that it belongs to the same system accent family.
+- Do not repurpose `AccentPalette` application slots solely to force charcoal shell surfaces, because applications may consume those same slots.
+
+The desired combination remains **charcoal broad shell surfaces + orange application/interaction highlights**. Implement that later through the Full mode or another shell-specific mechanism where those roles can actually be controlled independently.
+
+Research notes:
+
+- Microsoft's Windows settings reference documents `ColorPrevalence` as the Start/taskbar accent toggle and the light/dark personalization registry values.
+- Microsoft's accent-color protocol documentation confirms that DWM accent state and Explorer's `AccentColorMenu`, `StartColorMenu`, and `AccentPalette` are all parts of the Windows accent system.
+- Microsoft's application theming documentation describes the shell generating light/dark shades from a single accent color and exposing them to apps as `SystemAccentColor*` resources.
+- Current Windows 11 reports also show that registry-written taskbar accent changes may require Explorer restart and do not have a public supported Win32 refresh API equivalent to the Settings application.
+
+Treat the current `-CharcoalShell` experiment as provisional until this is revisited. Do not make it the recommended/default Safe-mode configuration without confirming the tested Windows build's behavior.
+
 ## Why Full mode is build-specific
 
 Windows visual styles are binary `.msstyles` resources. Modern editors modify a Microsoft base visual style; they do not provide a stable declarative format from which a complete Windows 11 style can be recreated independently.
@@ -136,6 +169,6 @@ windows-shell/
 
 ## Current status
 
-Safe mode is directly usable.
+Safe mode is directly usable for light/dark mode and a coherent Emberveil system accent, but the charcoal-shell experiment has the limitation documented above.
 
 The Full-mode installer and build-safety model are implemented, but a full visual-style payload must be authored and visually tested for each supported Windows build before it is added under `full/styles/<build>/`. This separation is intentional; the repository will not ship an untested or mismatched `.msstyles` file merely to make Full mode appear complete.
