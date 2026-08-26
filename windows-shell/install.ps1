@@ -73,18 +73,30 @@ function Set-EmberveilPersonalization {
     Set-ItemProperty -Path $personalize -Name SystemUsesLightTheme -Type DWord -Value $light
 
     if ($SelectedVariant -eq 'Dark') {
+        # Emberveil Dark keeps saturated orange local. Broad chrome receives
+        # progressively quieter ember tones instead of the signature accent.
         $accent = '#FF9F5B'
-        $palette = @('#5C321E','#7B472B','#A45F3A','#D57D49','#FF9F5B','#FFB77E','#FFD0AA','#FFE6D2')
+        $titleAccent = '#7B472B'
+        $shellAccent = '#5C3D30'
+        $palette = @('#4A3029','#5C3D30','#7B472B','#A45F3A','#FF9F5B','#FFB77E','#FFD0AA','#FFE6D2')
     }
     else {
+        # Light mode follows the same rule: burnt-orange interaction color,
+        # muted material tones for large title/taskbar surfaces.
         $accent = '#A44012'
-        $palette = @('#522009','#6B2A0C','#84340F','#A44012','#BC5A2A','#CE7850','#DFA086','#ECC7B6')
+        $titleAccent = '#84340F'
+        $shellAccent = '#8B6755'
+        $palette = @('#6D5145','#8B6755','#84340F','#A44012','#BC5A2A','#CE7850','#DFA086','#ECC7B6')
     }
 
     $accentDword = Convert-HexToAbgrDword $accent
-    $colorizationDword = Convert-HexToAbgrDword $accent 0xC4
+    $titleAccentDword = Convert-HexToAbgrDword $titleAccent
+    $shellAccentDword = Convert-HexToAbgrDword $shellAccent
+    $colorizationDword = Convert-HexToAbgrDword $titleAccent 0xC4
 
-    Set-ItemProperty -Path $dwm -Name AccentColor -Type DWord -Value $accentDword
+    # DWM owns broad window chrome, so use the muted title tone here rather
+    # than Emberveil's bright semantic accent.
+    Set-ItemProperty -Path $dwm -Name AccentColor -Type DWord -Value $titleAccentDword
     Set-ItemProperty -Path $dwm -Name ColorizationColor -Type DWord -Value $colorizationDword
     Set-ItemProperty -Path $dwm -Name ColorPrevalence -Type DWord -Value ([int]$AccentTitleBars.IsPresent)
 
@@ -99,8 +111,11 @@ function Set-EmberveilPersonalization {
     }
 
     Set-ItemProperty -Path $explorerAccent -Name AccentPalette -Type Binary -Value $paletteBytes
+
+    # Interactive accent stays recognizably Emberveil; Start/taskbar gets its
+    # own subdued broad-surface color.
     Set-ItemProperty -Path $explorerAccent -Name AccentColorMenu -Type DWord -Value $accentDword
-    Set-ItemProperty -Path $explorerAccent -Name StartColorMenu -Type DWord -Value $accentDword
+    Set-ItemProperty -Path $explorerAccent -Name StartColorMenu -Type DWord -Value $shellAccentDword
 
     Set-ItemProperty -Path $personalize -Name ColorPrevalence -Type DWord -Value ([int]$AccentShell.IsPresent)
     Set-ItemProperty -Path $personalize -Name AutoColorization -Type DWord -Value 0
@@ -124,7 +139,8 @@ if ($Mode -eq 'Safe') {
 
     Write-Host 'Installed Emberveil Windows Shell in SAFE mode.' -ForegroundColor Cyan
     Write-Host "Variant: $Variant"
-    Write-Host 'Accent: Emberveil system accent + generated Explorer accent palette'
+    Write-Host 'Interactive accent: Emberveil signature accent'
+    Write-Host 'Broad shell chrome: muted Emberveil surface accent'
     Write-Host "Accent on title bars/borders: $($AccentTitleBars.IsPresent)"
     Write-Host "Accent on Start/taskbar: $($AccentShell.IsPresent)"
     Write-Host 'The .theme preset was installed but was NOT activated.'
