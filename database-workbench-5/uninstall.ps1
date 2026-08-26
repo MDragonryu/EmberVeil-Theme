@@ -2,8 +2,8 @@ $ErrorActionPreference = 'Stop'
 
 $target = Join-Path $env:LOCALAPPDATA 'Database Workbench 5 Pro\Data'
 $files = @(
-    'Emberveil Dark.ini',
-    'Emberveil Light.ini'
+    'Emberveil Dark.col',
+    'Emberveil Light.col'
 )
 
 foreach ($file in $files) {
