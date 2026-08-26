@@ -79,20 +79,21 @@ function Set-EmberveilPersonalization {
         $charcoalShell = '#1D2029'
         $startModal = '#242632'
 
-        # AccentPalette slots are semantic, not a generic shade ramp:
-        # 0 accent hover, 1 accent / taskbar indicator, 2 Start hover,
-        # 3 Settings accent, 4 Start background, 5 taskbar front,
-        # 6 taskbar background, 7 unused.
         $surface = if ($CharcoalShell) { $charcoalShell } else { $mutedShell }
+
+        # AccentPalette slots are semantic, not a shade ramp.
+        # Keep the first four slots orange so apps and interaction states can
+        # continue to consume Emberveil's signature accent. Only the shell
+        # surface slots are replaced by the selected taskbar/Start surface.
         $palette = @(
-            '#FFB77E', # hover
-            '#FF9F5B', # interactive accent / task indicator
-            '#A86C45', # Start hover
-            '#D88752', # Settings accent
-            $surface,  # Start background
-            $surface,  # taskbar front
-            $surface,  # taskbar background
-            $surface   # unused / defensive
+            '#FFB77E', # 0 app/action-center links + hover accents
+            '#FF9F5B', # 1 task indicator / strong interaction accent
+            '#D88752', # 2 Start hover
+            '#FF9F5B', # 3 Settings/app accent brush
+            $surface,  # 4 Start background / active taskbar surface
+            $surface,  # 5 taskbar front / Start folder surface
+            $surface,  # 6 taskbar background when transparency is active
+            $surface   # 7 unused / defensive
         )
     }
     else {
@@ -120,12 +121,13 @@ function Set-EmberveilPersonalization {
     $startModalDword = Convert-HexToAbgrDword $startModal
     $colorizationDword = Convert-HexToAbgrDword $titleAccent 0xC4
 
-    Set-ItemProperty -Path $dwm -Name AccentColor -Type DWord -Value $titleAccentDword
+    # Keep the global/app accent on Emberveil orange. Modern applications such
+    # as Task Manager can consume this independently of Explorer's shell
+    # background slots below. ColorizationColor remains muted for broad chrome.
+    Set-ItemProperty -Path $dwm -Name AccentColor -Type DWord -Value $accentDword
     Set-ItemProperty -Path $dwm -Name ColorizationColor -Type DWord -Value $colorizationDword
     Set-ItemProperty -Path $dwm -Name ColorPrevalence -Type DWord -Value ([int]$AccentTitleBars.IsPresent)
 
-    # AccentPalette uses RGBA byte order. Explorer reloads these semantic slots
-    # on startup, so shell surface colors must live here to survive restarts.
     [byte[]]$paletteBytes = foreach ($shade in $palette) {
         $value = $shade.TrimStart('#')
         [Convert]::ToByte($value.Substring(0,2), 16)
@@ -157,12 +159,12 @@ if ($Mode -eq 'Safe') {
 
     Write-Host 'Installed Emberveil Windows Shell in SAFE mode.' -ForegroundColor Cyan
     Write-Host "Variant: $Variant"
-    Write-Host 'Interactive accent: Emberveil signature orange'
+    Write-Host 'Application/interaction accent: Emberveil signature orange'
     if ($CharcoalShell) {
-        Write-Host 'Start/taskbar: Emberveil charcoal surface'
+        Write-Host 'Start/taskbar surface: Emberveil charcoal'
     }
     elseif ($AccentShell) {
-        Write-Host 'Start/taskbar: muted ember-orange surface'
+        Write-Host 'Start/taskbar surface: muted ember-orange'
     }
     else {
         Write-Host 'Start/taskbar accent: disabled'
@@ -170,7 +172,7 @@ if ($Mode -eq 'Safe') {
     Write-Host "Accent on title bars/borders: $($AccentTitleBars.IsPresent)"
     Write-Host 'The .theme preset was installed but was NOT activated.'
     Write-Host 'Wallpaper, cursors, sounds and unsigned visual styles were not touched.'
-    Write-Host 'Restart Explorer once after changing shell mode so it reloads AccentPalette.' -ForegroundColor DarkGray
+    Write-Host 'Restart Explorer once after changing shell mode. Restart Task Manager too if it was already open.' -ForegroundColor DarkGray
     return
 }
 
