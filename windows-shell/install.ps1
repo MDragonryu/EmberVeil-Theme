@@ -8,6 +8,7 @@ param(
 
     [switch]$AccentTitleBars,
     [switch]$AccentShell,
+    [switch]$CharcoalShell,
     [switch]$Force
 )
 
@@ -85,19 +86,21 @@ function Set-EmberveilPersonalization {
     Set-ItemProperty -Path $personalize -Name SystemUsesLightTheme -Type DWord -Value $light
 
     if ($SelectedVariant -eq 'Dark') {
-        # Emberveil's signature remains orange. Broad shell chrome uses a
-        # dark ember blend between the key orange and the coal shell.
         $accent = '#FF9F5B'
         $titleAccent = '#7B472B'
-        $shellAccent = '#8E5F42'
+        $emberShellAccent = '#8E5F42'
+        $charcoalShellAccent = '#1D2029'
         $palette = @('#4A3029','#674331','#7B472B','#8E5F42','#A86C45','#D88752','#FF9F5B','#FFB77E')
     }
     else {
         $accent = '#A44012'
         $titleAccent = '#84340F'
-        $shellAccent = '#8A4D2E'
+        $emberShellAccent = '#8A4D2E'
+        $charcoalShellAccent = '#CEC6BA'
         $palette = @('#6D5145','#7A503A','#84340F','#8A4D2E','#A44012','#BC5A2A','#CE7850','#DFA086')
     }
+
+    $shellAccent = if ($CharcoalShell.IsPresent) { $charcoalShellAccent } else { $emberShellAccent }
 
     $accentDword = Convert-HexToAbgrDword $accent
     $titleAccentDword = Convert-HexToAbgrDword $titleAccent
@@ -120,7 +123,8 @@ function Set-EmberveilPersonalization {
     Set-ItemProperty -Path $explorerAccent -Name AccentColorMenu -Type DWord -Value $accentDword
     Set-ItemProperty -Path $explorerAccent -Name StartColorMenu -Type DWord -Value $shellAccentDword
 
-    Set-ItemProperty -Path $personalize -Name ColorPrevalence -Type DWord -Value ([int]$AccentShell.IsPresent)
+    $shellEnabled = $AccentShell.IsPresent -or $CharcoalShell.IsPresent
+    Set-ItemProperty -Path $personalize -Name ColorPrevalence -Type DWord -Value ([int]$shellEnabled)
     Set-ItemProperty -Path $personalize -Name AutoColorization -Type DWord -Value 0
 
     Send-ThemeRefresh
@@ -136,12 +140,13 @@ Copy-Item -Path $safeTheme -Destination $userTheme -Force
 if ($Mode -eq 'Safe') {
     Set-EmberveilPersonalization -SelectedVariant $Variant
 
+    $shellMode = if ($CharcoalShell.IsPresent) { 'charcoal shell surface' } elseif ($AccentShell.IsPresent) { 'muted ember-orange' } else { 'Windows default (shell accent disabled)' }
+
     Write-Host 'Installed Emberveil Windows Shell in SAFE mode.' -ForegroundColor Cyan
     Write-Host "Variant: $Variant"
     Write-Host 'Interactive accent: Emberveil signature orange'
-    Write-Host 'Broad shell chrome: muted ember-orange derived from the signature accent and coal shell'
+    Write-Host "Taskbar/Start treatment: $shellMode"
     Write-Host "Accent on title bars/borders: $($AccentTitleBars.IsPresent)"
-    Write-Host "Accent on Start/taskbar: $($AccentShell.IsPresent)"
     Write-Host 'The .theme preset was installed but was NOT activated.'
     Write-Host 'Wallpaper, cursors, sounds and unsigned visual styles were not touched.'
     Write-Host 'If the taskbar keeps a cached old color, restart Explorer or sign out/in once.' -ForegroundColor DarkGray
