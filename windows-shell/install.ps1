@@ -18,26 +18,18 @@ $safeTheme = Join-Path $root "safe\$themeName"
 $userThemeDir = Join-Path $env:LOCALAPPDATA 'Microsoft\Windows\Themes'
 $userTheme = Join-Path $userThemeDir $themeName
 
-function Convert-HexToBgraBytes {
-    param([Parameter(Mandatory)][string]$Hex)
+function Convert-HexToArgbDword {
+    param([Parameter(Mandatory)][string]$Hex, [byte]$Alpha = 0xFF)
 
     $value = $Hex.TrimStart('#')
     if ($value.Length -ne 6) { throw "Expected RRGGBB color, got '$Hex'." }
 
-    $r = [Convert]::ToByte($value.Substring(0,2), 16)
-    $g = [Convert]::ToByte($value.Substring(2,2), 16)
-    $b = [Convert]::ToByte($value.Substring(4,2), 16)
-    return [byte[]]@($b, $g, $r, 0xFF)
-}
-
-function Convert-HexToAbgrDword {
-    param([Parameter(Mandatory)][string]$Hex, [byte]$Alpha = 0xFF)
-
-    $value = $Hex.TrimStart('#')
     $r = [Convert]::ToUInt32($value.Substring(0,2), 16)
     $g = [Convert]::ToUInt32($value.Substring(2,2), 16)
     $b = [Convert]::ToUInt32($value.Substring(4,2), 16)
-    return [uint32](($Alpha -shl 24) -bor ($b -shl 16) -bor ($g -shl 8) -bor $r)
+
+    # Windows' accent DWORDs are ARGB values: 0xAARRGGBB.
+    return [uint32](($Alpha -shl 24) -bor ($r -shl 16) -bor ($g -shl 8) -bor $b)
 }
 
 function Send-ThemeRefresh {
@@ -89,26 +81,23 @@ function Set-EmberveilPersonalization {
         $palette = @('#522009','#6B2A0C','#84340F','#A44012','#BC5A2A','#CE7850','#DFA086','#ECC7B6')
     }
 
-    $accentDword = Convert-HexToAbgrDword $accent
-    $colorizationDword = Convert-HexToAbgrDword $accent 0xC4
+    $accentDword = Convert-HexToArgbDword $accent
+    $colorizationDword = Convert-HexToArgbDword $accent 0xC4
 
     Set-ItemProperty -Path $dwm -Name AccentColor -Type DWord -Value $accentDword
     Set-ItemProperty -Path $dwm -Name ColorizationColor -Type DWord -Value $colorizationDword
     Set-ItemProperty -Path $dwm -Name ColorPrevalence -Type DWord -Value ([int]$AccentTitleBars.IsPresent)
 
-    # Build a flat REG_BINARY value explicitly. Returning byte arrays from a
-    # PowerShell function is pipeline-enumerated on Windows PowerShell 5.1,
-    # which made List[byte].AddRange receive Object[] instead of byte[].
+    # AccentPalette is stored as eight RGBA entries. Keep this explicitly flat
+    # so Windows PowerShell 5.1 does not turn nested byte arrays into Object[].
     [byte[]]$paletteBytes = foreach ($shade in $palette) {
         $value = $shade.TrimStart('#')
-        $r = [Convert]::ToByte($value.Substring(0,2), 16)
-        $g = [Convert]::ToByte($value.Substring(2,2), 16)
-        $b = [Convert]::ToByte($value.Substring(4,2), 16)
-        $b
-        $g
-        $r
-        [byte]0xFF
+        [Convert]::ToByte($value.Substring(0,2), 16) # R
+        [Convert]::ToByte($value.Substring(2,2), 16) # G
+        [Convert]::ToByte($value.Substring(4,2), 16) # B
+        [byte]0xFF                                    # A
     }
+
     Set-ItemProperty -Path $explorerAccent -Name AccentPalette -Type Binary -Value $paletteBytes
     Set-ItemProperty -Path $explorerAccent -Name AccentColorMenu -Type DWord -Value $accentDword
     Set-ItemProperty -Path $explorerAccent -Name StartColorMenu -Type DWord -Value $accentDword
