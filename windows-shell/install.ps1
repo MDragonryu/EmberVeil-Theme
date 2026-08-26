@@ -18,7 +18,7 @@ $safeTheme = Join-Path $root "safe\$themeName"
 $userThemeDir = Join-Path $env:LOCALAPPDATA 'Microsoft\Windows\Themes'
 $userTheme = Join-Path $userThemeDir $themeName
 
-function Convert-HexToArgbDword {
+function Convert-HexToAbgrDword {
     param([Parameter(Mandatory)][string]$Hex, [byte]$Alpha = 0xFF)
 
     $value = $Hex.TrimStart('#')
@@ -28,8 +28,8 @@ function Convert-HexToArgbDword {
     $g = [Convert]::ToUInt32($value.Substring(2,2), 16)
     $b = [Convert]::ToUInt32($value.Substring(4,2), 16)
 
-    # Windows' accent DWORDs are ARGB values: 0xAARRGGBB.
-    return [uint32](($Alpha -shl 24) -bor ($r -shl 16) -bor ($g -shl 8) -bor $b)
+    # Explorer/DWM accent DWORD values are stored as 0xAABBGGRR.
+    return [uint32](($Alpha -shl 24) -bor ($b -shl 16) -bor ($g -shl 8) -bor $r)
 }
 
 function Send-ThemeRefresh {
@@ -81,15 +81,15 @@ function Set-EmberveilPersonalization {
         $palette = @('#522009','#6B2A0C','#84340F','#A44012','#BC5A2A','#CE7850','#DFA086','#ECC7B6')
     }
 
-    $accentDword = Convert-HexToArgbDword $accent
-    $colorizationDword = Convert-HexToArgbDword $accent 0xC4
+    $accentDword = Convert-HexToAbgrDword $accent
+    $colorizationDword = Convert-HexToAbgrDword $accent 0xC4
 
     Set-ItemProperty -Path $dwm -Name AccentColor -Type DWord -Value $accentDword
     Set-ItemProperty -Path $dwm -Name ColorizationColor -Type DWord -Value $colorizationDword
     Set-ItemProperty -Path $dwm -Name ColorPrevalence -Type DWord -Value ([int]$AccentTitleBars.IsPresent)
 
-    # AccentPalette is stored as eight RGBA entries. Keep this explicitly flat
-    # so Windows PowerShell 5.1 does not turn nested byte arrays into Object[].
+    # AccentPalette itself is eight RGBA entries, unlike the DWORD values above.
+    # Keep it explicitly flat for Windows PowerShell 5.1 compatibility.
     [byte[]]$paletteBytes = foreach ($shade in $palette) {
         $value = $shade.TrimStart('#')
         [Convert]::ToByte($value.Substring(0,2), 16) # R
@@ -112,23 +112,24 @@ if (-not (Test-Path $safeTheme)) {
     throw "Missing safe theme payload: $safeTheme"
 }
 
+# Keep the preset available in the user's theme directory, but Safe mode does
+# not activate the .theme file. Applying a theme container can overwrite the
+# user's wallpaper and is rejected on some Windows 11 builds. Safe mode works
+# directly through the supported personalization state instead.
 New-Item -ItemType Directory -Path $userThemeDir -Force | Out-Null
 Copy-Item -Path $safeTheme -Destination $userTheme -Force
 
-# Apply the minimal .theme first. Registry personalization follows it so Windows
-# cannot overwrite Emberveil's accent values while loading the theme file.
-Start-Process -FilePath $userTheme
-Start-Sleep -Milliseconds 900
-Set-EmberveilPersonalization -SelectedVariant $Variant
-
 if ($Mode -eq 'Safe') {
+    Set-EmberveilPersonalization -SelectedVariant $Variant
+
     Write-Host 'Installed Emberveil Windows Shell in SAFE mode.' -ForegroundColor Cyan
     Write-Host "Variant: $Variant"
     Write-Host 'Accent: Emberveil system accent + generated Explorer accent palette'
     Write-Host "Accent on title bars/borders: $($AccentTitleBars.IsPresent)"
     Write-Host "Accent on Start/taskbar: $($AccentShell.IsPresent)"
+    Write-Host 'The .theme preset was installed but was NOT activated.'
     Write-Host 'Wallpaper, cursors, sounds and unsigned visual styles were not touched.'
-    Write-Host 'If an already-open shell surface keeps the old accent, sign out/in once or restart Explorer.' -ForegroundColor DarkGray
+    Write-Host 'If the taskbar keeps a cached old color, restart Explorer or sign out/in once.' -ForegroundColor DarkGray
     return
 }
 
@@ -142,7 +143,7 @@ Full mode is intentionally separate from Safe mode and must be requested explici
 if (-not $Force) {
     $answer = Read-Host 'Type FULL to confirm that you want to continue'
     if ($answer -cne 'FULL') {
-        Write-Host 'Full installation cancelled. Safe theme files remain installed.'
+        Write-Host 'Full installation cancelled. The Safe preset file remains installed but was not activated.'
         return
     }
 }
@@ -153,7 +154,7 @@ $styleFileName = if ($Variant -eq 'Dark') { 'Emberveil-Dark.msstyles' } else { '
 $styleSource = Join-Path $styleDir $styleFileName
 
 if (-not (Test-Path $styleSource)) {
-    throw "No Emberveil Full payload exists for Windows build $build. Expected: $styleSource`nSafe mode is already installed; no unsupported visual style was applied."
+    throw "No Emberveil Full payload exists for Windows build $build. Expected: $styleSource`nNo unsupported visual style was applied."
 }
 
 $secureUxCandidates = @(
