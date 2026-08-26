@@ -32,19 +32,6 @@ function Convert-HexToAbgrDword {
     return [uint32](($Alpha -shl 24) -bor ($b -shl 16) -bor ($g -shl 8) -bor $r)
 }
 
-function Convert-HexToArgbDword {
-    param([Parameter(Mandatory)][string]$Hex, [byte]$Alpha = 0xFF)
-
-    $value = $Hex.TrimStart('#')
-    if ($value.Length -ne 6) { throw "Expected RRGGBB color, got '$Hex'." }
-
-    $r = [Convert]::ToUInt32($value.Substring(0,2), 16)
-    $g = [Convert]::ToUInt32($value.Substring(2,2), 16)
-    $b = [Convert]::ToUInt32($value.Substring(4,2), 16)
-
-    return [uint32](($Alpha -shl 24) -bor ($r -shl 16) -bor ($g -shl 8) -bor $b)
-}
-
 function Send-ThemeRefresh {
     if (-not ('Emberveil.NativeMethods' -as [type])) {
         Add-Type @'
@@ -88,29 +75,57 @@ function Set-EmberveilPersonalization {
     if ($SelectedVariant -eq 'Dark') {
         $accent = '#FF9F5B'
         $titleAccent = '#7B472B'
-        $emberShellAccent = '#8E5F42'
-        $charcoalShellAccent = '#1D2029'
-        $palette = @('#4A3029','#674331','#7B472B','#8E5F42','#A86C45','#D88752','#FF9F5B','#FFB77E')
+        $mutedShell = '#8E5F42'
+        $charcoalShell = '#1D2029'
+        $startModal = '#242632'
+
+        # AccentPalette slots are semantic, not a generic shade ramp:
+        # 0 accent hover, 1 accent / taskbar indicator, 2 Start hover,
+        # 3 Settings accent, 4 Start background, 5 taskbar front,
+        # 6 taskbar background, 7 unused.
+        $surface = if ($CharcoalShell) { $charcoalShell } else { $mutedShell }
+        $palette = @(
+            '#FFB77E', # hover
+            '#FF9F5B', # interactive accent / task indicator
+            '#A86C45', # Start hover
+            '#D88752', # Settings accent
+            $surface,  # Start background
+            $surface,  # taskbar front
+            $surface,  # taskbar background
+            $surface   # unused / defensive
+        )
     }
     else {
         $accent = '#A44012'
         $titleAccent = '#84340F'
-        $emberShellAccent = '#8A4D2E'
-        $charcoalShellAccent = '#CEC6BA'
-        $palette = @('#6D5145','#7A503A','#84340F','#8A4D2E','#A44012','#BC5A2A','#CE7850','#DFA086')
-    }
+        $mutedShell = '#8A4D2E'
+        $charcoalShell = '#CEC6BA'
+        $startModal = '#E4DED2'
 
-    $shellAccent = if ($CharcoalShell.IsPresent) { $charcoalShellAccent } else { $emberShellAccent }
+        $surface = if ($CharcoalShell) { $charcoalShell } else { $mutedShell }
+        $palette = @(
+            '#CE7850',
+            '#A44012',
+            '#BC5A2A',
+            '#A44012',
+            $surface,
+            $surface,
+            $surface,
+            $surface
+        )
+    }
 
     $accentDword = Convert-HexToAbgrDword $accent
     $titleAccentDword = Convert-HexToAbgrDword $titleAccent
-    $shellAccentDword = Convert-HexToArgbDword $shellAccent
+    $startModalDword = Convert-HexToAbgrDword $startModal
     $colorizationDword = Convert-HexToAbgrDword $titleAccent 0xC4
 
     Set-ItemProperty -Path $dwm -Name AccentColor -Type DWord -Value $titleAccentDword
     Set-ItemProperty -Path $dwm -Name ColorizationColor -Type DWord -Value $colorizationDword
     Set-ItemProperty -Path $dwm -Name ColorPrevalence -Type DWord -Value ([int]$AccentTitleBars.IsPresent)
 
+    # AccentPalette uses RGBA byte order. Explorer reloads these semantic slots
+    # on startup, so shell surface colors must live here to survive restarts.
     [byte[]]$paletteBytes = foreach ($shade in $palette) {
         $value = $shade.TrimStart('#')
         [Convert]::ToByte($value.Substring(0,2), 16)
@@ -121,10 +136,10 @@ function Set-EmberveilPersonalization {
 
     Set-ItemProperty -Path $explorerAccent -Name AccentPalette -Type Binary -Value $paletteBytes
     Set-ItemProperty -Path $explorerAccent -Name AccentColorMenu -Type DWord -Value $accentDword
-    Set-ItemProperty -Path $explorerAccent -Name StartColorMenu -Type DWord -Value $shellAccentDword
+    Set-ItemProperty -Path $explorerAccent -Name StartColorMenu -Type DWord -Value $startModalDword
 
-    $shellEnabled = $AccentShell.IsPresent -or $CharcoalShell.IsPresent
-    Set-ItemProperty -Path $personalize -Name ColorPrevalence -Type DWord -Value ([int]$shellEnabled)
+    $showShellAccent = $AccentShell.IsPresent -or $CharcoalShell.IsPresent
+    Set-ItemProperty -Path $personalize -Name ColorPrevalence -Type DWord -Value ([int]$showShellAccent)
     Set-ItemProperty -Path $personalize -Name AutoColorization -Type DWord -Value 0
 
     Send-ThemeRefresh
@@ -140,16 +155,22 @@ Copy-Item -Path $safeTheme -Destination $userTheme -Force
 if ($Mode -eq 'Safe') {
     Set-EmberveilPersonalization -SelectedVariant $Variant
 
-    $shellMode = if ($CharcoalShell.IsPresent) { 'charcoal shell surface' } elseif ($AccentShell.IsPresent) { 'muted ember-orange' } else { 'Windows default (shell accent disabled)' }
-
     Write-Host 'Installed Emberveil Windows Shell in SAFE mode.' -ForegroundColor Cyan
     Write-Host "Variant: $Variant"
     Write-Host 'Interactive accent: Emberveil signature orange'
-    Write-Host "Taskbar/Start treatment: $shellMode"
+    if ($CharcoalShell) {
+        Write-Host 'Start/taskbar: Emberveil charcoal surface'
+    }
+    elseif ($AccentShell) {
+        Write-Host 'Start/taskbar: muted ember-orange surface'
+    }
+    else {
+        Write-Host 'Start/taskbar accent: disabled'
+    }
     Write-Host "Accent on title bars/borders: $($AccentTitleBars.IsPresent)"
     Write-Host 'The .theme preset was installed but was NOT activated.'
     Write-Host 'Wallpaper, cursors, sounds and unsigned visual styles were not touched.'
-    Write-Host 'If the taskbar keeps a cached old color, restart Explorer or sign out/in once.' -ForegroundColor DarkGray
+    Write-Host 'Restart Explorer once after changing shell mode so it reloads AccentPalette.' -ForegroundColor DarkGray
     return
 }
 
