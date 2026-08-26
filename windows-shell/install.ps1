@@ -28,8 +28,20 @@ function Convert-HexToAbgrDword {
     $g = [Convert]::ToUInt32($value.Substring(2,2), 16)
     $b = [Convert]::ToUInt32($value.Substring(4,2), 16)
 
-    # Explorer/DWM accent DWORD values are stored as 0xAABBGGRR.
     return [uint32](($Alpha -shl 24) -bor ($b -shl 16) -bor ($g -shl 8) -bor $r)
+}
+
+function Convert-HexToArgbDword {
+    param([Parameter(Mandatory)][string]$Hex, [byte]$Alpha = 0xFF)
+
+    $value = $Hex.TrimStart('#')
+    if ($value.Length -ne 6) { throw "Expected RRGGBB color, got '$Hex'." }
+
+    $r = [Convert]::ToUInt32($value.Substring(0,2), 16)
+    $g = [Convert]::ToUInt32($value.Substring(2,2), 16)
+    $b = [Convert]::ToUInt32($value.Substring(4,2), 16)
+
+    return [uint32](($Alpha -shl 24) -bor ($r -shl 16) -bor ($g -shl 8) -bor $b)
 }
 
 function Send-ThemeRefresh {
@@ -73,47 +85,38 @@ function Set-EmberveilPersonalization {
     Set-ItemProperty -Path $personalize -Name SystemUsesLightTheme -Type DWord -Value $light
 
     if ($SelectedVariant -eq 'Dark') {
-        # Emberveil Dark keeps saturated orange local. Broad chrome receives
-        # progressively quieter ember tones instead of the signature accent.
+        # Emberveil's signature remains orange. Broad shell chrome uses a
+        # dark ember blend between the key orange and the coal shell.
         $accent = '#FF9F5B'
         $titleAccent = '#7B472B'
-        $shellAccent = '#5C3D30'
-        $palette = @('#4A3029','#5C3D30','#7B472B','#A45F3A','#FF9F5B','#FFB77E','#FFD0AA','#FFE6D2')
+        $shellAccent = '#8E5F42'
+        $palette = @('#4A3029','#674331','#7B472B','#8E5F42','#A86C45','#D88752','#FF9F5B','#FFB77E')
     }
     else {
-        # Light mode follows the same rule: burnt-orange interaction color,
-        # muted material tones for large title/taskbar surfaces.
         $accent = '#A44012'
         $titleAccent = '#84340F'
-        $shellAccent = '#8B6755'
-        $palette = @('#6D5145','#8B6755','#84340F','#A44012','#BC5A2A','#CE7850','#DFA086','#ECC7B6')
+        $shellAccent = '#8A4D2E'
+        $palette = @('#6D5145','#7A503A','#84340F','#8A4D2E','#A44012','#BC5A2A','#CE7850','#DFA086')
     }
 
     $accentDword = Convert-HexToAbgrDword $accent
     $titleAccentDword = Convert-HexToAbgrDword $titleAccent
-    $shellAccentDword = Convert-HexToAbgrDword $shellAccent
+    $shellAccentDword = Convert-HexToArgbDword $shellAccent
     $colorizationDword = Convert-HexToAbgrDword $titleAccent 0xC4
 
-    # DWM owns broad window chrome, so use the muted title tone here rather
-    # than Emberveil's bright semantic accent.
     Set-ItemProperty -Path $dwm -Name AccentColor -Type DWord -Value $titleAccentDword
     Set-ItemProperty -Path $dwm -Name ColorizationColor -Type DWord -Value $colorizationDword
     Set-ItemProperty -Path $dwm -Name ColorPrevalence -Type DWord -Value ([int]$AccentTitleBars.IsPresent)
 
-    # AccentPalette itself is eight RGBA entries, unlike the DWORD values above.
-    # Keep it explicitly flat for Windows PowerShell 5.1 compatibility.
     [byte[]]$paletteBytes = foreach ($shade in $palette) {
         $value = $shade.TrimStart('#')
-        [Convert]::ToByte($value.Substring(0,2), 16) # R
-        [Convert]::ToByte($value.Substring(2,2), 16) # G
-        [Convert]::ToByte($value.Substring(4,2), 16) # B
-        [byte]0xFF                                    # A
+        [Convert]::ToByte($value.Substring(0,2), 16)
+        [Convert]::ToByte($value.Substring(2,2), 16)
+        [Convert]::ToByte($value.Substring(4,2), 16)
+        [byte]0xFF
     }
 
     Set-ItemProperty -Path $explorerAccent -Name AccentPalette -Type Binary -Value $paletteBytes
-
-    # Interactive accent stays recognizably Emberveil; Start/taskbar gets its
-    # own subdued broad-surface color.
     Set-ItemProperty -Path $explorerAccent -Name AccentColorMenu -Type DWord -Value $accentDword
     Set-ItemProperty -Path $explorerAccent -Name StartColorMenu -Type DWord -Value $shellAccentDword
 
@@ -127,10 +130,6 @@ if (-not (Test-Path $safeTheme)) {
     throw "Missing safe theme payload: $safeTheme"
 }
 
-# Keep the preset available in the user's theme directory, but Safe mode does
-# not activate the .theme file. Applying a theme container can overwrite the
-# user's wallpaper and is rejected on some Windows 11 builds. Safe mode works
-# directly through the supported personalization state instead.
 New-Item -ItemType Directory -Path $userThemeDir -Force | Out-Null
 Copy-Item -Path $safeTheme -Destination $userTheme -Force
 
@@ -139,8 +138,8 @@ if ($Mode -eq 'Safe') {
 
     Write-Host 'Installed Emberveil Windows Shell in SAFE mode.' -ForegroundColor Cyan
     Write-Host "Variant: $Variant"
-    Write-Host 'Interactive accent: Emberveil signature accent'
-    Write-Host 'Broad shell chrome: muted Emberveil surface accent'
+    Write-Host 'Interactive accent: Emberveil signature orange'
+    Write-Host 'Broad shell chrome: muted ember-orange derived from the signature accent and coal shell'
     Write-Host "Accent on title bars/borders: $($AccentTitleBars.IsPresent)"
     Write-Host "Accent on Start/taskbar: $($AccentShell.IsPresent)"
     Write-Host 'The .theme preset was installed but was NOT activated.'
