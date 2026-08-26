@@ -16,7 +16,7 @@ Database Workbench 5 exposes only its editor color-scheme categories here. These
 3. Start Database Workbench 5.
 4. Open the editor/syntax-highlighting preferences and select **Emberveil Dark** or **Emberveil Light** from the available color schemes.
 
-The installer copies both native `.ini` color-scheme files into:
+The installer copies both native `.col` color-scheme files into:
 
 ```text
 %LOCALAPPDATA%\Database Workbench 5 Pro\Data
@@ -32,7 +32,7 @@ Close Database Workbench 5 and run:
 .\uninstall.ps1
 ```
 
-The script deletes only `Emberveil Dark.ini` and `Emberveil Light.ini` from the Database Workbench 5 Pro data directory.
+The script deletes only `Emberveil Dark.col` and `Emberveil Light.col` from the Database Workbench 5 Pro data directory.
 
 ## Mapping and limitations
 
