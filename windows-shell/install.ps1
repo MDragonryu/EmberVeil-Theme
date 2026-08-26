@@ -6,6 +6,8 @@ param(
     [ValidateSet('Light', 'Dark')]
     [string]$Variant = 'Dark',
 
+    [switch]$AccentTitleBars,
+    [switch]$AccentShell,
     [switch]$Force
 )
 
@@ -16,31 +18,96 @@ $safeTheme = Join-Path $root "safe\$themeName"
 $userThemeDir = Join-Path $env:LOCALAPPDATA 'Microsoft\Windows\Themes'
 $userTheme = Join-Path $userThemeDir $themeName
 
+function Convert-HexToBgraBytes {
+    param([Parameter(Mandatory)][string]$Hex)
+
+    $value = $Hex.TrimStart('#')
+    if ($value.Length -ne 6) { throw "Expected RRGGBB color, got '$Hex'." }
+
+    $r = [Convert]::ToByte($value.Substring(0,2), 16)
+    $g = [Convert]::ToByte($value.Substring(2,2), 16)
+    $b = [Convert]::ToByte($value.Substring(4,2), 16)
+    return [byte[]]@($b, $g, $r, 0xFF)
+}
+
+function Convert-HexToAbgrDword {
+    param([Parameter(Mandatory)][string]$Hex, [byte]$Alpha = 0xFF)
+
+    $value = $Hex.TrimStart('#')
+    $r = [Convert]::ToUInt32($value.Substring(0,2), 16)
+    $g = [Convert]::ToUInt32($value.Substring(2,2), 16)
+    $b = [Convert]::ToUInt32($value.Substring(4,2), 16)
+    return [uint32](($Alpha -shl 24) -bor ($b -shl 16) -bor ($g -shl 8) -bor $r)
+}
+
+function Send-ThemeRefresh {
+    if (-not ('Emberveil.NativeMethods' -as [type])) {
+        Add-Type @'
+using System;
+using System.Runtime.InteropServices;
+namespace Emberveil {
+    public static class NativeMethods {
+        [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern IntPtr SendMessageTimeout(
+            IntPtr hWnd, uint Msg, UIntPtr wParam, string lParam,
+            uint fuFlags, uint uTimeout, out UIntPtr lpdwResult);
+    }
+}
+'@
+    }
+
+    $HWND_BROADCAST = [IntPtr]0xffff
+    $WM_SETTINGCHANGE = 0x001A
+    $SMTO_ABORTIFHUNG = 0x0002
+    $result = [UIntPtr]::Zero
+    [void][Emberveil.NativeMethods]::SendMessageTimeout(
+        $HWND_BROADCAST, $WM_SETTINGCHANGE, [UIntPtr]::Zero,
+        'ImmersiveColorSet', $SMTO_ABORTIFHUNG, 3000, [ref]$result)
+}
+
 function Set-EmberveilPersonalization {
     param([ValidateSet('Light','Dark')][string]$SelectedVariant)
 
     $personalize = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
     $dwm = 'HKCU:\Software\Microsoft\Windows\DWM'
+    $explorerAccent = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Accent'
 
     New-Item -Path $personalize -Force | Out-Null
     New-Item -Path $dwm -Force | Out-Null
+    New-Item -Path $explorerAccent -Force | Out-Null
 
     $light = if ($SelectedVariant -eq 'Light') { 1 } else { 0 }
     Set-ItemProperty -Path $personalize -Name AppsUseLightTheme -Type DWord -Value $light
     Set-ItemProperty -Path $personalize -Name SystemUsesLightTheme -Type DWord -Value $light
 
-    # Keep the Emberveil accent localized. Windows stores these values as ABGR DWORDs.
     if ($SelectedVariant -eq 'Dark') {
-        Set-ItemProperty -Path $dwm -Name AccentColor -Type DWord -Value 0xFF5B9FFF
-        Set-ItemProperty -Path $dwm -Name ColorizationColor -Type DWord -Value 0xC45B9FFF
+        $accent = '#FF9F5B'
+        $palette = @('#5C321E','#7B472B','#A45F3A','#D57D49','#FF9F5B','#FFB77E','#FFD0AA','#FFE6D2')
     }
     else {
-        Set-ItemProperty -Path $dwm -Name AccentColor -Type DWord -Value 0xFF1240A4
-        Set-ItemProperty -Path $dwm -Name ColorizationColor -Type DWord -Value 0xC41240A4
+        $accent = '#A44012'
+        $palette = @('#522009','#6B2A0C','#84340F','#A44012','#BC5A2A','#CE7850','#DFA086','#ECC7B6')
     }
 
-    # Emberveil deliberately avoids broad saturated title bars/taskbars.
-    Set-ItemProperty -Path $dwm -Name ColorPrevalence -Type DWord -Value 0
+    $accentDword = Convert-HexToAbgrDword $accent
+    $colorizationDword = Convert-HexToAbgrDword $accent 0xC4
+
+    Set-ItemProperty -Path $dwm -Name AccentColor -Type DWord -Value $accentDword
+    Set-ItemProperty -Path $dwm -Name ColorizationColor -Type DWord -Value $colorizationDword
+    Set-ItemProperty -Path $dwm -Name ColorPrevalence -Type DWord -Value ([int]$AccentTitleBars.IsPresent)
+
+    $paletteBytes = [System.Collections.Generic.List[byte]]::new()
+    foreach ($shade in $palette) {
+        $paletteBytes.AddRange((Convert-HexToBgraBytes $shade))
+    }
+    Set-ItemProperty -Path $explorerAccent -Name AccentPalette -Type Binary -Value $paletteBytes.ToArray()
+    Set-ItemProperty -Path $explorerAccent -Name AccentColorMenu -Type DWord -Value $accentDword
+    Set-ItemProperty -Path $explorerAccent -Name StartColorMenu -Type DWord -Value $accentDword
+
+    Set-ItemProperty -Path $personalize -Name ColorPrevalence -Type DWord -Value ([int]$AccentShell.IsPresent)
+    Set-ItemProperty -Path $personalize -Name AutoColorization -Type DWord -Value 0
+
+    Send-ThemeRefresh
 }
 
 if (-not (Test-Path $safeTheme)) {
@@ -49,13 +116,21 @@ if (-not (Test-Path $safeTheme)) {
 
 New-Item -ItemType Directory -Path $userThemeDir -Force | Out-Null
 Copy-Item -Path $safeTheme -Destination $userTheme -Force
+
+# Apply the minimal .theme first. Registry personalization follows it so Windows
+# cannot overwrite Emberveil's accent values while loading the theme file.
+Start-Process -FilePath $userTheme
+Start-Sleep -Milliseconds 900
 Set-EmberveilPersonalization -SelectedVariant $Variant
 
 if ($Mode -eq 'Safe') {
-    Write-Host 'Installing Emberveil Windows Shell in SAFE mode.' -ForegroundColor Cyan
-    Write-Host 'No unsigned visual style, theme-service patch, or system-file replacement will be used.'
-    Start-Process $userTheme
-    Write-Host "Installed and opened $themeName."
+    Write-Host 'Installed Emberveil Windows Shell in SAFE mode.' -ForegroundColor Cyan
+    Write-Host "Variant: $Variant"
+    Write-Host 'Accent: Emberveil system accent + generated Explorer accent palette'
+    Write-Host "Accent on title bars/borders: $($AccentTitleBars.IsPresent)"
+    Write-Host "Accent on Start/taskbar: $($AccentShell.IsPresent)"
+    Write-Host 'Wallpaper, cursors, sounds and unsigned visual styles were not touched.'
+    Write-Host 'If an already-open shell surface keeps the old accent, sign out/in once or restart Explorer.' -ForegroundColor DarkGray
     return
 }
 
@@ -108,5 +183,7 @@ $fullThemePath = Join-Path $userThemeDir ($themeName -replace '\.theme$', '-Full
 Set-Content -Path $fullThemePath -Value $fullThemeText -Encoding Unicode
 
 Start-Process $fullThemePath
+Start-Sleep -Milliseconds 900
+Set-EmberveilPersonalization -SelectedVariant $Variant
 Write-Host "Installed Emberveil $Variant Full mode for Windows build $build." -ForegroundColor Green
 Write-Host 'SecureUxTheme itself was not installed or modified by this script.'
