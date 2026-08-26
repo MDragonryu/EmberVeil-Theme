@@ -96,11 +96,20 @@ function Set-EmberveilPersonalization {
     Set-ItemProperty -Path $dwm -Name ColorizationColor -Type DWord -Value $colorizationDword
     Set-ItemProperty -Path $dwm -Name ColorPrevalence -Type DWord -Value ([int]$AccentTitleBars.IsPresent)
 
-    $paletteBytes = [System.Collections.Generic.List[byte]]::new()
-    foreach ($shade in $palette) {
-        $paletteBytes.AddRange((Convert-HexToBgraBytes $shade))
+    # Build a flat REG_BINARY value explicitly. Returning byte arrays from a
+    # PowerShell function is pipeline-enumerated on Windows PowerShell 5.1,
+    # which made List[byte].AddRange receive Object[] instead of byte[].
+    [byte[]]$paletteBytes = foreach ($shade in $palette) {
+        $value = $shade.TrimStart('#')
+        $r = [Convert]::ToByte($value.Substring(0,2), 16)
+        $g = [Convert]::ToByte($value.Substring(2,2), 16)
+        $b = [Convert]::ToByte($value.Substring(4,2), 16)
+        $b
+        $g
+        $r
+        [byte]0xFF
     }
-    Set-ItemProperty -Path $explorerAccent -Name AccentPalette -Type Binary -Value $paletteBytes.ToArray()
+    Set-ItemProperty -Path $explorerAccent -Name AccentPalette -Type Binary -Value $paletteBytes
     Set-ItemProperty -Path $explorerAccent -Name AccentColorMenu -Type DWord -Value $accentDword
     Set-ItemProperty -Path $explorerAccent -Name StartColorMenu -Type DWord -Value $accentDword
 
