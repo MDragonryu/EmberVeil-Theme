@@ -67,6 +67,10 @@ The native Zen Mod in [`zen/`](zen/) brings both Emberveil appearances to Zen's 
 
 The native color-only themes in [`ghostty/`](ghostty/) provide paired **Emberveil Dark** and **Emberveil Light** terminal palettes for Ghostty, including cursor, selection, and all 16 ANSI colors. They can follow the operating-system appearance automatically and deliberately leave typography, opacity, layout, and terminal behavior alone. See the [Ghostty theme guide](ghostty/README.md) for installation and validation.
 
+## Try it in Windows Terminal
+
+The native JSON-fragment package in [`windows-terminal/`](windows-terminal/) installs **Emberveil Dark** and **Emberveil Light** as Windows Terminal color schemes without rewriting the user's `settings.json`. Both schemes use the canonical Emberveil terminal ANSI palette, cursor, selection, foreground, and background colors, and can be paired for automatic light/dark switching at the profile level. See the [Windows Terminal theme guide](windows-terminal/README.md) for installation, removal, and configuration.
+
 ## Try it in RAD Studio 12.3
 
 The editor-only package in [`rad-studio/`](rad-studio/) installs **Emberveil Dark** and **Emberveil Light** as named Code Editor Color SpeedSettings for RAD Studio 12.3 Athens. It deliberately leaves the IDE theme, VCL styling, designers, panels, and layout unchanged. See the [RAD Studio editor-theme guide](rad-studio/README.md) for backup, installation, selection, and removal.
@@ -103,6 +107,10 @@ zen/
 ghostty/
   themes/      Paired native Ghostty color themes
   scripts/     Canonical palette generation and native validation
+windows-terminal/
+  themes/      Native JSON fragment containing both Windows Terminal schemes
+  install.ps1  Installs the fragment for the current user
+  uninstall.ps1  Removes only the Emberveil fragment
 rad-studio/
   12.3/editor/  Importable editor-only registry themes for BDS 23.0
   scripts/      Deterministic registry-theme generator and validation
@@ -121,4 +129,4 @@ ideas/
 
 ## Current status
 
-Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are packaged for VS Code, Zed, Zen Browser, Ghostty, RAD Studio 12.3, Database Workbench 5 Pro, and Everything 1.5; implementations for other applications and a production design-token library remain future work.
+Emberveil is the active direction. The files under `ideas/` preserve useful experiments and inspiration, but they are not part of the primary theme family. Emberveil and Emberveil Dark are packaged for VS Code, Zed, Zen Browser, Ghostty, Windows Terminal, RAD Studio 12.3, Database Workbench 5 Pro, and Everything 1.5; implementations for other applications and a production design-token library remain future work.
