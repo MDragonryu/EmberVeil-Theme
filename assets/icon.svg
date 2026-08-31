@@ -1,25 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
   <title id="title">Emberveil</title>
-  <desc id="desc">An ember held inside a cool structural veil.</desc>
+  <desc id="desc">A sun rising over a lava lake, divided by a cool horizon.</desc>
   <style>
-    /* Small optical size: no tile, transparent ground, two colours, heavy weights.
-       The tile version lives alongside this file as icon-app.svg. */
+    /* Small optical size: no tile, transparent ground, heavy weights. The ember
+       bloom is dropped here because a halo cannot resolve against an unknown
+       background; the full Emberrise / Bloom Lake mark lives in icon-app.svg. */
     :root {
+      --ember-deep: #BC531E;
       --ember: #FF9F5B;
-      --cool: #73C7D6;
+      --ember-core: #FFD173;
+      --veil: #73C7D6;
     }
     @media (prefers-color-scheme: light) {
       :root {
+        --ember-deep: #914321;
         --ember: #A44012;
-        --cool: #1C6570;
+        --ember-core: #A86B00;
+        --veil: #1C6570;
       }
     }
   </style>
 
-  <g transform="translate(32 32) scale(1.55) translate(-32 -32)">
-    <path d="M16 17 L27.5 48 Q29 51 32 51 Q35 51 36.5 48 L48 17
-             L40.5 21.5 L32 41 L23.5 21.5 Z" fill="var(--cool)" fill-rule="evenodd"/>
-    <path d="M32 13 C38 20 41 25 40 31 C39.2 35.8 35.8 39 32 42
-             C27.8 38.7 24 35 24 30 C24 24.5 27.7 19.1 32 13 Z" fill="var(--ember)"/>
+  <defs>
+    <radialGradient id="sun" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+    <radialGradient id="lake" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+
+  <g transform="translate(0 -4)">
+    <!-- The sun, hottest where it meets the horizon -->
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#sun)"/>
+    <!-- The veil: one cool structural rule dividing the mark -->
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <!-- The lake: molten execution below the structure -->
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#lake)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#lake)"/>
   </g>
 </svg>
