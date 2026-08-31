@@ -1,0 +1,2803 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emberveil — logo prototypes, round 3</title>
+<style>
+  :root {
+    color-scheme: dark light;
+    --page: #1D2029;
+    --page-text: #CCCAC2;
+    --page-muted: #727D8E;
+    --page-card: #292C38;
+    --page-rim: #303342;
+    --page-accent: #FFCC66;
+    --ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --page: #CEC6BA;
+      --page-text: #35383F;
+      --page-muted: #58616B;
+      --page-card: #DDD6CA;
+      --page-rim: #CEC6BA;
+      --page-accent: #A86B00;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 40px 24px 72px;
+    background: var(--page);
+    color: var(--page-text);
+    font-family: var(--ui);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .lede { margin: 0 0 32px; color: var(--page-muted); max-width: 62ch; }
+  .family {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 36px 0 4px;
+    color: var(--page-accent);
+  }
+  .family-note { margin: 0 0 16px; color: var(--page-muted); max-width: 68ch; font-size: 14px; }
+  .card {
+    background: var(--page-card);
+    border: 1px solid var(--page-rim);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .card-head { margin-bottom: 16px; }
+  .card-head h3 { display: inline; font-size: 17px; margin: 0; }
+  .index {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--page-accent);
+    margin-right: 8px;
+  }
+  .badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: 1px solid var(--page-accent);
+    color: var(--page-accent);
+    border-radius: 5px;
+    padding: 1px 5px;
+    margin-left: 8px;
+    vertical-align: 2px;
+  }
+  .card-head p { margin: 6px 0 8px; color: var(--page-muted); max-width: 68ch; }
+  .card-head code {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--page-muted);
+    background: color-mix(in srgb, var(--page) 60%, transparent);
+    border-radius: 5px;
+    padding: 2px 6px;
+  }
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .panel {
+    border-radius: 9px;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 18px;
+    grid-template-areas: "head head head" "hero ramp tile";
+  }
+  .panel-head {
+    grid-area: head;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.6;
+  }
+  .hero { grid-area: hero; display: flex; }
+  .ramp { grid-area: ramp; display: flex; align-items: flex-end; gap: 12px; }
+  .ramp-item { display: grid; justify-items: center; gap: 4px; }
+  .ramp-size { font-family: var(--mono); font-size: 9px; opacity: 0.45; }
+  .tile {
+    grid-area: tile;
+    width: 64px; height: 64px;
+    display: grid; place-items: center;
+    border-radius: 14px;
+  }
+  .mark { display: block; }
+  .mode-dark {
+    background: #242632;
+    color: #CCCAC2;
+    --ember-deep: #BC531E;
+    --ember: #FF9F5B;
+    --ember-core: #FFD173;
+    --focus: #FFCC66;
+    --veil: #73C7D6;
+  }
+  .mode-dark .tile { background: #1D2029; box-shadow: inset 0 0 0 1px #303342; }
+  .mode-light {
+    background: #E4DED2;
+    color: #35383F;
+    --ember-deep: #914321;
+    --ember: #A44012;
+    --ember-core: #A86B00;
+    --focus: #A86B00;
+    --veil: #1C6570;
+  }
+  .mode-light .tile { background: #CEC6BA; box-shadow: inset 0 0 0 1px #CEC6BA; }
+  @media (max-width: 720px) {
+    .panels { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Emberveil — logo prototypes, round 3</h1>
+    <p class="lede">Four marks carried through: the Emberrise and Veiled Sun baselines, plus Bloom and Drift.
+      Each family gets three further passes built on the survivor rather than on the baseline. Every mark is shown on both Emberveil surfaces at 88px, down a size ramp to 16px,
+      and on a rounded app tile.</p>
+    <h2 class="family">Emberrise</h2>
+    <p class="family-note">A sun crossing a horizon. Round three keeps the flat baseline and the radial bloom, then pushes the bloom three ways: through a broken horizon, out into a wide halo, and down onto a lava lake.</p>
+
+      <section class="card" id="emberrise">
+        <header class="card-head">
+          <span class="index">01</span>
+          <h3>Emberrise</h3>
+          <span class="badge">kept</span>
+          <p>Round one, unchanged. Half sun breaking a horizon, its glow fading beneath.</p>
+          <code>emberveil-emberrise.svg</code>
+        </header>
+        <div class="panels">
+
+        <div class="panel mode-dark">
+          <div class="panel-head">Emberveil Dark</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-emberrise-dark-88" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise-dark-88)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+  <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-emberrise-dark-40" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise-dark-40)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+  <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-emberrise-dark-28" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise-dark-28)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+  <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-emberrise-dark-20" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise-dark-20)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+  <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-emberrise-dark-16" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise-dark-16)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+  <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-emberrise-dark-44-tile" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise-dark-44-tile)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+  <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg></div>
+        </div>
+
+        <div class="panel mode-light">
+          <div class="panel-head">Emberveil</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-emberrise-light-88" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise-light-88)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+  <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-emberrise-light-40" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise-light-40)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+  <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-emberrise-light-28" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise-light-28)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+  <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-emberrise-light-20" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise-light-20)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+  <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-emberrise-light-16" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise-light-16)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+  <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-emberrise-light-44-tile" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise-light-44-tile)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+  <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg></div>
+        </div>
+        </div>
+      </section>
+
+      <section class="card" id="emberrise-bloom">
+        <header class="card-head">
+          <span class="index">02</span>
+          <h3>Emberrise / Bloom</h3>
+          
+          <p>Radial heat instead of a flat ramp. The disc is hottest where it meets the horizon and an ember bloom bleeds past its edge into the surface.</p>
+          <code>emberveil-emberrise-bloom.svg</code>
+        </header>
+        <div class="panels">
+
+        <div class="panel mode-dark">
+          <div class="panel-head">Emberveil Dark</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-dark-88)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-dark-88)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="14" y="43" width="36" height="4.5" rx="2.25" fill="var(--ember)" opacity="0.55"/>
+  <rect x="23" y="51" width="18" height="4" rx="2" fill="var(--ember)" opacity="0.3"/>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-dark-40)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-dark-40)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="14" y="43" width="36" height="4.5" rx="2.25" fill="var(--ember)" opacity="0.55"/>
+  <rect x="23" y="51" width="18" height="4" rx="2" fill="var(--ember)" opacity="0.3"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-dark-28)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-dark-28)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="14" y="43" width="36" height="4.5" rx="2.25" fill="var(--ember)" opacity="0.55"/>
+  <rect x="23" y="51" width="18" height="4" rx="2" fill="var(--ember)" opacity="0.3"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-dark-20)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-dark-20)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="14" y="43" width="36" height="4.5" rx="2.25" fill="var(--ember)" opacity="0.55"/>
+  <rect x="23" y="51" width="18" height="4" rx="2" fill="var(--ember)" opacity="0.3"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-dark-16)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-dark-16)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="14" y="43" width="36" height="4.5" rx="2.25" fill="var(--ember)" opacity="0.55"/>
+  <rect x="23" y="51" width="18" height="4" rx="2" fill="var(--ember)" opacity="0.3"/>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-dark-44-tile)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-dark-44-tile)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="14" y="43" width="36" height="4.5" rx="2.25" fill="var(--ember)" opacity="0.55"/>
+  <rect x="23" y="51" width="18" height="4" rx="2" fill="var(--ember)" opacity="0.3"/>
+</svg></div>
+        </div>
+
+        <div class="panel mode-light">
+          <div class="panel-head">Emberveil</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-light-88)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-light-88)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="14" y="43" width="36" height="4.5" rx="2.25" fill="var(--ember)" opacity="0.55"/>
+  <rect x="23" y="51" width="18" height="4" rx="2" fill="var(--ember)" opacity="0.3"/>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-light-40)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-light-40)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="14" y="43" width="36" height="4.5" rx="2.25" fill="var(--ember)" opacity="0.55"/>
+  <rect x="23" y="51" width="18" height="4" rx="2" fill="var(--ember)" opacity="0.3"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-light-28)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-light-28)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="14" y="43" width="36" height="4.5" rx="2.25" fill="var(--ember)" opacity="0.55"/>
+  <rect x="23" y="51" width="18" height="4" rx="2" fill="var(--ember)" opacity="0.3"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-light-20)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-light-20)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="14" y="43" width="36" height="4.5" rx="2.25" fill="var(--ember)" opacity="0.55"/>
+  <rect x="23" y="51" width="18" height="4" rx="2" fill="var(--ember)" opacity="0.3"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-light-16)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-light-16)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="14" y="43" width="36" height="4.5" rx="2.25" fill="var(--ember)" opacity="0.55"/>
+  <rect x="23" y="51" width="18" height="4" rx="2" fill="var(--ember)" opacity="0.3"/>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-light-44-tile)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-light-44-tile)"/>
+  <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="14" y="43" width="36" height="4.5" rx="2.25" fill="var(--ember)" opacity="0.55"/>
+  <rect x="23" y="51" width="18" height="4" rx="2" fill="var(--ember)" opacity="0.3"/>
+</svg></div>
+        </div>
+        </div>
+      </section>
+
+      <section class="card" id="emberrise-bloom-drift">
+        <header class="card-head">
+          <span class="index">03</span>
+          <h3>Emberrise / Bloom Drift</h3>
+          
+          <p>Bloom kept, horizon broken. The crust pulls open just off centre and a molten column runs down through the gap.</p>
+          <code>emberveil-emberrise-bloom-drift.svg</code>
+        </header>
+        <div class="panels">
+
+        <div class="panel mode-dark">
+          <div class="panel-head">Emberveil Dark</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-drift-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-drift-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="c-emberrise-bloom-drift-dark-88" gradientUnits="userSpaceOnUse" cx="31" cy="33" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-drift-dark-88)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-drift-dark-88)"/>
+  <rect x="28.5" y="32" width="5" height="17" rx="2.5" fill="url(#c-emberrise-bloom-drift-dark-88)"/>
+  <rect x="6" y="34" width="21" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="34.5" y="34" width="23.5" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="22" y="52" width="20" height="4" rx="2" fill="var(--ember)" opacity="0.4"/>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-drift-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-drift-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="c-emberrise-bloom-drift-dark-40" gradientUnits="userSpaceOnUse" cx="31" cy="33" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-drift-dark-40)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-drift-dark-40)"/>
+  <rect x="28.5" y="32" width="5" height="17" rx="2.5" fill="url(#c-emberrise-bloom-drift-dark-40)"/>
+  <rect x="6" y="34" width="21" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="34.5" y="34" width="23.5" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="22" y="52" width="20" height="4" rx="2" fill="var(--ember)" opacity="0.4"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-drift-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-drift-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="c-emberrise-bloom-drift-dark-28" gradientUnits="userSpaceOnUse" cx="31" cy="33" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-drift-dark-28)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-drift-dark-28)"/>
+  <rect x="28.5" y="32" width="5" height="17" rx="2.5" fill="url(#c-emberrise-bloom-drift-dark-28)"/>
+  <rect x="6" y="34" width="21" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="34.5" y="34" width="23.5" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="22" y="52" width="20" height="4" rx="2" fill="var(--ember)" opacity="0.4"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-drift-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-drift-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="c-emberrise-bloom-drift-dark-20" gradientUnits="userSpaceOnUse" cx="31" cy="33" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-drift-dark-20)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-drift-dark-20)"/>
+  <rect x="28.5" y="32" width="5" height="17" rx="2.5" fill="url(#c-emberrise-bloom-drift-dark-20)"/>
+  <rect x="6" y="34" width="21" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="34.5" y="34" width="23.5" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="22" y="52" width="20" height="4" rx="2" fill="var(--ember)" opacity="0.4"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-drift-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-drift-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="c-emberrise-bloom-drift-dark-16" gradientUnits="userSpaceOnUse" cx="31" cy="33" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-drift-dark-16)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-drift-dark-16)"/>
+  <rect x="28.5" y="32" width="5" height="17" rx="2.5" fill="url(#c-emberrise-bloom-drift-dark-16)"/>
+  <rect x="6" y="34" width="21" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="34.5" y="34" width="23.5" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="22" y="52" width="20" height="4" rx="2" fill="var(--ember)" opacity="0.4"/>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-drift-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-drift-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="c-emberrise-bloom-drift-dark-44-tile" gradientUnits="userSpaceOnUse" cx="31" cy="33" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-drift-dark-44-tile)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-drift-dark-44-tile)"/>
+  <rect x="28.5" y="32" width="5" height="17" rx="2.5" fill="url(#c-emberrise-bloom-drift-dark-44-tile)"/>
+  <rect x="6" y="34" width="21" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="34.5" y="34" width="23.5" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="22" y="52" width="20" height="4" rx="2" fill="var(--ember)" opacity="0.4"/>
+</svg></div>
+        </div>
+
+        <div class="panel mode-light">
+          <div class="panel-head">Emberveil</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-drift-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-drift-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="c-emberrise-bloom-drift-light-88" gradientUnits="userSpaceOnUse" cx="31" cy="33" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-drift-light-88)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-drift-light-88)"/>
+  <rect x="28.5" y="32" width="5" height="17" rx="2.5" fill="url(#c-emberrise-bloom-drift-light-88)"/>
+  <rect x="6" y="34" width="21" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="34.5" y="34" width="23.5" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="22" y="52" width="20" height="4" rx="2" fill="var(--ember)" opacity="0.4"/>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-drift-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-drift-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="c-emberrise-bloom-drift-light-40" gradientUnits="userSpaceOnUse" cx="31" cy="33" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-drift-light-40)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-drift-light-40)"/>
+  <rect x="28.5" y="32" width="5" height="17" rx="2.5" fill="url(#c-emberrise-bloom-drift-light-40)"/>
+  <rect x="6" y="34" width="21" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="34.5" y="34" width="23.5" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="22" y="52" width="20" height="4" rx="2" fill="var(--ember)" opacity="0.4"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-drift-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-drift-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="c-emberrise-bloom-drift-light-28" gradientUnits="userSpaceOnUse" cx="31" cy="33" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-drift-light-28)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-drift-light-28)"/>
+  <rect x="28.5" y="32" width="5" height="17" rx="2.5" fill="url(#c-emberrise-bloom-drift-light-28)"/>
+  <rect x="6" y="34" width="21" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="34.5" y="34" width="23.5" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="22" y="52" width="20" height="4" rx="2" fill="var(--ember)" opacity="0.4"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-drift-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-drift-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="c-emberrise-bloom-drift-light-20" gradientUnits="userSpaceOnUse" cx="31" cy="33" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-drift-light-20)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-drift-light-20)"/>
+  <rect x="28.5" y="32" width="5" height="17" rx="2.5" fill="url(#c-emberrise-bloom-drift-light-20)"/>
+  <rect x="6" y="34" width="21" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="34.5" y="34" width="23.5" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="22" y="52" width="20" height="4" rx="2" fill="var(--ember)" opacity="0.4"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-drift-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-drift-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="c-emberrise-bloom-drift-light-16" gradientUnits="userSpaceOnUse" cx="31" cy="33" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-drift-light-16)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-drift-light-16)"/>
+  <rect x="28.5" y="32" width="5" height="17" rx="2.5" fill="url(#c-emberrise-bloom-drift-light-16)"/>
+  <rect x="6" y="34" width="21" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="34.5" y="34" width="23.5" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="22" y="52" width="20" height="4" rx="2" fill="var(--ember)" opacity="0.4"/>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-drift-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="35" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-drift-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="c-emberrise-bloom-drift-light-44-tile" gradientUnits="userSpaceOnUse" cx="31" cy="33" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="35" r="28" fill="url(#b-emberrise-bloom-drift-light-44-tile)"/>
+  <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-drift-light-44-tile)"/>
+  <rect x="28.5" y="32" width="5" height="17" rx="2.5" fill="url(#c-emberrise-bloom-drift-light-44-tile)"/>
+  <rect x="6" y="34" width="21" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="34.5" y="34" width="23.5" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="22" y="52" width="20" height="4" rx="2" fill="var(--ember)" opacity="0.4"/>
+</svg></div>
+        </div>
+        </div>
+      </section>
+
+      <section class="card" id="emberrise-bloom-deep">
+        <header class="card-head">
+          <span class="index">04</span>
+          <h3>Emberrise / Deep Bloom</h3>
+          
+          <p>The bloom takes over. A small, very hot sun, a wide halo, one clean horizon — an ember glowing in the dark rather than a sunrise scene.</p>
+          <code>emberveil-emberrise-bloom-deep.svg</code>
+        </header>
+        <div class="panels">
+
+        <div class="panel mode-dark">
+          <div class="panel-head">Emberveil Dark</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-deep-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-deep-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep-dark-88)"/>
+  <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep-dark-88)"/>
+  <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+  <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-deep-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-deep-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep-dark-40)"/>
+  <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep-dark-40)"/>
+  <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+  <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-deep-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-deep-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep-dark-28)"/>
+  <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep-dark-28)"/>
+  <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+  <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-deep-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-deep-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep-dark-20)"/>
+  <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep-dark-20)"/>
+  <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+  <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-deep-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-deep-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep-dark-16)"/>
+  <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep-dark-16)"/>
+  <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+  <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-deep-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-deep-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep-dark-44-tile)"/>
+  <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep-dark-44-tile)"/>
+  <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+  <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg></div>
+        </div>
+
+        <div class="panel mode-light">
+          <div class="panel-head">Emberveil</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-deep-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-deep-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep-light-88)"/>
+  <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep-light-88)"/>
+  <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+  <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-deep-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-deep-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep-light-40)"/>
+  <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep-light-40)"/>
+  <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+  <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-deep-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-deep-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep-light-28)"/>
+  <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep-light-28)"/>
+  <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+  <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-deep-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-deep-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep-light-20)"/>
+  <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep-light-20)"/>
+  <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+  <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-deep-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-deep-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep-light-16)"/>
+  <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep-light-16)"/>
+  <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+  <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-deep-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-deep-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep-light-44-tile)"/>
+  <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep-light-44-tile)"/>
+  <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+  <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg></div>
+        </div>
+        </div>
+      </section>
+
+      <section class="card" id="emberrise-bloom-lake">
+        <header class="card-head">
+          <span class="index">05</span>
+          <h3>Emberrise / Bloom Lake</h3>
+          
+          <p>Bloom over the whole scene, and the reflection promoted to a lava lake at full strength with its own hot centre.</p>
+          <code>emberveil-emberrise-bloom-lake.svg</code>
+        </header>
+        <div class="panels">
+
+        <div class="panel mode-dark">
+          <div class="panel-head">Emberveil Dark</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-lake-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="36" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-lake-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="p-emberrise-bloom-lake-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0 -2)">
+    <circle cx="32" cy="36" r="28" fill="url(#b-emberrise-bloom-lake-dark-88)"/>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-lake-dark-88)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#p-emberrise-bloom-lake-dark-88)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#p-emberrise-bloom-lake-dark-88)"/>
+  </g>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-lake-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="36" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-lake-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="p-emberrise-bloom-lake-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0 -2)">
+    <circle cx="32" cy="36" r="28" fill="url(#b-emberrise-bloom-lake-dark-40)"/>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-lake-dark-40)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#p-emberrise-bloom-lake-dark-40)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#p-emberrise-bloom-lake-dark-40)"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-lake-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="36" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-lake-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="p-emberrise-bloom-lake-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0 -2)">
+    <circle cx="32" cy="36" r="28" fill="url(#b-emberrise-bloom-lake-dark-28)"/>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-lake-dark-28)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#p-emberrise-bloom-lake-dark-28)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#p-emberrise-bloom-lake-dark-28)"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-lake-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="36" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-lake-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="p-emberrise-bloom-lake-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0 -2)">
+    <circle cx="32" cy="36" r="28" fill="url(#b-emberrise-bloom-lake-dark-20)"/>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-lake-dark-20)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#p-emberrise-bloom-lake-dark-20)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#p-emberrise-bloom-lake-dark-20)"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-lake-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="36" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-lake-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="p-emberrise-bloom-lake-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0 -2)">
+    <circle cx="32" cy="36" r="28" fill="url(#b-emberrise-bloom-lake-dark-16)"/>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-lake-dark-16)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#p-emberrise-bloom-lake-dark-16)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#p-emberrise-bloom-lake-dark-16)"/>
+  </g>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-lake-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="36" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-lake-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="p-emberrise-bloom-lake-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0 -2)">
+    <circle cx="32" cy="36" r="28" fill="url(#b-emberrise-bloom-lake-dark-44-tile)"/>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-lake-dark-44-tile)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#p-emberrise-bloom-lake-dark-44-tile)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#p-emberrise-bloom-lake-dark-44-tile)"/>
+  </g>
+</svg></div>
+        </div>
+
+        <div class="panel mode-light">
+          <div class="panel-head">Emberveil</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-lake-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="36" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-lake-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="p-emberrise-bloom-lake-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0 -2)">
+    <circle cx="32" cy="36" r="28" fill="url(#b-emberrise-bloom-lake-light-88)"/>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-lake-light-88)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#p-emberrise-bloom-lake-light-88)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#p-emberrise-bloom-lake-light-88)"/>
+  </g>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-lake-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="36" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-lake-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="p-emberrise-bloom-lake-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0 -2)">
+    <circle cx="32" cy="36" r="28" fill="url(#b-emberrise-bloom-lake-light-40)"/>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-lake-light-40)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#p-emberrise-bloom-lake-light-40)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#p-emberrise-bloom-lake-light-40)"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-lake-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="36" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-lake-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="p-emberrise-bloom-lake-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0 -2)">
+    <circle cx="32" cy="36" r="28" fill="url(#b-emberrise-bloom-lake-light-28)"/>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-lake-light-28)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#p-emberrise-bloom-lake-light-28)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#p-emberrise-bloom-lake-light-28)"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-lake-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="36" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-lake-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="p-emberrise-bloom-lake-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0 -2)">
+    <circle cx="32" cy="36" r="28" fill="url(#b-emberrise-bloom-lake-light-20)"/>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-lake-light-20)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#p-emberrise-bloom-lake-light-20)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#p-emberrise-bloom-lake-light-20)"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-lake-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="36" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-lake-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="p-emberrise-bloom-lake-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0 -2)">
+    <circle cx="32" cy="36" r="28" fill="url(#b-emberrise-bloom-lake-light-16)"/>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-lake-light-16)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#p-emberrise-bloom-lake-light-16)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#p-emberrise-bloom-lake-light-16)"/>
+  </g>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-emberrise-bloom-lake-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="36" r="28">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-emberrise-bloom-lake-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="20">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.5" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+
+    <radialGradient id="p-emberrise-bloom-lake-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="45" r="22">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.45" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(0 -2)">
+    <circle cx="32" cy="36" r="28" fill="url(#b-emberrise-bloom-lake-light-44-tile)"/>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#r-emberrise-bloom-lake-light-44-tile)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="13" y="42.5" width="38" height="5.5" rx="2.75" fill="url(#p-emberrise-bloom-lake-light-44-tile)"/>
+    <rect x="20.5" y="51.5" width="23" height="5" rx="2.5" fill="url(#p-emberrise-bloom-lake-light-44-tile)"/>
+  </g>
+</svg></div>
+        </div>
+        </div>
+      </section>
+    <h2 class="family">Veiled Sun</h2>
+    <p class="family-note">A disc read through the veil. Round three keeps the ruled strata and the drifting plates, then varies how much crust there is and where it breaks.</p>
+
+      <section class="card" id="veiled-sun">
+        <header class="card-head">
+          <span class="index">06</span>
+          <h3>Veiled Sun</h3>
+          <span class="badge">kept</span>
+          <p>Round one, unchanged. A molten disc read through three cool strata.</p>
+          <code>emberveil-veiled-sun.svg</code>
+        </header>
+        <div class="panels">
+
+        <div class="panel mode-dark">
+          <div class="panel-head">Emberveil Dark</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-veiled-sun-dark-88" gradientUnits="userSpaceOnUse" x1="32" y1="10" x2="32" y2="54">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#g-veiled-sun-dark-88)"/>
+  <rect x="4" y="27.5" width="56" height="3.5" rx="1.75" fill="var(--veil)"/>
+  <rect x="4" y="36.5" width="56" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="4" y="46" width="56" height="5.5" rx="2.75" fill="var(--veil)"/>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-veiled-sun-dark-40" gradientUnits="userSpaceOnUse" x1="32" y1="10" x2="32" y2="54">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#g-veiled-sun-dark-40)"/>
+  <rect x="4" y="27.5" width="56" height="3.5" rx="1.75" fill="var(--veil)"/>
+  <rect x="4" y="36.5" width="56" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="4" y="46" width="56" height="5.5" rx="2.75" fill="var(--veil)"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-veiled-sun-dark-28" gradientUnits="userSpaceOnUse" x1="32" y1="10" x2="32" y2="54">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#g-veiled-sun-dark-28)"/>
+  <rect x="4" y="27.5" width="56" height="3.5" rx="1.75" fill="var(--veil)"/>
+  <rect x="4" y="36.5" width="56" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="4" y="46" width="56" height="5.5" rx="2.75" fill="var(--veil)"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-veiled-sun-dark-20" gradientUnits="userSpaceOnUse" x1="32" y1="10" x2="32" y2="54">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#g-veiled-sun-dark-20)"/>
+  <rect x="4" y="27.5" width="56" height="3.5" rx="1.75" fill="var(--veil)"/>
+  <rect x="4" y="36.5" width="56" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="4" y="46" width="56" height="5.5" rx="2.75" fill="var(--veil)"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-veiled-sun-dark-16" gradientUnits="userSpaceOnUse" x1="32" y1="10" x2="32" y2="54">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#g-veiled-sun-dark-16)"/>
+  <rect x="4" y="27.5" width="56" height="3.5" rx="1.75" fill="var(--veil)"/>
+  <rect x="4" y="36.5" width="56" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="4" y="46" width="56" height="5.5" rx="2.75" fill="var(--veil)"/>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-veiled-sun-dark-44-tile" gradientUnits="userSpaceOnUse" x1="32" y1="10" x2="32" y2="54">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#g-veiled-sun-dark-44-tile)"/>
+  <rect x="4" y="27.5" width="56" height="3.5" rx="1.75" fill="var(--veil)"/>
+  <rect x="4" y="36.5" width="56" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="4" y="46" width="56" height="5.5" rx="2.75" fill="var(--veil)"/>
+</svg></div>
+        </div>
+
+        <div class="panel mode-light">
+          <div class="panel-head">Emberveil</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-veiled-sun-light-88" gradientUnits="userSpaceOnUse" x1="32" y1="10" x2="32" y2="54">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#g-veiled-sun-light-88)"/>
+  <rect x="4" y="27.5" width="56" height="3.5" rx="1.75" fill="var(--veil)"/>
+  <rect x="4" y="36.5" width="56" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="4" y="46" width="56" height="5.5" rx="2.75" fill="var(--veil)"/>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-veiled-sun-light-40" gradientUnits="userSpaceOnUse" x1="32" y1="10" x2="32" y2="54">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#g-veiled-sun-light-40)"/>
+  <rect x="4" y="27.5" width="56" height="3.5" rx="1.75" fill="var(--veil)"/>
+  <rect x="4" y="36.5" width="56" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="4" y="46" width="56" height="5.5" rx="2.75" fill="var(--veil)"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-veiled-sun-light-28" gradientUnits="userSpaceOnUse" x1="32" y1="10" x2="32" y2="54">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#g-veiled-sun-light-28)"/>
+  <rect x="4" y="27.5" width="56" height="3.5" rx="1.75" fill="var(--veil)"/>
+  <rect x="4" y="36.5" width="56" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="4" y="46" width="56" height="5.5" rx="2.75" fill="var(--veil)"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-veiled-sun-light-20" gradientUnits="userSpaceOnUse" x1="32" y1="10" x2="32" y2="54">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#g-veiled-sun-light-20)"/>
+  <rect x="4" y="27.5" width="56" height="3.5" rx="1.75" fill="var(--veil)"/>
+  <rect x="4" y="36.5" width="56" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="4" y="46" width="56" height="5.5" rx="2.75" fill="var(--veil)"/>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-veiled-sun-light-16" gradientUnits="userSpaceOnUse" x1="32" y1="10" x2="32" y2="54">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#g-veiled-sun-light-16)"/>
+  <rect x="4" y="27.5" width="56" height="3.5" rx="1.75" fill="var(--veil)"/>
+  <rect x="4" y="36.5" width="56" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="4" y="46" width="56" height="5.5" rx="2.75" fill="var(--veil)"/>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-veiled-sun-light-44-tile" gradientUnits="userSpaceOnUse" x1="32" y1="10" x2="32" y2="54">
+      <stop offset="0" style="stop-color: var(--ember-deep)"/>
+      <stop offset="0.52" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-core)"/>
+    </linearGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#g-veiled-sun-light-44-tile)"/>
+  <rect x="4" y="27.5" width="56" height="3.5" rx="1.75" fill="var(--veil)"/>
+  <rect x="4" y="36.5" width="56" height="4.5" rx="2.25" fill="var(--veil)"/>
+  <rect x="4" y="46" width="56" height="5.5" rx="2.75" fill="var(--veil)"/>
+</svg></div>
+        </div>
+        </div>
+      </section>
+
+      <section class="card" id="veiled-sun-drift">
+        <header class="card-head">
+          <span class="index">07</span>
+          <h3>Veiled Sun / Drift</h3>
+          
+          <p>The strata break apart. Each band is two plates with a gap between them, and the lava shows through where the crust has pulled open.</p>
+          <code>emberveil-veiled-sun-drift.svg</code>
+        </header>
+        <div class="panels">
+
+        <div class="panel mode-dark">
+          <div class="panel-head">Emberveil Dark</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-drift-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-dark-88)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-drift-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-dark-40)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-drift-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-dark-28)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-drift-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-dark-20)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-drift-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-dark-16)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-drift-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-dark-44-tile)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+        </div>
+
+        <div class="panel mode-light">
+          <div class="panel-head">Emberveil</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-drift-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-light-88)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-drift-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-light-40)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-drift-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-light-28)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-drift-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-light-20)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-drift-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-light-16)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-drift-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-light-44-tile)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+        </div>
+        </div>
+      </section>
+
+      <section class="card" id="veiled-sun-drift-bloom">
+        <header class="card-head">
+          <span class="index">08</span>
+          <h3>Veiled Sun / Drift Bloom</h3>
+          
+          <p>Drift plates with the heat bleeding past the disc edge, so the lava lights the surface it sits on.</p>
+          <code>emberveil-veiled-sun-drift-bloom.svg</code>
+        </header>
+        <div class="panels">
+
+        <div class="panel mode-dark">
+          <div class="panel-head">Emberveil Dark</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-veiled-sun-drift-bloom-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="33" r="29">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-veiled-sun-drift-bloom-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="url(#b-veiled-sun-drift-bloom-dark-88)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-bloom-dark-88)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-veiled-sun-drift-bloom-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="33" r="29">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-veiled-sun-drift-bloom-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="url(#b-veiled-sun-drift-bloom-dark-40)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-bloom-dark-40)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-veiled-sun-drift-bloom-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="33" r="29">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-veiled-sun-drift-bloom-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="url(#b-veiled-sun-drift-bloom-dark-28)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-bloom-dark-28)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-veiled-sun-drift-bloom-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="33" r="29">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-veiled-sun-drift-bloom-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="url(#b-veiled-sun-drift-bloom-dark-20)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-bloom-dark-20)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-veiled-sun-drift-bloom-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="33" r="29">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-veiled-sun-drift-bloom-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="url(#b-veiled-sun-drift-bloom-dark-16)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-bloom-dark-16)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-veiled-sun-drift-bloom-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="33" r="29">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-veiled-sun-drift-bloom-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="url(#b-veiled-sun-drift-bloom-dark-44-tile)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-bloom-dark-44-tile)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+        </div>
+
+        <div class="panel mode-light">
+          <div class="panel-head">Emberveil</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-veiled-sun-drift-bloom-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="33" r="29">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-veiled-sun-drift-bloom-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="url(#b-veiled-sun-drift-bloom-light-88)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-bloom-light-88)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-veiled-sun-drift-bloom-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="33" r="29">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-veiled-sun-drift-bloom-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="url(#b-veiled-sun-drift-bloom-light-40)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-bloom-light-40)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-veiled-sun-drift-bloom-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="33" r="29">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-veiled-sun-drift-bloom-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="url(#b-veiled-sun-drift-bloom-light-28)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-bloom-light-28)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-veiled-sun-drift-bloom-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="33" r="29">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-veiled-sun-drift-bloom-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="url(#b-veiled-sun-drift-bloom-light-20)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-bloom-light-20)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-veiled-sun-drift-bloom-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="33" r="29">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-veiled-sun-drift-bloom-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="url(#b-veiled-sun-drift-bloom-light-16)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-bloom-light-16)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+
+    <radialGradient id="b-veiled-sun-drift-bloom-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="33" r="29">
+      <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+      <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+      <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+    </radialGradient>
+
+    <radialGradient id="r-veiled-sun-drift-bloom-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="44" r="34">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="33" r="29" fill="url(#b-veiled-sun-drift-bloom-light-44-tile)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-drift-bloom-light-44-tile)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="21" height="3.5" rx="1.75"/>
+    <rect x="31" y="27.5" width="29" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="13" height="4.5" rx="2.25"/>
+    <rect x="23" y="36.5" width="37" height="4.5" rx="2.25"/>
+    <rect x="8" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="43" y="46" width="17" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+        </div>
+        </div>
+      </section>
+
+      <section class="card" id="veiled-sun-seam">
+        <header class="card-head">
+          <span class="index">09</span>
+          <h3>Veiled Sun / Seam</h3>
+          
+          <p>The gaps stop being random. Each plate break steps to the right so the openings line up into one molten seam running down through the crust.</p>
+          <code>emberveil-veiled-sun-seam.svg</code>
+        </header>
+        <div class="panels">
+
+        <div class="panel mode-dark">
+          <div class="panel-head">Emberveil Dark</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-seam-dark-88" gradientUnits="userSpaceOnUse" cx="30" cy="40" r="32">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-seam-dark-88)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="15" height="3.5" rx="1.75"/>
+    <rect x="25" y="27.5" width="35" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="23" height="4.5" rx="2.25"/>
+    <rect x="33" y="36.5" width="27" height="4.5" rx="2.25"/>
+    <rect x="6" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="41" y="46" width="19" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-seam-dark-40" gradientUnits="userSpaceOnUse" cx="30" cy="40" r="32">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-seam-dark-40)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="15" height="3.5" rx="1.75"/>
+    <rect x="25" y="27.5" width="35" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="23" height="4.5" rx="2.25"/>
+    <rect x="33" y="36.5" width="27" height="4.5" rx="2.25"/>
+    <rect x="6" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="41" y="46" width="19" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-seam-dark-28" gradientUnits="userSpaceOnUse" cx="30" cy="40" r="32">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-seam-dark-28)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="15" height="3.5" rx="1.75"/>
+    <rect x="25" y="27.5" width="35" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="23" height="4.5" rx="2.25"/>
+    <rect x="33" y="36.5" width="27" height="4.5" rx="2.25"/>
+    <rect x="6" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="41" y="46" width="19" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-seam-dark-20" gradientUnits="userSpaceOnUse" cx="30" cy="40" r="32">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-seam-dark-20)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="15" height="3.5" rx="1.75"/>
+    <rect x="25" y="27.5" width="35" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="23" height="4.5" rx="2.25"/>
+    <rect x="33" y="36.5" width="27" height="4.5" rx="2.25"/>
+    <rect x="6" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="41" y="46" width="19" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-seam-dark-16" gradientUnits="userSpaceOnUse" cx="30" cy="40" r="32">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-seam-dark-16)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="15" height="3.5" rx="1.75"/>
+    <rect x="25" y="27.5" width="35" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="23" height="4.5" rx="2.25"/>
+    <rect x="33" y="36.5" width="27" height="4.5" rx="2.25"/>
+    <rect x="6" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="41" y="46" width="19" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-seam-dark-44-tile" gradientUnits="userSpaceOnUse" cx="30" cy="40" r="32">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-seam-dark-44-tile)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="15" height="3.5" rx="1.75"/>
+    <rect x="25" y="27.5" width="35" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="23" height="4.5" rx="2.25"/>
+    <rect x="33" y="36.5" width="27" height="4.5" rx="2.25"/>
+    <rect x="6" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="41" y="46" width="19" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+        </div>
+
+        <div class="panel mode-light">
+          <div class="panel-head">Emberveil</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-seam-light-88" gradientUnits="userSpaceOnUse" cx="30" cy="40" r="32">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-seam-light-88)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="15" height="3.5" rx="1.75"/>
+    <rect x="25" y="27.5" width="35" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="23" height="4.5" rx="2.25"/>
+    <rect x="33" y="36.5" width="27" height="4.5" rx="2.25"/>
+    <rect x="6" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="41" y="46" width="19" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-seam-light-40" gradientUnits="userSpaceOnUse" cx="30" cy="40" r="32">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-seam-light-40)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="15" height="3.5" rx="1.75"/>
+    <rect x="25" y="27.5" width="35" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="23" height="4.5" rx="2.25"/>
+    <rect x="33" y="36.5" width="27" height="4.5" rx="2.25"/>
+    <rect x="6" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="41" y="46" width="19" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-seam-light-28" gradientUnits="userSpaceOnUse" cx="30" cy="40" r="32">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-seam-light-28)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="15" height="3.5" rx="1.75"/>
+    <rect x="25" y="27.5" width="35" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="23" height="4.5" rx="2.25"/>
+    <rect x="33" y="36.5" width="27" height="4.5" rx="2.25"/>
+    <rect x="6" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="41" y="46" width="19" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-seam-light-20" gradientUnits="userSpaceOnUse" cx="30" cy="40" r="32">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-seam-light-20)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="15" height="3.5" rx="1.75"/>
+    <rect x="25" y="27.5" width="35" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="23" height="4.5" rx="2.25"/>
+    <rect x="33" y="36.5" width="27" height="4.5" rx="2.25"/>
+    <rect x="6" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="41" y="46" width="19" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-seam-light-16" gradientUnits="userSpaceOnUse" cx="30" cy="40" r="32">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-seam-light-16)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="15" height="3.5" rx="1.75"/>
+    <rect x="25" y="27.5" width="35" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="23" height="4.5" rx="2.25"/>
+    <rect x="33" y="36.5" width="27" height="4.5" rx="2.25"/>
+    <rect x="6" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="41" y="46" width="19" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-seam-light-44-tile" gradientUnits="userSpaceOnUse" cx="30" cy="40" r="32">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-seam-light-44-tile)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="27.5" width="15" height="3.5" rx="1.75"/>
+    <rect x="25" y="27.5" width="35" height="3.5" rx="1.75"/>
+    <rect x="4" y="36.5" width="23" height="4.5" rx="2.25"/>
+    <rect x="33" y="36.5" width="27" height="4.5" rx="2.25"/>
+    <rect x="6" y="46" width="29" height="5.5" rx="2.75"/>
+    <rect x="41" y="46" width="19" height="5.5" rx="2.75"/>
+  </g>
+</svg></div>
+        </div>
+        </div>
+      </section>
+
+      <section class="card" id="veiled-sun-crust">
+        <header class="card-head">
+          <span class="index">10</span>
+          <h3>Veiled Sun / Crust</h3>
+          
+          <p>Drift pushed to its limit. Four courses of thick plates cover most of the disc, and the lava is only what escapes between them.</p>
+          <code>emberveil-veiled-sun-crust.svg</code>
+        </header>
+        <div class="panels">
+
+        <div class="panel mode-dark">
+          <div class="panel-head">Emberveil Dark</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-crust-dark-88" gradientUnits="userSpaceOnUse" cx="32" cy="40" r="30">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-crust-dark-88)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="17" width="24" height="5" rx="2.5"/>
+    <rect x="32" y="17" width="28" height="5" rx="2.5"/>
+    <rect x="4" y="27" width="34" height="6" rx="3"/>
+    <rect x="42" y="27" width="18" height="6" rx="3"/>
+    <rect x="4" y="38.5" width="18" height="6.5" rx="3.25"/>
+    <rect x="26" y="38.5" width="34" height="6.5" rx="3.25"/>
+    <rect x="10" y="50" width="26" height="5" rx="2.5"/>
+    <rect x="40" y="50" width="14" height="5" rx="2.5"/>
+  </g>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-crust-dark-40" gradientUnits="userSpaceOnUse" cx="32" cy="40" r="30">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-crust-dark-40)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="17" width="24" height="5" rx="2.5"/>
+    <rect x="32" y="17" width="28" height="5" rx="2.5"/>
+    <rect x="4" y="27" width="34" height="6" rx="3"/>
+    <rect x="42" y="27" width="18" height="6" rx="3"/>
+    <rect x="4" y="38.5" width="18" height="6.5" rx="3.25"/>
+    <rect x="26" y="38.5" width="34" height="6.5" rx="3.25"/>
+    <rect x="10" y="50" width="26" height="5" rx="2.5"/>
+    <rect x="40" y="50" width="14" height="5" rx="2.5"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-crust-dark-28" gradientUnits="userSpaceOnUse" cx="32" cy="40" r="30">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-crust-dark-28)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="17" width="24" height="5" rx="2.5"/>
+    <rect x="32" y="17" width="28" height="5" rx="2.5"/>
+    <rect x="4" y="27" width="34" height="6" rx="3"/>
+    <rect x="42" y="27" width="18" height="6" rx="3"/>
+    <rect x="4" y="38.5" width="18" height="6.5" rx="3.25"/>
+    <rect x="26" y="38.5" width="34" height="6.5" rx="3.25"/>
+    <rect x="10" y="50" width="26" height="5" rx="2.5"/>
+    <rect x="40" y="50" width="14" height="5" rx="2.5"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-crust-dark-20" gradientUnits="userSpaceOnUse" cx="32" cy="40" r="30">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-crust-dark-20)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="17" width="24" height="5" rx="2.5"/>
+    <rect x="32" y="17" width="28" height="5" rx="2.5"/>
+    <rect x="4" y="27" width="34" height="6" rx="3"/>
+    <rect x="42" y="27" width="18" height="6" rx="3"/>
+    <rect x="4" y="38.5" width="18" height="6.5" rx="3.25"/>
+    <rect x="26" y="38.5" width="34" height="6.5" rx="3.25"/>
+    <rect x="10" y="50" width="26" height="5" rx="2.5"/>
+    <rect x="40" y="50" width="14" height="5" rx="2.5"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-crust-dark-16" gradientUnits="userSpaceOnUse" cx="32" cy="40" r="30">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-crust-dark-16)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="17" width="24" height="5" rx="2.5"/>
+    <rect x="32" y="17" width="28" height="5" rx="2.5"/>
+    <rect x="4" y="27" width="34" height="6" rx="3"/>
+    <rect x="42" y="27" width="18" height="6" rx="3"/>
+    <rect x="4" y="38.5" width="18" height="6.5" rx="3.25"/>
+    <rect x="26" y="38.5" width="34" height="6.5" rx="3.25"/>
+    <rect x="10" y="50" width="26" height="5" rx="2.5"/>
+    <rect x="40" y="50" width="14" height="5" rx="2.5"/>
+  </g>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-crust-dark-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="40" r="30">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-crust-dark-44-tile)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="17" width="24" height="5" rx="2.5"/>
+    <rect x="32" y="17" width="28" height="5" rx="2.5"/>
+    <rect x="4" y="27" width="34" height="6" rx="3"/>
+    <rect x="42" y="27" width="18" height="6" rx="3"/>
+    <rect x="4" y="38.5" width="18" height="6.5" rx="3.25"/>
+    <rect x="26" y="38.5" width="34" height="6.5" rx="3.25"/>
+    <rect x="10" y="50" width="26" height="5" rx="2.5"/>
+    <rect x="40" y="50" width="14" height="5" rx="2.5"/>
+  </g>
+</svg></div>
+        </div>
+
+        <div class="panel mode-light">
+          <div class="panel-head">Emberveil</div>
+          <div class="hero"><svg class="mark" width="88" height="88" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-crust-light-88" gradientUnits="userSpaceOnUse" cx="32" cy="40" r="30">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-crust-light-88)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="17" width="24" height="5" rx="2.5"/>
+    <rect x="32" y="17" width="28" height="5" rx="2.5"/>
+    <rect x="4" y="27" width="34" height="6" rx="3"/>
+    <rect x="42" y="27" width="18" height="6" rx="3"/>
+    <rect x="4" y="38.5" width="18" height="6.5" rx="3.25"/>
+    <rect x="26" y="38.5" width="34" height="6.5" rx="3.25"/>
+    <rect x="10" y="50" width="26" height="5" rx="2.5"/>
+    <rect x="40" y="50" width="14" height="5" rx="2.5"/>
+  </g>
+</svg></div>
+          <div class="ramp">
+            <div class="ramp-item"><span class="ramp-size">40</span><svg class="mark" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-crust-light-40" gradientUnits="userSpaceOnUse" cx="32" cy="40" r="30">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-crust-light-40)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="17" width="24" height="5" rx="2.5"/>
+    <rect x="32" y="17" width="28" height="5" rx="2.5"/>
+    <rect x="4" y="27" width="34" height="6" rx="3"/>
+    <rect x="42" y="27" width="18" height="6" rx="3"/>
+    <rect x="4" y="38.5" width="18" height="6.5" rx="3.25"/>
+    <rect x="26" y="38.5" width="34" height="6.5" rx="3.25"/>
+    <rect x="10" y="50" width="26" height="5" rx="2.5"/>
+    <rect x="40" y="50" width="14" height="5" rx="2.5"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">28</span><svg class="mark" width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-crust-light-28" gradientUnits="userSpaceOnUse" cx="32" cy="40" r="30">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-crust-light-28)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="17" width="24" height="5" rx="2.5"/>
+    <rect x="32" y="17" width="28" height="5" rx="2.5"/>
+    <rect x="4" y="27" width="34" height="6" rx="3"/>
+    <rect x="42" y="27" width="18" height="6" rx="3"/>
+    <rect x="4" y="38.5" width="18" height="6.5" rx="3.25"/>
+    <rect x="26" y="38.5" width="34" height="6.5" rx="3.25"/>
+    <rect x="10" y="50" width="26" height="5" rx="2.5"/>
+    <rect x="40" y="50" width="14" height="5" rx="2.5"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">20</span><svg class="mark" width="20" height="20" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-crust-light-20" gradientUnits="userSpaceOnUse" cx="32" cy="40" r="30">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-crust-light-20)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="17" width="24" height="5" rx="2.5"/>
+    <rect x="32" y="17" width="28" height="5" rx="2.5"/>
+    <rect x="4" y="27" width="34" height="6" rx="3"/>
+    <rect x="42" y="27" width="18" height="6" rx="3"/>
+    <rect x="4" y="38.5" width="18" height="6.5" rx="3.25"/>
+    <rect x="26" y="38.5" width="34" height="6.5" rx="3.25"/>
+    <rect x="10" y="50" width="26" height="5" rx="2.5"/>
+    <rect x="40" y="50" width="14" height="5" rx="2.5"/>
+  </g>
+</svg></div>
+            <div class="ramp-item"><span class="ramp-size">16</span><svg class="mark" width="16" height="16" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-crust-light-16" gradientUnits="userSpaceOnUse" cx="32" cy="40" r="30">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-crust-light-16)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="17" width="24" height="5" rx="2.5"/>
+    <rect x="32" y="17" width="28" height="5" rx="2.5"/>
+    <rect x="4" y="27" width="34" height="6" rx="3"/>
+    <rect x="42" y="27" width="18" height="6" rx="3"/>
+    <rect x="4" y="38.5" width="18" height="6.5" rx="3.25"/>
+    <rect x="26" y="38.5" width="34" height="6.5" rx="3.25"/>
+    <rect x="10" y="50" width="26" height="5" rx="2.5"/>
+    <rect x="40" y="50" width="14" height="5" rx="2.5"/>
+  </g>
+</svg></div>
+          </div>
+          <div class="tile"><svg class="mark" width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <radialGradient id="r-veiled-sun-crust-light-44-tile" gradientUnits="userSpaceOnUse" cx="32" cy="40" r="30">
+      <stop offset="0" style="stop-color: var(--ember-core)"/>
+      <stop offset="0.42" style="stop-color: var(--ember)"/>
+      <stop offset="1" style="stop-color: var(--ember-deep)"/>
+    </radialGradient></defs>
+  <circle cx="32" cy="32" r="22" fill="url(#r-veiled-sun-crust-light-44-tile)"/>
+  <g fill="var(--veil)">
+    <rect x="4" y="17" width="24" height="5" rx="2.5"/>
+    <rect x="32" y="17" width="28" height="5" rx="2.5"/>
+    <rect x="4" y="27" width="34" height="6" rx="3"/>
+    <rect x="42" y="27" width="18" height="6" rx="3"/>
+    <rect x="4" y="38.5" width="18" height="6.5" rx="3.25"/>
+    <rect x="26" y="38.5" width="34" height="6.5" rx="3.25"/>
+    <rect x="10" y="50" width="26" height="5" rx="2.5"/>
+    <rect x="40" y="50" width="14" height="5" rx="2.5"/>
+  </g>
+</svg></div>
+        </div>
+        </div>
+      </section>
+  </div>
+</body>
+</html>

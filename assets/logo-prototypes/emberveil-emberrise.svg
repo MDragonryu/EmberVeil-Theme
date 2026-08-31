@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Emberveil — Emberrise</title>
+  <desc id="desc">A rising sun above a horizon line, its light pooling in bands below.</desc>
+  <style>
+    :root {
+      --ember-deep: #BC531E;
+      --ember: #FF9F5B;
+      --ember-core: #FFD173;
+      --focus: #FFCC66;
+      --veil: #73C7D6;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --ember-deep: #914321;
+        --ember: #A44012;
+        --ember-core: #A86B00;
+        --focus: #A86B00;
+        --veil: #1C6570;
+      }
+    }
+  </style>
+  <defs>
+      <linearGradient id="g-emberrise" gradientUnits="userSpaceOnUse" x1="32" y1="16" x2="32" y2="34">
+        <stop offset="0" style="stop-color: var(--ember-deep)"/>
+        <stop offset="0.52" style="stop-color: var(--ember)"/>
+        <stop offset="1" style="stop-color: var(--ember-core)"/>
+      </linearGradient></defs>
+    <path d="M14 34 A18 18 0 0 1 50 34 Z" fill="url(#g-emberrise)"/>
+    <rect x="6" y="34" width="52" height="4.5" rx="2.25" fill="var(--veil)"/>
+    <rect x="15" y="43" width="34" height="4" rx="2" fill="var(--ember)" opacity="0.5"/>
+    <rect x="24" y="50.5" width="16" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.28"/>
+</svg>

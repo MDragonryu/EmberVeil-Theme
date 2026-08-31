@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Emberveil — Emberrise / Deep Bloom</title>
+  <desc id="desc">A small intense ember sun with a wide halo above a single horizon line.</desc>
+  <style>
+    :root {
+      --ember-deep: #BC531E;
+      --ember: #FF9F5B;
+      --ember-core: #FFD173;
+      --focus: #FFCC66;
+      --veil: #73C7D6;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --ember-deep: #914321;
+        --ember: #A44012;
+        --ember-core: #A86B00;
+        --focus: #A86B00;
+        --veil: #1C6570;
+      }
+    }
+  </style>
+  <defs>
+  
+      <radialGradient id="b-emberrise-bloom-deep" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="28">
+        <stop offset="0" style="stop-color: var(--ember); stop-opacity: 0.55"/>
+        <stop offset="0.5" style="stop-color: var(--ember); stop-opacity: 0.2"/>
+        <stop offset="1" style="stop-color: var(--ember); stop-opacity: 0"/>
+      </radialGradient>
+  
+      <radialGradient id="r-emberrise-bloom-deep" gradientUnits="userSpaceOnUse" cx="32" cy="34" r="14">
+        <stop offset="0" style="stop-color: var(--ember-core)"/>
+        <stop offset="0.45" style="stop-color: var(--ember)"/>
+        <stop offset="1" style="stop-color: var(--ember-deep)"/>
+      </radialGradient>
+    </defs>
+    <circle cx="32" cy="34" r="28" fill="url(#b-emberrise-bloom-deep)"/>
+    <path d="M19 34 A13 13 0 0 1 45 34 Z" fill="url(#r-emberrise-bloom-deep)"/>
+    <rect x="8" y="34" width="48" height="4" rx="2" fill="var(--veil)"/>
+    <rect x="22" y="44" width="20" height="3.5" rx="1.75" fill="var(--ember)" opacity="0.35"/>
+</svg>
